@@ -1,0 +1,90 @@
+/* ============================================
+   Abedis Lab — design tokens
+   Accessibility-first: ADHD, dyslexia, new-to-tech
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&display=swap');
+
+:root {
+  /* Color — warm paper, ink, single accent */
+  --paper: #f7f3ec;
+  --paper-raised: #fffdf8;
+  --ink: #1f1b16;
+  --ink-soft: #4a423a;
+  --accent: #d6552b;        /* warm signal orange */
+  --accent-soft: #f4d9cb;
+  --line: #e3dccf;
+  --good: #2f7d53;
+
+  /* Type */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Atkinson Hyperlegible', system-ui, sans-serif;
+
+  /* Spacing — generous, calm */
+  --step: 1.25rem;
+  --gap: clamp(2rem, 6vw, 5rem);
+  --measure: 38rem;         /* short line length, easier tracking */
+
+  --radius: 14px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #16130f;
+    --paper-raised: #211c16;
+    --ink: #f2ebdf;
+    --ink-soft: #c3b9a8;
+    --accent: #f47b4f;
+    --accent-soft: #3a261c;
+    --line: #322b22;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html {
+  font-size: 18px;          /* larger base, easier reading */
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.7;          /* loose leading aids tracking */
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  line-height: 1.1;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+}
+
+p { max-width: var(--measure); }
+
+a { color: var(--accent); }
+
+/* Visible keyboard focus for everyone */
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.wrap {
+  width: min(72rem, 92vw);
+  margin-inline: auto;
+}

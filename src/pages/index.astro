@@ -1,0 +1,157 @@
+---
+import '../styles/global.css';
+
+const topics = [
+  { name: 'AI', blurb: 'New tools, plain words. What it does, why it matters.', icon: '◆' },
+  { name: 'DevOps', blurb: 'Servers, pipelines, cloud — drawn, not droned.', icon: '▲' },
+  { name: 'Trading', blurb: 'Markets and automation without the jargon wall.', icon: '●' },
+  { name: 'Tinkering', blurb: 'Gadgets, watches, cameras. The fun side of tech.', icon: '✦' },
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Abedis Lab — hard things, drawn simple</title>
+    <meta name="description" content="Tech explained for brains that work differently. Visual, simple, calm." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <header class="wrap site-head">
+      <span class="logo">Abedis<span class="logo-dot">.</span>Lab</span>
+      <nav>
+        <a href="#topics">Topics</a>
+        <a href="#why">Why</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero wrap">
+        <p class="eyebrow">Tech, for brains that work differently</p>
+        <h1>Hard things,<br /><span class="accent">drawn simple.</span></h1>
+        <p class="lede">
+          Short chunks. Real pictures. No jargon walls. Built for ADHD,
+          dyslexia, and anyone new to the tech world.
+        </p>
+        <a class="cta" href="#topics">See how it works</a>
+      </section>
+
+      <section id="topics" class="wrap topics">
+        <h2 class="section-title">Pick a corner</h2>
+        <div class="grid">
+          {topics.map((t) => (
+            <article class="card">
+              <span class="card-icon" aria-hidden="true">{t.icon}</span>
+              <h3>{t.name}</h3>
+              <p>{t.blurb}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="why" class="wrap why">
+        <h2 class="section-title">One idea per screen</h2>
+        <div class="why-row">
+          <div class="why-text">
+            <p>
+              Most tech writing assumes you can grind through a wall of text.
+              We don't.
+            </p>
+            <ul class="ticks">
+              <li>One concept at a time</li>
+              <li>A picture before a paragraph</li>
+              <li>A readable font, made for low vision</li>
+              <li>Calm pacing — no rush, no noise</li>
+            </ul>
+          </div>
+          <figure class="demo" aria-label="Example: a database explained in four lines">
+            <div class="demo-row"><span>Table</span><b>= a sheet</b></div>
+            <div class="demo-row"><span>Row</span><b>= one record</b></div>
+            <div class="demo-row"><span>Column</span><b>= one field</b></div>
+            <div class="demo-row"><span>Query</span><b>= a question</b></div>
+            <figcaption>A database, in four lines.</figcaption>
+          </figure>
+        </div>
+      </section>
+    </main>
+
+    <footer class="wrap site-foot">
+      <span>Abedis Lab</span>
+      <span class="muted">Built slowly, on purpose.</span>
+    </footer>
+  </body>
+</html>
+
+<style>
+  .site-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 1.5rem;
+  }
+  .logo { font-family: var(--font-display); font-weight: 900; font-size: 1.3rem; }
+  .logo-dot { color: var(--accent); }
+  nav a { margin-left: 1.5rem; color: var(--ink-soft); text-decoration: none; font-weight: 700; }
+  nav a:hover { color: var(--accent); }
+
+  .hero { padding-block: clamp(3rem, 12vh, 8rem) var(--gap); }
+  .eyebrow {
+    text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.8rem;
+    font-weight: 700; color: var(--accent); margin: 0 0 1rem;
+  }
+  h1 { font-size: clamp(2.8rem, 9vw, 6rem); margin: 0; }
+  .accent { color: var(--accent); }
+  .lede { font-size: 1.25rem; color: var(--ink-soft); margin: 1.5rem 0 2.5rem; }
+  .cta {
+    display: inline-block; background: var(--accent); color: #fff;
+    padding: 0.9rem 1.8rem; border-radius: var(--radius); font-weight: 700;
+    text-decoration: none; transition: transform 0.15s ease;
+  }
+  .cta:hover { transform: translateY(-2px); }
+
+  .section-title { font-size: clamp(1.8rem, 4vw, 2.6rem); margin: 0 0 2rem; }
+  .topics { padding-block: var(--gap); }
+  .grid {
+    display: grid; gap: 1.25rem;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  }
+  .card {
+    background: var(--paper-raised); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 1.75rem;
+  }
+  .card-icon { color: var(--accent); font-size: 1.4rem; }
+  .card h3 { margin: 0.6rem 0 0.4rem; font-size: 1.4rem; }
+  .card p { color: var(--ink-soft); margin: 0; }
+
+  .why { padding-block: var(--gap); }
+  .why-row { display: grid; gap: var(--gap); grid-template-columns: 1fr 1fr; align-items: center; }
+  .why-text p { font-size: 1.2rem; }
+  .ticks { list-style: none; padding: 0; margin: 1.5rem 0 0; }
+  .ticks li { padding-left: 1.8rem; position: relative; margin-bottom: 0.75rem; font-weight: 700; }
+  .ticks li::before {
+    content: '✓'; position: absolute; left: 0; color: var(--good); font-weight: 900;
+  }
+  .demo {
+    background: var(--paper-raised); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 1.5rem; margin: 0;
+  }
+  .demo-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0.7rem 0; border-bottom: 1px dashed var(--line);
+  }
+  .demo-row span { color: var(--ink-soft); }
+  .demo-row b { color: var(--accent); }
+  .demo figcaption { margin-top: 1rem; color: var(--ink-soft); font-style: italic; }
+
+  .site-foot {
+    display: flex; justify-content: space-between;
+    padding-block: 2.5rem; margin-top: var(--gap);
+    border-top: 1px solid var(--line); font-weight: 700;
+  }
+  .muted { color: var(--ink-soft); font-weight: 400; }
+
+  @media (max-width: 640px) {
+    .why-row { grid-template-columns: 1fr; }
+  }
+</style>
