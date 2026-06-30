@@ -1,0 +1,276 @@
+---
+// Instagram carousel export — not linked from the site, screenshot each slide
+---
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Carousel: The Machine on Your Wrist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Fraunces:opsz,wght@9..144,400;9..144,900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- SLIDE 1: Cover -->
+<div class="slide cover">
+  <div class="tag">TINKERING</div>
+  <h1>The Machine<br/>on Your Wrist</h1>
+  <p class="sub">No battery. No chip. No charger.<br/>Just physics.</p>
+  <div class="brand">Abedis<span>.</span>Lab</div>
+</div>
+
+<!-- SLIDE 2: The secret inside -->
+<div class="slide dark-card">
+  <div class="slide-num">1/7</div>
+  <h2>Pop the back off.</h2>
+  <p>Inside an automatic watch you'll find tiny golden gears, red jewels, and a spinning weight, all moving in perfect rhythm.</p>
+  <p class="highlight">200+ parts. All assembled by hand. Under a microscope. With tweezers.</p>
+</div>
+
+<!-- SLIDE 3: How it works -->
+<div class="slide">
+  <div class="slide-num">2/7</div>
+  <h2>How it works</h2>
+  <div class="steps">
+    <div class="step">
+      <span class="step-icon">🌀</span>
+      <div>
+        <strong>Mainspring</strong>
+        <p>A coiled metal ribbon stores energy as it wants to uncoil</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-icon">⚙️</span>
+      <div>
+        <strong>Gear train</strong>
+        <p>Steps that energy down into the movement of the hands</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-icon">🔄</span>
+      <div>
+        <strong>Escapement</strong>
+        <p>Releases energy in controlled ticks: 6 to 8 per second. That's the tick-tock.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 4: The rotor -->
+<div class="slide accent-slide">
+  <div class="slide-num light">3/7</div>
+  <h2>It winds itself.</h2>
+  <p class="big-text">A rotor swings as you move your wrist, automatically winding the mainspring.</p>
+  <p class="footnote">Go for a walk. You're basically charging it.</p>
+</div>
+
+<!-- SLIDE 5: Why so expensive -->
+<div class="slide">
+  <div class="slide-num">4/7</div>
+  <h2>Why does it cost so much?</h2>
+  <div class="fact-list">
+    <div class="fact"><span class="num">120</span><span>hand-cut teeth on a single gear</span></div>
+    <div class="fact"><span class="num">±1μm</span><span>tolerances (a thousandth of a millimetre)</span></div>
+    <div class="fact"><span class="num">200+</span><span>hours of skilled labour per watch</span></div>
+    <div class="fact"><span class="num">500+</span><span>individual parts in a high-end movement</span></div>
+  </div>
+</div>
+
+<!-- SLIDE 6: vs Smartwatch -->
+<div class="slide">
+  <div class="slide-num">5/7</div>
+  <h2>Automatic vs Smartwatch</h2>
+  <table>
+    <tr><td class="label">Lifespan</td><td class="a">50–100 yrs</td><td class="b">3–5 yrs</td></tr>
+    <tr><td class="label">Power</td><td class="a">Your wrist</td><td class="b">Daily charge</td></tr>
+    <tr><td class="label">Notifications</td><td class="a">None. Bliss.</td><td class="b">All of them.</td></tr>
+    <tr><td class="label">Accuracy</td><td class="a">±5 sec/day</td><td class="b">Atomic perfect</td></tr>
+  </table>
+  <p class="caption">Neither is better. They solve different problems.</p>
+</div>
+
+<!-- SLIDE 7: CTA -->
+<div class="slide cta-slide">
+  <div class="slide-num light">7/7</div>
+  <p class="teaser">It will outlive you. It can't be deprecated. It doesn't need a server.</p>
+  <h2>"It's the kind of object<br/>that makes you think:<br/><em>someone made this.</em>"</h2>
+  <div class="cta-foot">
+    <p>Read the full explainer →</p>
+    <p class="url">abedis.net/posts/automatic-watch</p>
+    <p class="handles">@litbulbnet &nbsp;·&nbsp; @abedislab</p>
+  </div>
+</div>
+
+</body>
+</html>
+
+<style is:global>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --paper: #16130f;
+    --paper-raised: #211c16;
+    --ink: #f2ebdf;
+    --ink-soft: #c3b9a8;
+    --accent: #f47b4f;
+    --accent-soft: #3a261c;
+    --line: #322b22;
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Atkinson Hyperlegible', sans-serif;
+  }
+
+  body {
+    background: #0a0806;
+    font-family: var(--font-body);
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  /* Every slide is exactly 1080×1080 */
+  .slide {
+    width: 1080px;
+    height: 1080px;
+    background: var(--paper);
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  /* Slide number */
+  .slide-num {
+    position: absolute;
+    top: 60px;
+    right: 80px;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--ink-soft);
+    font-weight: 900;
+  }
+  .slide-num.light { color: rgba(255,255,255,0.4); }
+
+  /* SLIDE 1: Cover */
+  .cover {
+    background: var(--paper);
+    justify-content: space-between;
+    padding: 80px;
+  }
+  .cover .tag {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 0.3rem 0.8rem;
+    border-radius: 99px;
+    width: fit-content;
+  }
+  .cover h1 {
+    font-family: var(--font-display);
+    font-size: 5.5rem;
+    font-weight: 900;
+    line-height: 1.0;
+    color: var(--ink);
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+  .cover .sub {
+    font-size: 1.5rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin-bottom: 3rem;
+  }
+  .cover .brand {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--ink);
+  }
+  .cover .brand span { color: var(--accent); }
+
+  /* Shared heading */
+  h2 {
+    font-family: var(--font-display);
+    font-size: 3.2rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    color: var(--ink);
+  }
+
+  p { color: var(--ink-soft); font-size: 1.3rem; line-height: 1.7; margin-bottom: 1.2rem; }
+
+  /* SLIDE 2 */
+  .dark-card { background: var(--paper-raised); }
+  .dark-card h2 { font-size: 4rem; }
+  .highlight {
+    background: var(--accent-soft);
+    color: var(--accent) !important;
+    border-radius: 12px;
+    padding: 1.2rem 1.5rem;
+    font-weight: 700;
+    font-size: 1.4rem !important;
+    line-height: 1.5 !important;
+  }
+
+  /* SLIDE 3: Steps */
+  .steps { display: flex; flex-direction: column; gap: 1.5rem; }
+  .step {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 1.2rem 1.5rem;
+  }
+  .step-icon { font-size: 2rem; flex-shrink: 0; }
+  .step strong { display: block; font-size: 1.2rem; color: var(--ink); margin-bottom: 0.3rem; }
+  .step p { margin: 0; font-size: 1.1rem; color: var(--ink-soft); }
+
+  /* SLIDE 4: Accent */
+  .accent-slide { background: var(--accent); }
+  .accent-slide h2 { color: #fff; font-size: 4.5rem; }
+  .accent-slide .big-text { color: rgba(255,255,255,0.9) !important; font-size: 1.6rem !important; font-weight: 700; }
+  .accent-slide .footnote { color: rgba(255,255,255,0.6) !important; font-size: 1.1rem !important; margin-top: 2rem; font-style: italic; }
+
+  /* SLIDE 5: Facts */
+  .fact-list { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .fact {
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .fact .num { font-family: var(--font-display); font-size: 3rem; font-weight: 900; color: var(--accent); line-height: 1; }
+  .fact span:last-child { color: var(--ink-soft); font-size: 1rem; line-height: 1.4; }
+
+  /* SLIDE 6: Table */
+  table { width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; }
+  td { padding: 1rem 0.8rem; border-bottom: 1px solid var(--line); font-size: 1.15rem; }
+  tr:last-child td { border-bottom: none; }
+  td.label { color: var(--ink-soft); width: 30%; }
+  td.a { color: var(--accent); font-weight: 700; width: 35%; }
+  td.b { color: var(--ink); width: 35%; }
+  .caption { font-size: 1rem !important; color: var(--ink-soft) !important; font-style: italic; }
+
+  /* SLIDE 7: CTA */
+  .cta-slide { background: var(--paper-raised); justify-content: space-between; }
+  .cta-slide .teaser { font-size: 1.1rem !important; color: var(--ink-soft) !important; margin-bottom: 1.5rem; }
+  .cta-slide h2 { font-size: 2.6rem; color: var(--ink); margin-bottom: 0; }
+  .cta-slide h2 em { color: var(--accent); font-style: normal; }
+  .cta-foot { margin-top: auto; border-top: 1px solid var(--line); padding-top: 2rem; }
+  .cta-foot p { font-size: 1.1rem !important; color: var(--ink-soft) !important; margin-bottom: 0.3rem; }
+  .url { color: var(--accent) !important; font-weight: 700 !important; font-size: 1.4rem !important; }
+  .handles { font-size: 1rem !important; letter-spacing: 0.05em; }
+</style>
