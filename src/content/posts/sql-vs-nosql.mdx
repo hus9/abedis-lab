@@ -1,0 +1,80 @@
+---
+title: "SQL vs NoSQL: What the Fuss Is Actually About"
+gist: "Two ways to store data, two very different assumptions about the world. Here's how to tell them apart in plain English."
+category: DevOps
+pubDate: 2026-06-30
+readingTime: 5
+---
+
+import CompareCard from '../../components/CompareCard.astro';
+
+## First: what even is a database?
+
+A spreadsheet you can talk to with code. That's it. You store information in it, you ask it questions, it answers fast — even with millions of rows. The word "database" sounds heavy, but the idea is simple.
+
+The interesting question is *how* you store that information. And this is where SQL and NoSQL split.
+
+## SQL: the spreadsheet model
+
+SQL databases store data in **tables** — rows and columns, exactly like a spreadsheet. Every row is one thing (one user, one order, one payment). Every column is a fact about that thing (name, date, amount).
+
+The key rule: **every row must have the same columns**. If your Users table has a `phone_number` column, every single user gets that column — even if most of them left it blank.
+
+This sounds annoying. It's actually a superpower. Because everything is in neat columns, you can ask questions like:
+
+> *"Give me all orders over $50 from customers in New York, sorted by date."*
+
+SQL answers that in one line. It's extremely good at questions that cut across many rows and combine multiple tables.
+
+**Famous examples:** PostgreSQL, MySQL, SQLite (the one inside your phone apps).
+
+## NoSQL: the document pile
+
+NoSQL databases throw out the strict table structure. Instead of rows, you store **documents** — think of each one as a little JSON blob, a sticky note with whatever you want on it.
+
+One user document might look like:
+
+```json
+{
+  "name": "Priya",
+  "email": "priya@example.com",
+  "preferences": { "theme": "dark", "notifications": false }
+}
+```
+
+Another user could have completely different fields. No problem. There's no shared column list enforcing consistency.
+
+This makes NoSQL very flexible and very fast when you're reading or writing **one document at a time** — like loading a user's profile page. You grab the whole blob and you're done.
+
+**Famous examples:** MongoDB, Firebase, DynamoDB (what a lot of apps use behind the scenes).
+
+## Side by side
+
+<CompareCard
+  caption="Neither is better. They solve different problems."
+  rows={[
+    { term: "Structure", meaning: "SQL = fixed columns · NoSQL = flexible documents" },
+    { term: "Best at", meaning: "SQL = complex queries · NoSQL = fast single lookups" },
+    { term: "Schema changes", meaning: "SQL = painful · NoSQL = easy" },
+    { term: "Related data", meaning: "SQL = joins across tables · NoSQL = embed it in the doc" },
+    { term: "Consistency", meaning: "SQL = strict by default · NoSQL = depends on the tool" },
+  ]}
+/>
+
+## When to use which
+
+**Reach for SQL when:**
+- Your data is naturally relational (orders belong to customers, products belong to categories)
+- You need to ask complex questions across many rows
+- Correctness matters more than speed (financial records, inventory)
+
+**Reach for NoSQL when:**
+- Each item is mostly self-contained (a user profile, a blog post, a product listing)
+- Your data shape changes a lot as you build
+- You're optimizing for read speed at huge scale
+
+## The honest answer
+
+Most apps that aren't massive could use either one and be fine. Postgres (SQL) is so fast and flexible that plenty of teams just use it for everything and never look back. The SQL vs NoSQL choice matters a lot at scale — for your first project, pick whichever one the tutorial you're following uses.
+
+The thing worth understanding isn't *which to pick* — it's **why they're different**. SQL says: define your shape upfront, get powerful queries in return. NoSQL says: stay flexible, move fast, give up some query power. Both are good deals, depending on what you're building.

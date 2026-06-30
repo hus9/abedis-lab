@@ -1,0 +1,196 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  gist: string;
+  category: string;
+  readingTime: number;
+  pubDate: Date;
+}
+
+const { title, gist, category, readingTime, pubDate } = Astro.props;
+
+const dateStr = pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} — Abedis Lab</title>
+    <meta name="description" content={gist} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <header class="wrap site-head">
+      <a href="/" class="logo">Abedis<span class="logo-dot">.</span>Lab</a>
+      <nav>
+        <a href="/#topics">Topics</a>
+        <a href="/#why">Why</a>
+        <a href="/posts">Posts</a>
+      </nav>
+    </header>
+
+    <main>
+      <article class="wrap post">
+        <div class="post-meta">
+          <span class="category-badge">{category}</span>
+          <span class="meta-divider" aria-hidden="true">·</span>
+          <span class="muted">{readingTime} min read</span>
+          <span class="meta-divider" aria-hidden="true">·</span>
+          <time datetime={pubDate.toISOString()} class="muted">{dateStr}</time>
+        </div>
+
+        <h1>{title}</h1>
+
+        <p class="gist">{gist}</p>
+
+        <div class="post-body">
+          <slot />
+        </div>
+
+        <div class="share">
+          <span class="share-label">Share</span>
+          <a
+            href={`https://x.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(Astro.url.href)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="share-link"
+          >Post on X</a>
+        </div>
+      </article>
+    </main>
+
+    <footer class="wrap site-foot">
+      <span>Abedis Lab</span>
+      <span class="social-links">
+        <a href="https://www.instagram.com/litbulbnet/" target="_blank" rel="noopener noreferrer">@litbulbnet</a>
+        <span class="muted" aria-hidden="true">·</span>
+        <a href="https://x.com/abedislab" target="_blank" rel="noopener noreferrer">@abedislab</a>
+      </span>
+    </footer>
+  </body>
+</html>
+
+<style>
+  .site-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 1.5rem;
+  }
+  .logo {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 1.3rem;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .logo-dot { color: var(--accent); }
+  nav a { margin-left: 1.5rem; color: var(--ink-soft); text-decoration: none; font-weight: 700; }
+  nav a:hover { color: var(--accent); }
+
+  .share {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+    max-width: var(--measure);
+  }
+  .share-label { font-weight: 700; color: var(--ink-soft); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.08em; }
+  .share-link {
+    background: var(--accent);
+    color: #fff;
+    padding: 0.45rem 1.1rem;
+    border-radius: var(--radius);
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: transform 0.15s ease;
+  }
+  .share-link:hover { transform: translateY(-1px); }
+
+  .post { padding-block: clamp(2rem, 6vw, 4rem); }
+
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+  }
+  .category-badge {
+    background: var(--accent-soft);
+    color: var(--accent);
+    padding: 0.2rem 0.7rem;
+    border-radius: 99px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .meta-divider { color: var(--line); }
+  .muted { color: var(--ink-soft); font-weight: 400; }
+
+  h1 {
+    font-size: clamp(2.2rem, 7vw, 4.5rem);
+    margin: 0 0 1.5rem;
+    max-width: 22ch;
+  }
+
+  .gist {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--ink);
+    background: var(--accent-soft);
+    border-radius: var(--radius);
+    padding: 1.1rem 1.4rem;
+    margin: 0 0 3rem;
+    max-width: var(--measure);
+  }
+
+  .post-body {
+    max-width: var(--measure);
+    font-family: var(--font-body);
+  }
+
+  /* Section headings inside post */
+  .post-body :global(h2) {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin: 3rem 0 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+  }
+  .post-body :global(h3) {
+    font-size: 1.2rem;
+    margin: 2rem 0 0.75rem;
+  }
+  .post-body :global(p) { margin: 0 0 1.25rem; }
+  .post-body :global(ul), .post-body :global(ol) {
+    padding-left: 1.5rem;
+    margin: 0 0 1.25rem;
+  }
+  .post-body :global(li) { margin-bottom: 0.5rem; }
+  .post-body :global(strong) { color: var(--ink); }
+  .post-body :global(code) {
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 0.1em 0.4em;
+    font-size: 0.9em;
+  }
+
+  .site-foot {
+    display: flex;
+    justify-content: space-between;
+    padding-block: 2.5rem;
+    margin-top: clamp(2rem, 6vw, 5rem);
+    border-top: 1px solid var(--line);
+    font-weight: 700;
+  }
+</style>

@@ -1,0 +1,38 @@
+---
+interface Props {
+  rows: { term: string; meaning: string }[];
+  caption?: string;
+}
+const { rows, caption } = Astro.props;
+---
+
+<figure class="compare-card">
+  {rows.map((r) => (
+    <div class="compare-row">
+      <span class="compare-term">{r.term}</span>
+      <b class="compare-meaning">{r.meaning}</b>
+    </div>
+  ))}
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>
+
+<style>
+  .compare-card {
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin: 2rem 0;
+  }
+  .compare-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.7rem 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  .compare-row:last-of-type { border-bottom: none; }
+  .compare-term { color: var(--ink-soft); }
+  .compare-meaning { color: var(--accent); }
+  figcaption { margin-top: 1rem; color: var(--ink-soft); font-style: italic; font-size: 0.9rem; }
+</style>

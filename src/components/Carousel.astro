@@ -1,0 +1,159 @@
+---
+interface Props {
+  slides: { src: string; alt: string; caption?: string }[];
+}
+const { slides } = Astro.props;
+---
+
+<div class="carousel" role="region" aria-label="Image carousel">
+  <div class="carousel-track">
+    {slides.map((s, i) => (
+      <figure class="carousel-slide" aria-label={`Slide ${i + 1} of ${slides.length}`}>
+        <img src={s.src} alt={s.alt} loading="lazy" />
+        {s.caption && <figcaption>{s.caption}</figcaption>}
+      </figure>
+    ))}
+  </div>
+
+  <div class="carousel-controls">
+    <button class="carousel-btn carousel-prev" aria-label="Previous slide">←</button>
+    <div class="carousel-dots" role="tablist">
+      {slides.map((_, i) => (
+        <button
+          class={`carousel-dot${i === 0 ? ' active' : ''}`}
+          role="tab"
+          aria-label={`Go to slide ${i + 1}`}
+          aria-selected={i === 0 ? 'true' : 'false'}
+        />
+      ))}
+    </div>
+    <button class="carousel-btn carousel-next" aria-label="Next slide">→</button>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.carousel').forEach((carousel) => {
+    const track = carousel.querySelector<HTMLElement>('.carousel-track')!;
+    const dots = carousel.querySelectorAll<HTMLElement>('.carousel-dot');
+    let current = 0;
+
+    function goTo(i: number) {
+      const slides = [...track.querySelectorAll<HTMLElement>('.carousel-slide')];
+      current = Math.max(0, Math.min(i, slides.length - 1));
+      track.scrollTo({ left: slides[current].offsetLeft, behavior: 'smooth' });
+      dots.forEach((d, di) => {
+        d.classList.toggle('active', di === current);
+        d.setAttribute('aria-selected', String(di === current));
+      });
+    }
+
+    carousel.querySelector('.carousel-prev')!.addEventListener('click', () => goTo(current - 1));
+    carousel.querySelector('.carousel-next')!.addEventListener('click', () => goTo(current + 1));
+    dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const slides = [...track.querySelectorAll<HTMLElement>('.carousel-slide')];
+          const i = slides.indexOf(entry.target as HTMLElement);
+          if (i === -1) return;
+          current = i;
+          dots.forEach((d, di) => {
+            d.classList.toggle('active', di === i);
+            d.setAttribute('aria-selected', String(di === i));
+          });
+        });
+      },
+      { root: track, threshold: 0.6 }
+    );
+    track.querySelectorAll('.carousel-slide').forEach((s) => observer.observe(s));
+  });
+</script>
+
+<style>
+  .carousel {
+    margin: 2rem 0;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--paper-raised);
+  }
+
+  .carousel-track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .carousel-track::-webkit-scrollbar { display: none; }
+
+  .carousel-slide {
+    flex-shrink: 0;
+    width: 100%;
+    scroll-snap-align: start;
+    margin: 0;
+  }
+
+  .carousel-slide img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+
+  .carousel-slide figcaption {
+    padding: 0.85rem 1.25rem;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--line);
+    font-style: italic;
+  }
+
+  .carousel-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .carousel-btn {
+    background: none;
+    border: 1px solid var(--line);
+    border-radius: 99px;
+    width: 2.2rem;
+    height: 2.2rem;
+    cursor: pointer;
+    color: var(--ink);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.15s, color 0.15s;
+  }
+  .carousel-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  .carousel-dots {
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+  }
+
+  .carousel-dot {
+    background: var(--line);
+    border: none;
+    border-radius: 99px;
+    width: 0.5rem;
+    height: 0.5rem;
+    padding: 0;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.2s;
+  }
+  .carousel-dot.active {
+    background: var(--accent);
+    transform: scaleX(2.4);
+  }
+</style>

@@ -3,7 +3,7 @@ import '../styles/global.css';
 
 const topics = [
   { name: 'AI', blurb: 'New tools, plain words. What it does, why it matters.', icon: '◆' },
-  { name: 'DevOps', blurb: 'Servers, pipelines, cloud — drawn, not droned.', icon: '▲' },
+  { name: 'DevOps', blurb: 'Servers, pipelines, cloud. Drawn, not droned.', icon: '▲' },
   { name: 'Trading', blurb: 'Markets and automation without the jargon wall.', icon: '●' },
   { name: 'Tinkering', blurb: 'Gadgets, watches, cameras. The fun side of tech.', icon: '✦' },
 ];
@@ -13,7 +13,7 @@ const topics = [
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Abedis Lab — hard things, drawn simple</title>
+    <title>Abedis Lab · hard things, drawn simple</title>
     <meta name="description" content="Tech explained for brains that work differently. Visual, simple, calm." />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
@@ -23,6 +23,7 @@ const topics = [
       <nav>
         <a href="#topics">Topics</a>
         <a href="#why">Why</a>
+        <a href="/posts">Posts</a>
       </nav>
     </header>
 
@@ -62,7 +63,7 @@ const topics = [
               <li>One concept at a time</li>
               <li>A picture before a paragraph</li>
               <li>A readable font, made for low vision</li>
-              <li>Calm pacing — no rush, no noise</li>
+              <li>Calm pacing, no rush, no noise</li>
             </ul>
           </div>
           <figure class="demo" aria-label="Example: a database explained in four lines">
@@ -78,7 +79,11 @@ const topics = [
 
     <footer class="wrap site-foot">
       <span>Abedis Lab</span>
-      <span class="muted">Built slowly, on purpose.</span>
+      <span class="social-links">
+        <a href="https://www.instagram.com/litbulbnet/" target="_blank" rel="noopener noreferrer">@litbulbnet</a>
+        <span class="muted" aria-hidden="true">·</span>
+        <a href="https://x.com/abedislab" target="_blank" rel="noopener noreferrer">@abedislab</a>
+      </span>
     </footer>
   </body>
 </html>
@@ -102,7 +107,7 @@ const topics = [
   }
   h1 { font-size: clamp(2.8rem, 9vw, 6rem); margin: 0; }
   .accent { color: var(--accent); }
-  .lede { font-size: 1.25rem; color: var(--ink-soft); margin: 1.5rem 0 2.5rem; }
+  .lede { font-size: 1.25rem; font-family: var(--font-body); color: var(--ink-soft); margin: 1.5rem 0 2.5rem; }
   .cta {
     display: inline-block; background: var(--accent); color: #fff;
     padding: 0.9rem 1.8rem; border-radius: var(--radius); font-weight: 700;
@@ -150,6 +155,9 @@ const topics = [
     border-top: 1px solid var(--line); font-weight: 700;
   }
   .muted { color: var(--ink-soft); font-weight: 400; }
+  .social-links { display: flex; gap: 0.5rem; align-items: center; }
+  .social-links a { color: var(--ink-soft); font-weight: 400; text-decoration: none; }
+  .social-links a:hover { color: var(--accent); }
 
   @media (max-width: 640px) {
     .why-row { grid-template-columns: 1fr; }
