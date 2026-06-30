@@ -1,0 +1,258 @@
+---
+// Instagram carousel export — not linked from the site, screenshot each slide
+---
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Carousel: SQL vs NoSQL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Fraunces:opsz,wght@9..144,400;9..144,900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- SLIDE 1: Cover -->
+<div class="slide cover">
+  <div class="slide-num">1/7</div>
+  <div class="tag">DEVOPS</div>
+  <h1>SQL vs NoSQL:<br/>What the Fuss<br/>Is About</h1>
+  <p class="sub">Two ways to store data.<br/>Two very different bets.</p>
+  <div class="brand">Abedis<span>.</span>Lab</div>
+</div>
+
+<!-- SLIDE 2: What's a database -->
+<div class="slide dark-card">
+  <div class="slide-num">2/7</div>
+  <h2>First: what even is a database?</h2>
+  <p class="highlight">A spreadsheet you can talk to with code.</p>
+  <p>You store information in it, ask it questions, it answers fast — even with millions of rows.</p>
+  <p>The interesting question is <em>how</em> you store that information. That's where SQL and NoSQL split.</p>
+</div>
+
+<!-- SLIDE 3: SQL -->
+<div class="slide">
+  <div class="slide-num">3/7</div>
+  <h2>SQL: the spreadsheet model</h2>
+  <div class="steps">
+    <div class="step">
+      <span class="step-icon">📋</span>
+      <div>
+        <strong>Tables</strong>
+        <p>Rows and columns, like a spreadsheet. Every row is one thing.</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-icon">🔒</span>
+      <div>
+        <strong>Fixed structure</strong>
+        <p>Every row must have the same columns. Even if most are blank.</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-icon">🔍</span>
+      <div>
+        <strong>Powerful queries</strong>
+        <p>"All orders over $50 from New York, sorted by date." One line.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 4: NoSQL -->
+<div class="slide accent-slide">
+  <div class="slide-num light">4/7</div>
+  <h2>NoSQL: the document pile</h2>
+  <p class="big-text">Instead of rows, you store documents. Think: a sticky note with whatever you want on it.</p>
+  <div class="code-block">
+    <span class="code-line"><span class="key">"name"</span>: <span class="val">"Priya"</span>,</span>
+    <span class="code-line"><span class="key">"email"</span>: <span class="val">"priya@example.com"</span>,</span>
+    <span class="code-line"><span class="key">"theme"</span>: <span class="val">"dark"</span></span>
+  </div>
+  <p class="footnote">Each document can have completely different fields. No shared column list.</p>
+</div>
+
+<!-- SLIDE 5: Side by side -->
+<div class="slide">
+  <div class="slide-num">5/7</div>
+  <h2>Side by side</h2>
+  <table>
+    <tr><td class="label">Structure</td><td class="a">Fixed columns</td><td class="b">Flexible docs</td></tr>
+    <tr><td class="label">Best at</td><td class="a">Complex queries</td><td class="b">Fast lookups</td></tr>
+    <tr><td class="label">Schema changes</td><td class="a">Painful</td><td class="b">Easy</td></tr>
+    <tr><td class="label">Related data</td><td class="a">Joins</td><td class="b">Embed in doc</td></tr>
+    <tr><td class="label">Consistency</td><td class="a">Strict</td><td class="b">Depends</td></tr>
+  </table>
+  <p class="caption">Neither is better. They solve different problems.</p>
+</div>
+
+<!-- SLIDE 6: When to use which -->
+<div class="slide dark-card">
+  <div class="slide-num">6/7</div>
+  <h2>When to use which</h2>
+  <div class="two-col">
+    <div class="col">
+      <p class="col-head sql-head">Reach for SQL when...</p>
+      <ul>
+        <li>Data is naturally relational</li>
+        <li>You need complex questions across many rows</li>
+        <li>Correctness matters more than speed</li>
+      </ul>
+    </div>
+    <div class="col">
+      <p class="col-head nosql-head">Reach for NoSQL when...</p>
+      <ul>
+        <li>Each item is mostly self-contained</li>
+        <li>Your data shape changes a lot</li>
+        <li>Optimising for read speed at scale</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 7: CTA -->
+<div class="slide cta-slide">
+  <div class="slide-num light">7/7</div>
+  <p class="teaser">Most apps could use either and be fine.</p>
+  <h2>"Pick whichever one the tutorial<br/>you're following uses.<br/><em>Seriously.</em>"</h2>
+  <div class="cta-foot">
+    <p>Read the full explainer →</p>
+    <p class="url">abedis.net/posts/sql-vs-nosql</p>
+    <p class="handles">@litbulbnet &nbsp;·&nbsp; @abedislab</p>
+  </div>
+</div>
+
+</body>
+</html>
+
+<style is:global>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --paper: #16130f;
+    --paper-raised: #211c16;
+    --ink: #f2ebdf;
+    --ink-soft: #c3b9a8;
+    --accent: #f47b4f;
+    --accent-soft: #3a261c;
+    --line: #322b22;
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Atkinson Hyperlegible', sans-serif;
+  }
+
+  body {
+    background: #0a0806;
+    font-family: var(--font-body);
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .slide {
+    width: 1080px;
+    height: 1080px;
+    background: var(--paper);
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .slide-num {
+    position: absolute;
+    top: 60px;
+    right: 80px;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--ink-soft);
+    font-weight: 900;
+  }
+  .slide-num.light { color: rgba(255,255,255,0.4); }
+
+  /* SLIDE 1: Cover */
+  .cover { justify-content: space-between; padding: 80px; }
+  .tag {
+    font-size: 0.85rem; font-weight: 700; letter-spacing: 0.15em;
+    color: var(--accent); background: var(--accent-soft);
+    padding: 0.3rem 0.8rem; border-radius: 99px; width: fit-content;
+  }
+  .cover h1 {
+    font-family: var(--font-display); font-size: 4.8rem; font-weight: 900;
+    line-height: 1.05; color: var(--ink); flex: 1; display: flex; align-items: center;
+  }
+  .cover .sub { font-size: 1.4rem; color: var(--ink-soft); line-height: 1.6; margin-bottom: 3rem; }
+  .brand { font-family: var(--font-display); font-size: 1.6rem; font-weight: 900; color: var(--ink); }
+  .brand span { color: var(--accent); }
+
+  h2 {
+    font-family: var(--font-display); font-size: 3rem; font-weight: 900;
+    line-height: 1.1; margin-bottom: 2rem; color: var(--ink);
+  }
+  p { color: var(--ink-soft); font-size: 1.25rem; line-height: 1.7; margin-bottom: 1rem; }
+  em { color: var(--accent); font-style: normal; }
+
+  /* SLIDE 2 */
+  .dark-card { background: var(--paper-raised); }
+  .highlight {
+    background: var(--accent-soft); color: var(--accent) !important;
+    border-radius: 12px; padding: 1.2rem 1.5rem;
+    font-weight: 700; font-size: 1.5rem !important; line-height: 1.4 !important;
+    margin-bottom: 1.5rem;
+  }
+
+  /* SLIDE 3: Steps */
+  .steps { display: flex; flex-direction: column; gap: 1.4rem; }
+  .step {
+    display: flex; gap: 1.5rem; align-items: flex-start;
+    background: var(--paper-raised); border: 1px solid var(--line);
+    border-radius: 14px; padding: 1.2rem 1.5rem;
+  }
+  .step-icon { font-size: 2rem; flex-shrink: 0; }
+  .step strong { display: block; font-size: 1.2rem; color: var(--ink); margin-bottom: 0.3rem; }
+  .step p { margin: 0; font-size: 1.05rem; color: var(--ink-soft); }
+
+  /* SLIDE 4: Accent */
+  .accent-slide { background: var(--accent); }
+  .accent-slide h2 { color: #fff; font-size: 3.2rem; }
+  .accent-slide .big-text { color: rgba(255,255,255,0.9) !important; font-weight: 700; font-size: 1.3rem !important; margin-bottom: 1.5rem; }
+  .accent-slide .footnote { color: rgba(255,255,255,0.65) !important; font-size: 1rem !important; font-style: italic; }
+
+  .code-block {
+    background: rgba(0,0,0,0.25); border-radius: 12px;
+    padding: 1.2rem 1.5rem; margin-bottom: 1.5rem;
+    display: flex; flex-direction: column; gap: 0.4rem;
+  }
+  .code-line { font-family: monospace; font-size: 1.1rem; }
+  .key { color: #ffd699; }
+  .val { color: #fff; }
+
+  /* SLIDE 5: Table */
+  table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; }
+  td { padding: 0.9rem 0.8rem; border-bottom: 1px solid var(--line); font-size: 1.1rem; }
+  tr:last-child td { border-bottom: none; }
+  td.label { color: var(--ink-soft); width: 30%; }
+  td.a { color: var(--accent); font-weight: 700; width: 35%; }
+  td.b { color: var(--ink); width: 35%; }
+  .caption { font-size: 0.95rem !important; font-style: italic; }
+
+  /* SLIDE 6: Two col */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .col-head { font-weight: 700; font-size: 1.1rem !important; margin-bottom: 1rem; }
+  .sql-head { color: var(--accent) !important; }
+  .nosql-head { color: var(--ink) !important; }
+  ul { padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.75rem; }
+  li { color: var(--ink-soft); font-size: 1.05rem; line-height: 1.5; }
+
+  /* SLIDE 7: CTA */
+  .cta-slide { background: var(--paper-raised); justify-content: space-between; }
+  .cta-slide .teaser { font-size: 1.1rem !important; color: var(--ink-soft) !important; margin-bottom: 1.5rem; }
+  .cta-slide h2 { font-size: 2.4rem; }
+  .cta-foot { margin-top: auto; border-top: 1px solid var(--line); padding-top: 2rem; }
+  .cta-foot p { font-size: 1.1rem !important; color: var(--ink-soft) !important; margin-bottom: 0.3rem; }
+  .url { color: var(--accent) !important; font-weight: 700 !important; font-size: 1.4rem !important; }
+  .handles { font-size: 1rem !important; letter-spacing: 0.05em; }
+</style>
