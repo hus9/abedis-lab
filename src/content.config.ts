@@ -6,7 +6,7 @@ const posts = defineCollection({
   schema: z.object({
     title: z.string(),
     gist: z.string(),
-    category: z.enum(['AI', 'DevOps', 'Trading', 'Tinkering']),
+    category: z.enum(['AI', 'Tech', 'Trading', 'Tinkering']),
     pubDate: z.coerce.date(),
     readingTime: z.number(), // minutes
   }),

@@ -5,7 +5,7 @@ import '../../styles/global.css';
 const allPosts = await getCollection('posts');
 allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
-const categories = ['AI', 'DevOps', 'Trading', 'Tinkering'] as const;
+const categories = ['AI', 'Tech', 'Trading', 'Tinkering'] as const;
 const byCategory = Object.fromEntries(
   categories.map((cat) => [cat, allPosts.filter((p) => p.data.category === cat)])
 );
