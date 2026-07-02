@@ -1,0 +1,115 @@
+- day: 0
+  category: AI
+  topic: Claude Sonnet 5
+  slug: claude-sonnet-5
+  status: done
+- day: 1
+  category: Tech
+  topic: Docker vs Kubernetes
+  slug: docker-vs-kubernetes
+  status: pending
+- day: 2
+  category: Tinkering
+  topic: Mechanical vs quartz vs automatic
+  slug: mechanical-vs-quartz-vs-automatic
+  status: pending
+- day: 3
+  category: AI
+  topic: Prompt engineering vs asking nicely
+  slug: prompt-engineering-vs-asking-nicely
+  status: pending
+- day: 4
+  category: Trading
+  topic: Options vs futures theta trap
+  slug: options-vs-futures-theta-trap
+  status: pending
+- day: 5
+  category: Tech
+  topic: The pod that lied (liveness vs readiness probes)
+  slug: pod-that-lied-liveness-readiness
+  status: pending
+- day: 6
+  category: Tinkering
+  topic: Fujifilm film simulations explained
+  slug: fujifilm-film-simulations-explained
+  status: pending
+- day: 7
+  category: AI
+  topic: Why AI agents forget (context windows)
+  slug: why-ai-agents-forget-context-windows
+  status: pending
+- day: 8
+  category: Trading
+  topic: VWAP explained
+  slug: vwap-explained
+  status: pending
+- day: 9
+  category: Tech
+  topic: ConfigMaps vs Secrets
+  slug: configmaps-vs-secrets
+  status: pending
+- day: 10
+  category: Tinkering
+  topic: Film photography rules on phone
+  slug: film-photography-rules-on-phone
+  status: pending
+- day: 11
+  category: AI
+  topic: RAG vs fine-tuning
+  slug: rag-vs-fine-tuning
+  status: pending
+- day: 12
+  category: Trading
+  topic: Backtesting lies
+  slug: backtesting-lies
+  status: pending
+- day: 13
+  category: Tech
+  topic: Service mesh, no buzzwords
+  slug: service-mesh-no-buzzwords
+  status: pending
+- day: 14
+  category: Tinkering
+  topic: Coffee taste at altitude
+  slug: coffee-taste-at-altitude
+  status: pending
+- day: 15
+  category: AI
+  topic: Multi-agent AI
+  slug: multi-agent-ai
+  status: pending
+- day: 16
+  category: Trading
+  topic: Kelly Criterion
+  slug: kelly-criterion
+  status: pending
+- day: 17
+  category: Tech
+  topic: CI/CD anatomy
+  slug: ci-cd-anatomy
+  status: pending
+- day: 18
+  category: Tinkering
+  topic: B&W street photography
+  slug: bw-street-photography
+  status: pending
+- day: 19
+  category: Tech
+  topic: Wi-Fi router = tiny Linux server
+  slug: wifi-router-tiny-linux-server
+  status: pending
+- day: 20
+  category: Tinkering
+  topic: What makes paintings expensive
+  slug: what-makes-paintings-expensive
+  status: pending
+- day: 21
+  category: Tech
+  topic: USB cable conspiracy
+  slug: usb-cable-conspiracy
+  status: pending
+- day: 22
+  category: Tinkering
+  topic: Coffee names decoded
+  slug: coffee-names-decoded
+  status: pending
