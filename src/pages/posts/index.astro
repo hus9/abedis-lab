@@ -47,6 +47,7 @@ const categories = ['AI', 'Tech', 'Trading', 'Tinkering'] as const;
                 <div class="post-card-meta">
                   {isNew(post.data.pubDate) && <span class="new-badge">New</span>}
                   <span class="category-badge">{post.data.category}</span>
+                  {post.data.topic && <span class="topic-label">{post.data.topic}</span>}
                   <time datetime={post.data.pubDate.toISOString()} class="muted">{dateStr}</time>
                   <span class="meta-dot" aria-hidden="true">·</span>
                   <span class="muted">{post.data.readingTime} min read</span>
@@ -203,6 +204,7 @@ const categories = ['AI', 'Tech', 'Trading', 'Tinkering'] as const;
     margin-bottom: 0.5rem;
   }
   .muted { color: var(--ink-soft); }
+  .topic-label { color: var(--ink-soft); font-weight: 700; }
   .meta-dot { color: var(--line); }
 
   .post-card-title {

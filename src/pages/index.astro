@@ -63,6 +63,7 @@ const fmt = (d: Date) => d.toLocaleDateString('en-US', { month: 'long', day: 'nu
               <div class="lead-meta">
                 {isNew(lead.data.pubDate) && <span class="new-badge">New</span>}
                 <span class="category-badge">{lead.data.category}</span>
+                {lead.data.topic && <span class="topic-label">{lead.data.topic}</span>}
                 <time datetime={lead.data.pubDate.toISOString()} class="muted">{fmt(lead.data.pubDate)}</time>
                 <span class="muted">· {lead.data.readingTime} min</span>
               </div>
@@ -77,6 +78,7 @@ const fmt = (d: Date) => d.toLocaleDateString('en-US', { month: 'long', day: 'nu
                   <a href={`/posts/${p.id}`} class="recent-row">
                     <span class="recent-title">{p.data.title}</span>
                     <span class="recent-meta">
+                      {p.data.topic && <span class="topic-label">{p.data.topic}</span>}
                       <span class="category-badge">{p.data.category}</span>
                       <time datetime={p.data.pubDate.toISOString()} class="muted">{fmt(p.data.pubDate)}</time>
                     </span>
@@ -205,6 +207,7 @@ const fmt = (d: Date) => d.toLocaleDateString('en-US', { month: 'long', day: 'nu
     text-transform: uppercase; letter-spacing: 0.08em;
   }
   .muted { color: var(--ink-soft); font-weight: 400; }
+  .topic-label { color: var(--ink-soft); font-weight: 700; }
   .lead-text h3 {
     font-size: clamp(1.5rem, 3.5vw, 2.2rem); margin: 0 0 0.75rem;
     transition: color 0.15s;

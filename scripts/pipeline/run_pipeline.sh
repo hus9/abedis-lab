@@ -217,10 +217,15 @@ stage_verify() {
   esac
 }
 
+# Mixed models to stretch the subscription's session budget:
+# - haiku: researcher (search + extraction; worked fine once prompts were
+#   delivered properly) and publisher (git plumbing)
+# - sonnet: writer/illustrator/editor (judgment + design; haiku stalled
+#   repeatedly on the illustrator and shipped a mislabeled chart once)
 stage_model() {
   case "$1" in
-    05-publisher) echo "haiku" ;;
-    *)            echo "sonnet" ;;
+    01-researcher|05-publisher) echo "haiku" ;;
+    *)                          echo "sonnet" ;;
   esac
 }
 
@@ -271,6 +276,9 @@ STALL_RETRIES=0
 RATE_SLEEPS=0
 API_RETRIES=0
 FAILED_STAGE=""
+# Latest time (HH:MM, same calendar day) the pipeline may still be waiting on
+# a rate-limit reset before declaring the night lost.
+MORNING_DEADLINE="${MORNING_DEADLINE:-07:30}"
 
 while true; do
   if run_full_pipeline; then
@@ -283,11 +291,16 @@ while true; do
     fail_terminal "editor blocked publication (see $DATE-editor-flags.md) — needs human review"
   fi
 
+  # Session limit: pause and resume after the reset, as many times as the
+  # night allows. The run starts at midnight; anything published before
+  # MORNING_DEADLINE still counts as tonight's post. Only give up when the
+  # deadline passes -- a 5hr pause is fine, a missed day is not.
   if [[ -f "$RATE_LIMIT_FILE" ]]; then
-    if (( RATE_SLEEPS >= 2 )); then
-      fail_terminal "hit session rate limit ${RATE_SLEEPS}+ times"
+    if (( $(date +%s) >= $(date -j -f "%Y-%m-%d %H:%M" "$(date +%Y-%m-%d) $MORNING_DEADLINE" +%s) )); then
+      fail_terminal "still rate-limited past $MORNING_DEADLINE deadline (paused $RATE_SLEEPS times)"
     fi
     RATE_SLEEPS=$(( RATE_SLEEPS + 1 ))
+    log "Session limit pause #$RATE_SLEEPS -- will resume after reset (deadline $MORNING_DEADLINE)."
     sleep_until_reset "$(cat "$RATE_LIMIT_FILE")"
     rm -f "$RATE_LIMIT_FILE"
     continue

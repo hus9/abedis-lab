@@ -11,6 +11,7 @@ interface Props {
   title: string;
   gist: string;
   category: string;
+  topic?: string;
   readingTime: number;
   pubDate: Date;
   slug?: string;
@@ -18,7 +19,7 @@ interface Props {
   older?: PostLink | null;
 }
 
-const { title, gist, category, readingTime, pubDate, slug, newer, older } = Astro.props;
+const { title, gist, category, topic, readingTime, pubDate, slug, newer, older } = Astro.props;
 
 const dateStr = pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 ---
@@ -51,6 +52,7 @@ const dateStr = pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'l
       <article class="wrap post">
         <div class="post-meta">
           <span class="category-badge">{category}</span>
+          {topic && <span class="topic-label">{topic}</span>}
           <span class="meta-divider" aria-hidden="true">·</span>
           <span class="muted">{readingTime} min read</span>
           <span class="meta-divider" aria-hidden="true">·</span>
@@ -203,6 +205,7 @@ const dateStr = pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'l
   }
   .meta-divider { color: var(--line); }
   .muted { color: var(--ink-soft); font-weight: 400; }
+  .topic-label { color: var(--ink-soft); font-weight: 700; }
 
   h1 {
     font-size: clamp(2.2rem, 7vw, 4.5rem);

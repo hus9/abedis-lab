@@ -31,6 +31,8 @@ House style (non-negotiable):
 
 Write the full post as MDX matching src/content.config.ts frontmatter:
 title, gist (1-sentence summary, this is what gets shared), category,
+topic (the plain-words subject, e.g. "{{topic}}" — hook titles don't name
+the subject, this label is how readers know what the post is about),
 pubDate ({{date}}), readingTime (estimate honestly, most posts should be
 4-7 min).
 
