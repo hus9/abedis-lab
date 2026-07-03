@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>net.litbulb.pipeline.nightly</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/hus9/Claude/litbulb/abedis-lab/scripts/pipeline/run_pipeline.sh</string>
+  </array>
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key>
+    <integer>0</integer>
+    <key>Minute</key>
+    <integer>0</integer>
+  </dict>
+  <key>StandardOutPath</key>
+  <string>/Users/hus9/Claude/litbulb/abedis-lab/scripts/pipeline/logs/launchd-nightly-out.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/hus9/Claude/litbulb/abedis-lab/scripts/pipeline/logs/launchd-nightly-err.log</string>
+</dict>
+</plist>

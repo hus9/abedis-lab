@@ -22,3 +22,10 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# pipeline runtime artifacts (checkpoints, rendered prompts, run logs)
+scripts/pipeline/state/
+scripts/pipeline/logs/
+
+# local-machine permission overrides, not for the shared repo
+.claude/settings.local.json
