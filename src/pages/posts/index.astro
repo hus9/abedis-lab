@@ -1,14 +1,10 @@
 ---
-import { getCollection } from 'astro:content';
 import '../../styles/global.css';
+import SeoHead from '../../components/SeoHead.astro';
+import { getPublishedPosts, isNew } from '../../lib/posts';
 
-const allPosts = await getCollection('posts');
-allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
-
+const allPosts = await getPublishedPosts();
 const categories = ['AI', 'Tech', 'Trading', 'Tinkering'] as const;
-const byCategory = Object.fromEntries(
-  categories.map((cat) => [cat, allPosts.filter((p) => p.data.category === cat)])
-);
 ---
 
 <html lang="en">
@@ -16,8 +12,9 @@ const byCategory = Object.fromEntries(
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>All Posts — Lit Bulb Lab</title>
-    <meta name="description" content="Hard things, drawn simple. Every post by topic." />
+    <meta name="description" content="Hard things, drawn simple. Every post, newest first." />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <SeoHead title="All Posts — Lit Bulb Lab" description="Hard things, drawn simple. Every post, newest first." />
   </head>
   <body>
     <header class="wrap site-head">
@@ -32,33 +29,35 @@ const byCategory = Object.fromEntries(
     <main class="wrap posts-index">
       <h1>All posts</h1>
 
-      {categories.map((cat) => byCategory[cat].length > 0 && (
-        <section class="category-group" id={cat.toLowerCase()}>
-          <h2 class="category-heading">
-            <span class="category-badge">{cat}</span>
-          </h2>
-          <ul class="post-list">
-            {byCategory[cat].map((post) => {
-              const dateStr = post.data.pubDate.toLocaleDateString('en-US', {
-                year: 'numeric', month: 'long', day: 'numeric',
-              });
-              return (
-                <li>
-                  <a href={`/posts/${post.id}`} class="post-card">
-                    <div class="post-card-meta">
-                      <span class="muted">{post.data.readingTime} min read</span>
-                      <span class="meta-dot" aria-hidden="true">·</span>
-                      <time datetime={post.data.pubDate.toISOString()} class="muted">{dateStr}</time>
-                    </div>
-                    <h3 class="post-card-title">{post.data.title}</h3>
-                    <p class="post-card-gist">{post.data.gist}</p>
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-        </section>
-      ))}
+      <div class="filters" role="group" aria-label="Filter posts by topic">
+        <button class="chip" data-filter="all" aria-pressed="true">All</button>
+        {categories.map((cat) => (
+          <button class="chip" data-filter={cat.toLowerCase()} aria-pressed="false">{cat}</button>
+        ))}
+      </div>
+
+      <ul class="post-list">
+        {allPosts.map((post) => {
+          const dateStr = post.data.pubDate.toLocaleDateString('en-US', {
+            year: 'numeric', month: 'long', day: 'numeric',
+          });
+          return (
+            <li data-category={post.data.category.toLowerCase()}>
+              <a href={`/posts/${post.id}`} class="post-card">
+                <div class="post-card-meta">
+                  {isNew(post.data.pubDate) && <span class="new-badge">New</span>}
+                  <span class="category-badge">{post.data.category}</span>
+                  <time datetime={post.data.pubDate.toISOString()} class="muted">{dateStr}</time>
+                  <span class="meta-dot" aria-hidden="true">·</span>
+                  <span class="muted">{post.data.readingTime} min read</span>
+                </div>
+                <h3 class="post-card-title">{post.data.title}</h3>
+                <p class="post-card-gist">{post.data.gist}</p>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
     </main>
 
     <footer class="wrap site-foot">
@@ -69,6 +68,27 @@ const byCategory = Object.fromEntries(
         <a href="https://x.com/litbulblab" target="_blank" rel="noopener noreferrer">@litbulblab</a>
       </span>
     </footer>
+
+    <script>
+      // Category filter chips. Supports /posts#tech deep links (used by the
+      // homepage topic cards) by activating the matching chip on load.
+      const chips = document.querySelectorAll<HTMLButtonElement>('.chip');
+      const items = document.querySelectorAll<HTMLLIElement>('.post-list > li');
+
+      function applyFilter(filter: string) {
+        chips.forEach((c) => c.setAttribute('aria-pressed', String(c.dataset.filter === filter)));
+        items.forEach((li) => {
+          li.hidden = filter !== 'all' && li.dataset.category !== filter;
+        });
+      }
+
+      chips.forEach((chip) =>
+        chip.addEventListener('click', () => applyFilter(chip.dataset.filter!))
+      );
+
+      const hash = location.hash.slice(1).toLowerCase();
+      if ([...chips].some((c) => c.dataset.filter === hash)) applyFilter(hash);
+    </script>
   </body>
 </html>
 
@@ -98,12 +118,45 @@ const byCategory = Object.fromEntries(
 
   h1 {
     font-size: clamp(2.2rem, 6vw, 4rem);
-    margin: 0 0 3rem;
+    margin: 0 0 1.5rem;
   }
 
-  .category-group { margin-bottom: 3.5rem; }
+  .filters {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+  }
+  .chip {
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    color: var(--ink-soft);
+    padding: 0.45rem 1.1rem;
+    border-radius: 99px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s;
+  }
+  .chip:hover { border-color: var(--accent); color: var(--accent); }
+  .chip[aria-pressed="true"] {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
 
-  .category-heading { margin: 0 0 1.25rem; }
+  .new-badge {
+    background: var(--accent);
+    color: #fff;
+    padding: 0.2rem 0.7rem;
+    border-radius: 99px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-family: var(--font-body);
+  }
 
   .category-badge {
     background: var(--accent-soft);
@@ -145,6 +198,7 @@ const byCategory = Object.fromEntries(
     display: flex;
     gap: 0.5rem;
     align-items: center;
+    flex-wrap: wrap;
     font-size: 0.85rem;
     margin-bottom: 0.5rem;
   }

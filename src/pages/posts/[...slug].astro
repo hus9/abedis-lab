@@ -1,16 +1,22 @@
 ---
-import { getCollection, render } from 'astro:content';
+import { render } from 'astro:content';
 import ExplainerPost from '../../layouts/ExplainerPost.astro';
+import { getPublishedPosts } from '../../lib/posts';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('posts');
-  return posts.map((post) => ({
+  const posts = await getPublishedPosts(); // newest first
+  return posts.map((post, i) => ({
     params: { slug: post.id },
-    props: { post },
+    props: {
+      post,
+      // "newer" = published after this one, "older" = before
+      newer: posts[i - 1] ?? null,
+      older: posts[i + 1] ?? null,
+    },
   }));
 }
 
-const { post } = Astro.props;
+const { post, newer, older } = Astro.props;
 const { Content } = await render(post);
 ---
 
@@ -20,6 +26,9 @@ const { Content } = await render(post);
   category={post.data.category}
   readingTime={post.data.readingTime}
   pubDate={post.data.pubDate}
+  slug={post.id}
+  newer={newer && { slug: newer.id, title: newer.data.title }}
+  older={older && { slug: older.id, title: older.data.title }}
 >
   <Content />
 </ExplainerPost>

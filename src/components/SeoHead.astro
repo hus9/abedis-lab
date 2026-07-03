@@ -1,0 +1,26 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  /** Path under site root, e.g. /og/docker-vs-kubernetes.png */
+  image?: string;
+  type?: 'website' | 'article';
+}
+
+const { title, description, image = '/og/default.png', type = 'website' } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const imageUrl = new URL(image, Astro.site);
+---
+
+<link rel="canonical" href={canonical} />
+<link rel="alternate" type="application/rss+xml" title="Lit Bulb Lab" href={new URL('/rss.xml', Astro.site)} />
+<meta property="og:type" content={type} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={imageUrl} />
+<meta property="og:site_name" content="Lit Bulb Lab" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageUrl} />

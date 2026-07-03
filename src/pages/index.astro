@@ -1,5 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import '../styles/global.css';
+import SeoHead from '../components/SeoHead.astro';
+import { getPublishedPosts, getHero, isNew } from '../lib/posts';
 
 const topics = [
   { name: 'AI', blurb: 'New tools, plain words. What it does, why it matters.', icon: '◆' },
@@ -7,6 +10,12 @@ const topics = [
   { name: 'Trading', blurb: 'Markets and automation without the jargon wall.', icon: '●' },
   { name: 'Tinkering', blurb: 'Gadgets, watches, cameras. The fun side of tech.', icon: '✦' },
 ];
+
+const posts = await getPublishedPosts();
+const [lead, ...rest] = posts;
+const recent = rest.slice(0, 2);
+const leadHero = lead && getHero(lead.id);
+const fmt = (d: Date) => d.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
 ---
 
 <html lang="en">
@@ -16,6 +25,10 @@ const topics = [
     <title>Lit Bulb Lab · hard things, drawn simple</title>
     <meta name="description" content="Tech explained for brains that work differently. Visual, simple, calm." />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <SeoHead
+      title="Lit Bulb Lab · hard things, drawn simple"
+      description="Tech explained for brains that work differently. Visual, simple, calm."
+    />
   </head>
   <body>
     <header class="wrap site-head">
@@ -35,8 +48,46 @@ const topics = [
           Short chunks. Real pictures. No jargon walls. Built for ADHD,
           dyslexia, and anyone new to the tech world.
         </p>
-        <a class="cta" href="#topics">See how it works</a>
+        {lead && <a class="cta" href={`/posts/${lead.id}`}>Read today's post</a>}
+        <a class="cta-soft" href="#topics">See how it works</a>
       </section>
+
+      {lead && (
+        <section id="latest" class="wrap latest">
+          <h2 class="section-title">Fresh from the lab</h2>
+          <a href={`/posts/${lead.id}`} class="lead-post">
+            {leadHero && (
+              <Image src={leadHero} alt="" width={640} height={360} class="lead-thumb" />
+            )}
+            <div class="lead-text">
+              <div class="lead-meta">
+                {isNew(lead.data.pubDate) && <span class="new-badge">New</span>}
+                <span class="category-badge">{lead.data.category}</span>
+                <time datetime={lead.data.pubDate.toISOString()} class="muted">{fmt(lead.data.pubDate)}</time>
+                <span class="muted">· {lead.data.readingTime} min</span>
+              </div>
+              <h3>{lead.data.title}</h3>
+              <p class="lead-gist">{lead.data.gist}</p>
+            </div>
+          </a>
+          {recent.length > 0 && (
+            <ul class="recent-list">
+              {recent.map((p) => (
+                <li>
+                  <a href={`/posts/${p.id}`} class="recent-row">
+                    <span class="recent-title">{p.data.title}</span>
+                    <span class="recent-meta">
+                      <span class="category-badge">{p.data.category}</span>
+                      <time datetime={p.data.pubDate.toISOString()} class="muted">{fmt(p.data.pubDate)}</time>
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+          <a class="all-posts-link" href="/posts">All posts →</a>
+        </section>
+      )}
 
       <section id="topics" class="wrap topics">
         <h2 class="section-title">Pick a corner</h2>
@@ -113,8 +164,67 @@ const topics = [
     text-decoration: none; transition: transform 0.15s ease;
   }
   .cta:hover { transform: translateY(-2px); }
+  .cta-soft {
+    display: inline-block; margin-left: 1rem; color: var(--ink-soft);
+    font-weight: 700; text-decoration: none;
+    padding: 0.9rem 0.5rem;
+  }
+  .cta-soft:hover { color: var(--accent); }
 
   .section-title { font-size: clamp(1.8rem, 4vw, 2.6rem); margin: 0 0 2rem; }
+
+  .latest { padding-block: var(--gap); }
+  .lead-post {
+    display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 4fr);
+    gap: clamp(1.5rem, 4vw, 3rem); align-items: center;
+    text-decoration: none; color: inherit;
+    background: var(--paper-raised); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: clamp(1.25rem, 3vw, 2rem);
+    transition: border-color 0.15s;
+  }
+  .lead-post:hover { border-color: var(--accent); }
+  .lead-post:hover h3 { color: var(--accent); }
+  .lead-thumb {
+    width: 100%; height: auto; border-radius: calc(var(--radius) - 6px);
+    order: 2;
+  }
+  .lead-meta {
+    display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;
+    font-size: 0.85rem; font-weight: 700; margin-bottom: 0.75rem;
+  }
+  .new-badge {
+    background: var(--accent); color: #fff;
+    padding: 0.2rem 0.7rem; border-radius: 99px;
+    font-size: 0.8rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .category-badge {
+    background: var(--accent-soft); color: var(--accent);
+    padding: 0.2rem 0.7rem; border-radius: 99px;
+    font-size: 0.8rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .muted { color: var(--ink-soft); font-weight: 400; }
+  .lead-text h3 {
+    font-size: clamp(1.5rem, 3.5vw, 2.2rem); margin: 0 0 0.75rem;
+    transition: color 0.15s;
+  }
+  .lead-gist { color: var(--ink-soft); font-family: var(--font-body); margin: 0; }
+  .recent-list { list-style: none; padding: 0; margin: 1.25rem 0 0; }
+  .recent-row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 1rem; padding: 1rem 0.25rem;
+    border-bottom: 1px dashed var(--line);
+    text-decoration: none; color: inherit;
+  }
+  .recent-row:hover .recent-title { color: var(--accent); }
+  .recent-title { font-weight: 700; transition: color 0.15s; }
+  .recent-meta { display: flex; align-items: baseline; gap: 0.6rem; flex-shrink: 0; font-size: 0.85rem; }
+  .all-posts-link {
+    display: inline-block; margin-top: 1.5rem;
+    color: var(--accent); font-weight: 700; text-decoration: none;
+  }
+  .all-posts-link:hover { text-decoration: underline; }
   .topics { padding-block: var(--gap); }
   .grid {
     display: grid; gap: 1.25rem;
@@ -163,5 +273,8 @@ const topics = [
 
   @media (max-width: 640px) {
     .why-row { grid-template-columns: 1fr; }
+    .lead-post { grid-template-columns: 1fr; }
+    .lead-thumb { order: 0; }
+    .recent-row { flex-direction: column; gap: 0.35rem; }
   }
 </style>

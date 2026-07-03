@@ -1,5 +1,11 @@
 ---
 import '../styles/global.css';
+import SeoHead from '../components/SeoHead.astro';
+
+interface PostLink {
+  slug: string;
+  title: string;
+}
 
 interface Props {
   title: string;
@@ -7,9 +13,12 @@ interface Props {
   category: string;
   readingTime: number;
   pubDate: Date;
+  slug?: string;
+  newer?: PostLink | null;
+  older?: PostLink | null;
 }
 
-const { title, gist, category, readingTime, pubDate } = Astro.props;
+const { title, gist, category, readingTime, pubDate, slug, newer, older } = Astro.props;
 
 const dateStr = pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 ---
@@ -21,6 +30,12 @@ const dateStr = pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'l
     <title>{title} — Lit Bulb Lab</title>
     <meta name="description" content={gist} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <SeoHead
+      title={title}
+      description={gist}
+      image={slug ? `/og/${slug}.png` : undefined}
+      type="article"
+    />
   </head>
   <body>
     <header class="wrap site-head">
@@ -53,12 +68,34 @@ const dateStr = pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'l
         <div class="share">
           <span class="share-label">Share</span>
           <a
-            href={`https://x.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(Astro.url.href)}`}
+            href={`https://x.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(new URL(Astro.url.pathname, Astro.site).href)}`}
             target="_blank"
             rel="noopener noreferrer"
             class="share-link"
           >Post on X</a>
+          <span class="follow-note">
+            New post most days — follow
+            <a href="https://www.instagram.com/litbulblab/" target="_blank" rel="noopener noreferrer">@litbulblab</a>
+            or grab the <a href="/rss.xml">RSS feed</a>.
+          </span>
         </div>
+
+        {(older || newer) && (
+          <nav class="post-nav" aria-label="More posts">
+            {older ? (
+              <a href={`/posts/${older.slug}`} class="post-nav-link">
+                <span class="post-nav-dir">← Older</span>
+                <span class="post-nav-title">{older.title}</span>
+              </a>
+            ) : <span />}
+            {newer && (
+              <a href={`/posts/${newer.slug}`} class="post-nav-link post-nav-next">
+                <span class="post-nav-dir">Newer →</span>
+                <span class="post-nav-title">{newer.title}</span>
+              </a>
+            )}
+          </nav>
+        )}
       </article>
     </main>
 
@@ -111,6 +148,37 @@ const dateStr = pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'l
     transition: transform 0.15s ease;
   }
   .share-link:hover { transform: translateY(-1px); }
+  .follow-note { color: var(--ink-soft); font-size: 0.9rem; }
+  .follow-note a { color: var(--accent); font-weight: 700; text-decoration: none; }
+  .follow-note a:hover { text-decoration: underline; }
+
+  .post-nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+    max-width: var(--measure);
+  }
+  .post-nav-link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    text-decoration: none;
+    color: inherit;
+    max-width: 45%;
+  }
+  .post-nav-next { text-align: right; margin-left: auto; }
+  .post-nav-dir {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .post-nav-title { font-weight: 700; transition: color 0.15s; }
+  .post-nav-link:hover .post-nav-title { color: var(--accent); }
 
   .post { padding-block: clamp(2rem, 6vw, 4rem); }
 
