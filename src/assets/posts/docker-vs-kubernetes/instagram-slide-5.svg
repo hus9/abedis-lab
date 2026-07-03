@@ -1,0 +1,32 @@
+<svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .bg { fill: #d6552b; }
+      .accent-soft { fill: #f4d9cb; }
+      .white { fill: #fffdf8; }
+      .title { font-family: 'Fraunces', Georgia, serif; font-size: 64px; font-weight: 900; fill: #fffdf8; }
+      .cta { font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 48px; font-weight: 700; fill: #d6552b; }
+      .body { font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 32px; fill: #fffdf8; }
+    </style>
+  </defs>
+
+  <!-- Orange accent background -->
+  <rect width="1080" height="1080" class="bg"/>
+
+  <!-- Large decorative box -->
+  <rect x="120" y="200" width="840" height="680" rx="20" class="accent-soft"/>
+
+  <!-- Main CTA -->
+  <text x="540" y="420" class="title" text-anchor="middle">Read the</text>
+  <text x="540" y="520" class="title" text-anchor="middle">full breakdown</text>
+
+  <!-- URL -->
+  <rect x="200" y="600" width="680" height="120" rx="16" class="white"/>
+  <text x="540" y="675" class="cta" text-anchor="middle">abedis.net</text>
+
+  <!-- Arrow -->
+  <g transform="translate(540, 800)">
+    <line x1="-30" y1="0" x2="30" y2="0" stroke="#fffdf8" stroke-width="6" stroke-linecap="round"/>
+    <polygon points="30,0 15,-15 20,0 15,15" fill="#fffdf8"/>
+  </g>
+</svg>

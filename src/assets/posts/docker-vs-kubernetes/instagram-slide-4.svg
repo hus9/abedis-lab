@@ -1,0 +1,28 @@
+<svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .bg { fill: #f7f3ec; }
+      .accent { fill: #d6552b; }
+      .ink { fill: #1f1b16; }
+      .title { font-family: 'Fraunces', Georgia, serif; font-size: 64px; font-weight: 900; fill: #1f1b16; }
+      .body { font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 28px; fill: #4a423a; }
+    </style>
+  </defs>
+
+  <rect width="1080" height="1080" class="bg"/>
+
+  <!-- The funny part -->
+  <text x="540" y="300" class="title" text-anchor="middle">Docker Swarm</text>
+  <text x="540" y="400" class="title" text-anchor="middle" font-size="80">vs</text>
+  <text x="540" y="500" class="title" text-anchor="middle">Kubernetes</text>
+
+  <!-- The punchline -->
+  <g transform="translate(540, 680)">
+    <rect x="-200" y="-40" width="400" height="100" rx="12" fill="#f4d9cb"/>
+    <text x="0" y="40" class="body" text-anchor="middle" font-size="26" font-weight="600">Swarm was simpler.</text>
+    <text x="0" y="75" class="body" text-anchor="middle" font-size="26">Kubernetes won anyway.</text>
+  </g>
+
+  <!-- Accent color bar -->
+  <rect x="0" y="0" width="1080" height="12" class="accent"/>
+</svg>

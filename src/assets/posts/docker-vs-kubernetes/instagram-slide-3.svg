@@ -1,0 +1,37 @@
+<svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .bg { fill: #f7f3ec; }
+      .accent { fill: #d6552b; }
+      .ink { fill: #1f1b16; }
+      .title { font-family: 'Fraunces', Georgia, serif; font-size: 48px; font-weight: 900; fill: #1f1b16; }
+      .stat { font-family: 'Fraunces', Georgia, serif; font-size: 64px; font-weight: 900; fill: #d6552b; }
+      .body { font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 26px; fill: #4a423a; }
+    </style>
+  </defs>
+
+  <rect width="1080" height="1080" class="bg"/>
+
+  <!-- Company names -->
+  <text x="540" y="200" class="title" text-anchor="middle" font-size="56">Real world:</text>
+
+  <!-- Spotify stat -->
+  <g transform="translate(270, 400)">
+    <circle cx="0" cy="0" r="100" fill="#f4d9cb"/>
+    <text x="0" y="20" class="stat" text-anchor="middle" font-size="48">600M</text>
+    <text x="0" y="80" class="body" text-anchor="middle" font-size="20">Spotify users</text>
+    <text x="0" y="110" class="body" text-anchor="middle" font-size="18" fill="#d6552b">on Kubernetes</text>
+  </g>
+
+  <!-- Reddit stat -->
+  <g transform="translate(810, 400)">
+    <circle cx="0" cy="0" r="100" fill="#f4d9cb"/>
+    <text x="0" y="20" class="stat" text-anchor="middle" font-size="48">Reddit</text>
+    <text x="0" y="80" class="body" text-anchor="middle" font-size="20">moves off SSH</text>
+    <text x="0" y="110" class="body" text-anchor="middle" font-size="18" fill="#d6552b">to auto-scaling</text>
+  </g>
+
+  <!-- Bottom text -->
+  <text x="540" y="800" class="body" text-anchor="middle" font-size="28" font-weight="600">When the load grows, Kubernetes handles it</text>
+  <text x="540" y="850" class="body" text-anchor="middle" font-size="28" font-weight="600">without waking you up</text>
+</svg>

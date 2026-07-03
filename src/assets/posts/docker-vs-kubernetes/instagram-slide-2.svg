@@ -1,0 +1,31 @@
+<svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .bg { fill: #f7f3ec; }
+      .accent { fill: #d6552b; }
+      .ink { fill: #1f1b16; }
+      .line { stroke: #e3dccf; stroke-width: 4; fill: none; }
+      .title { font-family: 'Fraunces', Georgia, serif; font-size: 48px; font-weight: 900; fill: #1f1b16; }
+      .body { font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 28px; fill: #4a423a; }
+    </style>
+  </defs>
+
+  <rect width="1080" height="1080" class="bg"/>
+
+  <!-- Docker box illustration -->
+  <g transform="translate(540, 320)">
+    <rect x="-120" y="-80" width="240" height="200" rx="12" class="line" stroke-width="6"/>
+    <text x="0" y="40" class="title" text-anchor="middle" font-size="56">📦</text>
+    <text x="0" y="100" class="body" text-anchor="middle" font-size="24" font-weight="600">Docker</text>
+  </g>
+
+  <!-- Title -->
+  <text x="540" y="640" class="title" text-anchor="middle" font-size="52">Packs your app</text>
+  <text x="540" y="710" class="title" text-anchor="middle" font-size="52">in a box</text>
+
+  <!-- Caption -->
+  <text x="540" y="820" class="body" text-anchor="middle">Code + libraries + settings = one sealed container</text>
+
+  <!-- Bottom accent -->
+  <rect x="0" y="1000" width="1080" height="80" class="accent"/>
+</svg>

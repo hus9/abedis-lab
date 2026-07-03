@@ -7,7 +7,7 @@
   category: Tech
   topic: Docker vs Kubernetes
   slug: docker-vs-kubernetes
-  status: pending
+  status: done
 - day: 2
   category: Tinkering
   topic: Mechanical vs quartz vs automatic
