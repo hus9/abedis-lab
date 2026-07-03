@@ -1,0 +1,54 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .ink { fill: #1f1b16; }
+      .accent { fill: #d6552b; }
+      .line { stroke: #e3dccf; stroke-width: 2; fill: none; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-weight: 600; fill: #1f1b16; }
+      .sub { font-family: 'Atkinson Hyperlegible', sans-serif; fill: #4a423a; }
+      .stat { font-family: 'Fraunces', Georgia, serif; font-weight: 900; fill: #d6552b; }
+    </style>
+  </defs>
+
+  <rect width="800" height="400" class="paper"/>
+
+  <!-- Timeline spine -->
+  <line x1="60" y1="200" x2="740" y2="200" stroke="#1f1b16" stroke-width="3" opacity="0.7"/>
+
+  <!-- 1969: Seiko Astron -->
+  <g transform="translate(110, 200)">
+    <circle cx="0" cy="0" r="9" class="accent"/>
+    <text x="0" y="-20" class="label" font-size="17" text-anchor="middle">1969</text>
+    <text x="0" y="34" class="sub" font-size="12" text-anchor="middle">Seiko Astron</text>
+    <text x="0" y="50" class="sub" font-size="12" text-anchor="middle">first quartz watch</text>
+  </g>
+
+  <!-- Crisis zone 1970-1983 -->
+  <rect x="180" y="170" width="330" height="60" rx="6" fill="#f4d9cb" opacity="0.7"/>
+  <text x="345" y="150" class="label" font-size="16" text-anchor="middle">1970 &#8211; 1983</text>
+  <text x="345" y="205" class="stat" font-size="26" text-anchor="middle">1,600 &#8594; 600 firms</text>
+  <text x="345" y="225" class="sub" font-size="12" text-anchor="middle">the quartz crisis</text>
+  <text x="345" y="252" class="sub" font-size="12" text-anchor="middle">90,000 &#8594; 28,000 jobs</text>
+
+  <!-- 1983: Swatch Group -->
+  <g transform="translate(540, 200)">
+    <circle cx="0" cy="0" r="9" class="accent"/>
+    <text x="0" y="-20" class="label" font-size="17" text-anchor="middle">1983</text>
+    <text x="0" y="34" class="sub" font-size="12" text-anchor="middle">Swatch Group</text>
+    <text x="0" y="50" class="sub" font-size="12" text-anchor="middle">forms</text>
+  </g>
+
+  <!-- 1997: Swatch Skin recovery -->
+  <g transform="translate(680, 200)">
+    <circle cx="0" cy="0" r="9" class="ink"/>
+    <text x="0" y="-20" class="label" font-size="17" text-anchor="middle">1997</text>
+    <text x="0" y="34" class="sub" font-size="12" text-anchor="middle">Swatch Skin</text>
+    <text x="0" y="50" class="sub" font-size="12" text-anchor="middle">luxury repositioning</text>
+  </g>
+
+  <!-- Arrowhead at end of spine -->
+  <polygon points="740,200 726,193 726,207" class="ink"/>
+
+  <text x="400" y="330" class="sub" text-anchor="middle" font-size="13">Switzerland invented quartz, then nearly lost the industry refusing to use it</text>
+</svg>

@@ -1,0 +1,81 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .ink { fill: #1f1b16; }
+      .accent { fill: #d6552b; }
+      .line { stroke: #e3dccf; stroke-width: 2; fill: none; }
+      .gear-line { stroke: #1f1b16; stroke-width: 2; fill: none; opacity: 0.55; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-size: 20px; font-weight: 600; fill: #1f1b16; }
+      .sub { font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 12px; fill: #4a423a; }
+    </style>
+  </defs>
+
+  <rect width="800" height="400" class="paper"/>
+
+  <!-- Divider lines between panels -->
+  <line x1="267" y1="30" x2="267" y2="340" class="line"/>
+  <line x1="533" y1="30" x2="533" y2="340" class="line"/>
+
+  <!-- PANEL 1: Mechanical — exposed gear train -->
+  <g transform="translate(133, 170)">
+    <circle cx="0" cy="0" r="95" class="line" stroke-width="3"/>
+    <!-- gear train -->
+    <g class="gear-line">
+      <circle cx="-30" cy="-10" r="28"/>
+      <circle cx="-30" cy="-10" r="4" fill="#1f1b16" opacity="0.55"/>
+      <circle cx="20" cy="20" r="20"/>
+      <circle cx="20" cy="20" r="3" fill="#1f1b16" opacity="0.55"/>
+      <circle cx="40" cy="-30" r="14"/>
+      <circle cx="40" cy="-30" r="2.5" fill="#1f1b16" opacity="0.55"/>
+    </g>
+    <!-- gear teeth marks (simple ticks around biggest gear) -->
+    <g stroke="#1f1b16" stroke-width="2" opacity="0.55">
+      <line x1="-30" y1="-38" x2="-30" y2="-44"/>
+      <line x1="-2" y1="-10" x2="4" y2="-14"/>
+      <line x1="-58" y1="-10" x2="-64" y2="-14"/>
+      <line x1="-30" y1="18" x2="-30" y2="24"/>
+    </g>
+    <!-- mainspring coil -->
+    <path d="M -60 55 Q -40 40 -50 25 Q -60 10 -45 0" class="accent" stroke="#d6552b" stroke-width="4" fill="none"/>
+    <text x="0" y="145" class="label" text-anchor="middle">Mechanical</text>
+    <text x="0" y="165" class="sub" text-anchor="middle">spring + escapement</text>
+  </g>
+
+  <!-- PANEL 2: Quartz — crystal + circuit -->
+  <g transform="translate(400, 170)">
+    <circle cx="0" cy="0" r="95" class="line" stroke-width="3"/>
+    <!-- quartz crystal tuning-fork shape -->
+    <path d="M -14 -50 L -14 10 M 14 -50 L 14 10 M -14 10 Q -14 30 0 30 Q 14 30 14 10" class="ink" stroke="#1f1b16" stroke-width="4" fill="none"/>
+    <!-- circuit traces -->
+    <g stroke="#d6552b" stroke-width="3" fill="none" class="accent">
+      <path d="M -14 -50 L -50 -50 L -50 -10"/>
+      <path d="M 14 -50 L 50 -50 L 50 -10"/>
+      <circle cx="-50" cy="-10" r="4" fill="#d6552b"/>
+      <circle cx="50" cy="-10" r="4" fill="#d6552b"/>
+    </g>
+    <!-- battery -->
+    <rect x="-22" y="45" width="44" height="24" rx="3" class="line" stroke-width="2.5"/>
+    <line x1="-8" y1="45" x2="-8" y2="35" stroke="#1f1b16" stroke-width="3" opacity="0.55"/>
+    <line x1="8" y1="45" x2="8" y2="38" stroke="#1f1b16" stroke-width="2" opacity="0.55"/>
+    <text x="0" y="145" class="label" text-anchor="middle">Quartz</text>
+    <text x="0" y="165" class="sub" text-anchor="middle">crystal + battery</text>
+  </g>
+
+  <!-- PANEL 3: Automatic — rotor mid-swing -->
+  <g transform="translate(667, 170)">
+    <circle cx="0" cy="0" r="95" class="line" stroke-width="3"/>
+    <!-- rotor weight, drawn mid-swing (angled semicircle) -->
+    <g transform="rotate(-35)">
+      <path d="M -55 0 A 55 55 0 0 1 55 0 Z" fill="#d6552b" opacity="0.85"/>
+      <circle cx="0" cy="0" r="6" class="ink"/>
+    </g>
+    <!-- motion arc indicating swing -->
+    <path d="M -60 40 A 70 70 0 0 1 60 40" class="gear-line" stroke-dasharray="4 6"/>
+    <polygon points="58,40 46,32 50,44" fill="#1f1b16" opacity="0.55"/>
+    <text x="0" y="145" class="label" text-anchor="middle">Automatic</text>
+    <text x="0" y="165" class="sub" text-anchor="middle">rotor, mid-swing</text>
+  </g>
+
+  <text x="400" y="380" class="sub" text-anchor="middle" font-size="13">Same job, three completely different mechanisms</text>
+</svg>
