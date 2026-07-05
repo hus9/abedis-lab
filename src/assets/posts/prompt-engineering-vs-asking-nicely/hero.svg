@@ -1,0 +1,46 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .ink { fill: #1f1b16; }
+      .accent { fill: #d6552b; }
+      .line { stroke: #e3dccf; stroke-width: 2; fill: none; }
+      .dial-line { stroke: #1f1b16; stroke-width: 2; fill: none; opacity: 0.55; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-size: 20px; font-weight: 600; fill: #1f1b16; }
+      .sub { font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 13px; fill: #4a423a; }
+      .num { font-family: 'Fraunces', Georgia, serif; font-size: 16px; font-weight: 600; fill: #d6552b; }
+    </style>
+  </defs>
+
+  <rect width="800" height="400" class="paper"/>
+
+  <!-- Toggle switch, tilted toward "step by step" -->
+  <g transform="translate(400, 130)">
+    <rect x="-160" y="-36" width="320" height="72" rx="36" class="line" stroke-width="4"/>
+    <!-- knob positioned to the right (structured side) -->
+    <circle cx="100" cy="0" r="46" class="accent"/>
+    <text x="100" y="7" text-anchor="middle" font-family="'Atkinson Hyperlegible', sans-serif" font-size="20" font-weight="700" fill="#fffdf8">on</text>
+
+    <text x="-160" y="-56" class="label" font-size="17">just ask</text>
+    <text x="160" y="-56" class="label" font-size="17" text-anchor="end">step by step</text>
+  </g>
+
+  <!-- Accuracy dial, needle swinging from low to near-full -->
+  <g transform="translate(400, 300)">
+    <path d="M -140 0 A 140 140 0 0 1 140 0" class="line" stroke-width="4"/>
+    <!-- tick marks -->
+    <g class="dial-line">
+      <line x1="-140" y1="0" x2="-128" y2="0"/>
+      <line x1="0" y1="-140" x2="0" y2="-128"/>
+      <line x1="140" y1="0" x2="128" y2="0"/>
+    </g>
+    <!-- needle swung far right, near-full accuracy -->
+    <line x1="0" y1="0" x2="118" y2="-70" stroke="#d6552b" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="0" cy="0" r="7" class="ink"/>
+    <text x="-140" y="24" class="num" fill="#4a423a" text-anchor="start">18%</text>
+    <text x="140" y="24" class="num" text-anchor="end">79%</text>
+    <text x="0" y="-160" class="sub" text-anchor="middle">accuracy</text>
+  </g>
+
+  <text x="400" y="382" class="sub" text-anchor="middle" font-size="14">Four words added, same task, wildly different outcome</text>
+</svg>

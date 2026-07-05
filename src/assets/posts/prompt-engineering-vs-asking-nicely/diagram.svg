@@ -1,0 +1,37 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .ink { fill: #1f1b16; }
+      .accent { fill: #d6552b; }
+      .bar-before { fill: #e3dccf; }
+      .bar-after { fill: #d6552b; }
+      .line { stroke: #e3dccf; stroke-width: 2; fill: none; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-size: 20px; font-weight: 600; fill: #1f1b16; }
+      .sub { font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 13px; fill: #4a423a; }
+      .num { font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 14px; font-weight: 700; fill: #1f1b16; }
+      .delta { font-family: 'Fraunces', Georgia, serif; font-size: 22px; font-weight: 700; fill: #d6552b; }
+    </style>
+  </defs>
+
+  <rect width="800" height="400" class="paper"/>
+  <line x1="120" y1="340" x2="680" y2="340" stroke="#1f1b16" stroke-width="2" opacity="0.4"/>
+
+  <!-- Group 1: Tone (Penn State study) -->
+  <rect x="170" y="113.8" width="50" height="226.2" class="bar-before"/>
+  <rect x="240" y="102.6" width="50" height="237.4" class="bar-after"/>
+  <text x="195" y="100" class="num" text-anchor="middle">80.8%</text>
+  <text x="265" y="89" class="num" text-anchor="middle">84.8%</text>
+  <text x="230" y="365" class="label" text-anchor="middle" font-size="18">Tone</text>
+  <text x="230" y="388" class="sub" text-anchor="middle">polite → rude</text>
+  <text x="230" y="60" class="delta" text-anchor="middle" font-size="20">+4 pts</text>
+
+  <!-- Group 2: Structure (chain-of-thought study) -->
+  <rect x="530" y="290.4" width="50" height="49.6" class="bar-before"/>
+  <rect x="600" y="119.6" width="50" height="220.4" class="bar-after"/>
+  <text x="555" y="278" class="num" text-anchor="middle">17.7%</text>
+  <text x="625" y="106" class="num" text-anchor="middle">78.7%</text>
+  <text x="590" y="365" class="label" text-anchor="middle" font-size="18">Structure</text>
+  <text x="590" y="388" class="sub" text-anchor="middle">no trick → "step by step"</text>
+  <text x="590" y="60" class="delta" text-anchor="middle" font-size="20">+61 pts</text>
+</svg>
