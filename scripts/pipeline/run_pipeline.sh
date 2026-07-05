@@ -17,6 +17,10 @@ notify() {
 }
 
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+# launchd has no WorkingDirectory set for this job, so cwd defaults to $HOME --
+# every stage prompt uses paths relative to the repo, so we must cd there
+# ourselves or the model's relative writes land under $HOME instead.
+cd "$REPO_DIR"
 PIPE_DIR="$REPO_DIR/scripts/pipeline"
 STATE_DIR="$PIPE_DIR/state"
 STAGES_DIR="$PIPE_DIR/stages"
