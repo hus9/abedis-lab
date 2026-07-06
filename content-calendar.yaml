@@ -22,7 +22,7 @@
   category: Trading
   topic: Options vs futures theta trap
   slug: options-vs-futures-theta-trap
-  status: pending
+  status: done
 - day: 5
   category: Tech
   topic: The pod that lied (liveness vs readiness probes)
