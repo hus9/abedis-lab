@@ -1,0 +1,58 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .raised { fill: #fffdf8; }
+      .ink { fill: #1f1b16; }
+      .ink-soft { fill: #4a423a; }
+      .accent { fill: #d6552b; }
+      .accent-line { stroke: #d6552b; }
+      .line { stroke: #e3dccf; stroke-width: 2; fill: none; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-weight: 900; fill: #1f1b16; }
+      .tag-text { font-family: 'Fraunces', Georgia, serif; font-weight: 700; fill: #fffdf8; }
+      .body { font-family: 'Atkinson Hyperlegible', sans-serif; fill: #4a423a; }
+    </style>
+  </defs>
+
+  <rect width="800" height="400" class="paper"/>
+
+  <!-- Stopwatch counting down, behind the server -->
+  <g transform="translate(560,190)" opacity="0.9">
+    <circle r="130" fill="none" stroke="#e3dccf" stroke-width="10"/>
+    <!-- progress arc draining, ~ a third left, evokes countdown -->
+    <path d="M 0 -130 A 130 130 0 1 1 -95 -89" fill="none" class="accent-line" stroke-width="10" stroke-linecap="round"/>
+    <!-- stopwatch button -->
+    <rect x="-16" y="-158" width="32" height="22" rx="6" class="ink"/>
+    <rect x="-8" y="-176" width="16" height="18" rx="4" class="ink"/>
+    <!-- countdown number -->
+    <text x="0" y="30" text-anchor="middle" class="label" font-size="86">30</text>
+    <text x="0" y="70" text-anchor="middle" class="body" font-size="20">seconds</text>
+  </g>
+
+  <!-- Server box -->
+  <g transform="translate(120,110)">
+    <rect x="0" y="0" width="230" height="190" rx="14" class="raised" stroke="#1f1b16" stroke-width="4"/>
+    <!-- server slats -->
+    <rect x="20" y="24" width="190" height="14" rx="4" class="line" stroke-width="3"/>
+    <rect x="20" y="52" width="190" height="14" rx="4" class="line" stroke-width="3"/>
+    <circle cx="34" cy="31" r="4" class="accent"/>
+    <circle cx="34" cy="59" r="4" class="accent"/>
+
+    <!-- Name tag pinned to the server, slightly askew -->
+    <g transform="translate(115,135) rotate(-4)">
+      <rect x="-95" y="-34" width="190" height="68" rx="10" class="accent" stroke="#1f1b16" stroke-width="3"/>
+      <circle cx="-95" cy="0" r="6" class="ink"/>
+      <text x="10" y="-2" text-anchor="middle" class="tag-text" font-size="26">I'M FINE</text>
+      <text x="10" y="24" text-anchor="middle" class="tag-text" font-size="14" opacity="0.85">HELLO, MY NAME IS</text>
+    </g>
+  </g>
+
+  <!-- ticking marks radiating from stopwatch to suggest motion -->
+  <g stroke="#e3dccf" stroke-width="3" opacity="0.6">
+    <line x1="560" y1="40" x2="560" y2="20"/>
+    <line x1="680" y1="90" x2="695" y2="76"/>
+    <line x1="700" y1="190" x2="722" y2="190"/>
+  </g>
+
+  <text x="400" y="380" text-anchor="middle" class="body" font-size="16">A pod that looks alive can still be unfit to serve — for exactly this long.</text>
+</svg>

@@ -1,0 +1,90 @@
+<svg viewBox="0 0 800 440" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .raised { fill: #fffdf8; }
+      .ink { fill: #1f1b16; }
+      .ink-soft { fill: #4a423a; }
+      .accent { fill: #d6552b; }
+      .good { fill: #2f7d53; }
+      .line { stroke: #e3dccf; stroke-width: 2; fill: none; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-weight: 900; fill: #1f1b16; }
+      .body { font-family: 'Atkinson Hyperlegible', sans-serif; fill: #4a423a; }
+    </style>
+    <marker id="arrow-accent" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 9 3, 0 6" class="accent"/>
+    </marker>
+    <marker id="arrow-good" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 9 3, 0 6" class="good"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="440" class="paper"/>
+
+  <!-- Divider -->
+  <line x1="400" y1="30" x2="400" y2="410" class="line" stroke-dasharray="6 8"/>
+
+  <!-- LEFT PANEL: liveness wired to DB check -->
+  <text x="200" y="40" text-anchor="middle" class="label" font-size="20">liveness checks the DB</text>
+
+  <!-- database, broken -->
+  <g transform="translate(200,90)">
+    <ellipse cx="0" cy="0" rx="34" ry="12" class="raised" stroke="#1f1b16" stroke-width="3"/>
+    <path d="M -34 0 L -34 30 A 34 12 0 0 0 34 30 L 34 0" class="raised" stroke="#1f1b16" stroke-width="3"/>
+    <line x1="-34" y1="15" x2="34" y2="15" class="line"/>
+    <text x="0" y="8" text-anchor="middle" font-size="26" class="accent" font-family="'Fraunces', Georgia, serif" font-weight="900">&#10005;</text>
+  </g>
+  <text x="200" y="150" text-anchor="middle" class="body" font-size="13">database down</text>
+
+  <!-- cascading restart loop of pods -->
+  <g transform="translate(90,190)">
+    <rect x="0" y="0" width="70" height="56" rx="8" class="raised" stroke="#d6552b" stroke-width="3"/>
+    <text x="35" y="34" text-anchor="middle" font-size="22" class="accent" font-family="'Fraunces', Georgia, serif" font-weight="900">&#8635;</text>
+  </g>
+  <g transform="translate(180,190)">
+    <rect x="0" y="0" width="70" height="56" rx="8" class="raised" stroke="#d6552b" stroke-width="3"/>
+    <text x="35" y="34" text-anchor="middle" font-size="22" class="accent" font-family="'Fraunces', Georgia, serif" font-weight="900">&#8635;</text>
+  </g>
+  <g transform="translate(270,190)">
+    <rect x="0" y="0" width="70" height="56" rx="8" class="raised" stroke="#d6552b" stroke-width="3"/>
+    <text x="35" y="34" text-anchor="middle" font-size="22" class="accent" font-family="'Fraunces', Georgia, serif" font-weight="900">&#8635;</text>
+  </g>
+  <text x="200" y="272" text-anchor="middle" class="body" font-size="13">every pod restarts, again and again</text>
+
+  <!-- arrow from db down to pods -->
+  <line x1="200" y1="140" x2="200" y2="182" class="line" stroke="#d6552b" stroke-width="3" marker-end="url(#arrow-accent)"/>
+
+  <text x="200" y="330" text-anchor="middle" class="label" font-size="18" fill="#d6552b">restart storm</text>
+  <text x="200" y="360" text-anchor="middle" class="body" font-size="13">one outage becomes a total one</text>
+
+  <!-- RIGHT PANEL: readiness only -->
+  <text x="600" y="40" text-anchor="middle" class="label" font-size="20">readiness checks the DB</text>
+
+  <g transform="translate(600,90)">
+    <ellipse cx="0" cy="0" rx="34" ry="12" class="raised" stroke="#1f1b16" stroke-width="3"/>
+    <path d="M -34 0 L -34 30 A 34 12 0 0 0 34 30 L 34 0" class="raised" stroke="#1f1b16" stroke-width="3"/>
+    <line x1="-34" y1="15" x2="34" y2="15" class="line"/>
+    <text x="0" y="8" text-anchor="middle" font-size="26" class="accent" font-family="'Fraunces', Georgia, serif" font-weight="900">&#10005;</text>
+  </g>
+  <text x="600" y="150" text-anchor="middle" class="body" font-size="13">database down</text>
+
+  <!-- pods calmly benched, not restarting -->
+  <g transform="translate(490,190)">
+    <rect x="0" y="0" width="70" height="56" rx="8" class="raised" stroke="#e3dccf" stroke-width="3" opacity="0.7"/>
+    <text x="35" y="34" text-anchor="middle" font-size="20" class="ink-soft" font-family="'Fraunces', Georgia, serif" font-weight="900">&#9208;</text>
+  </g>
+  <g transform="translate(580,190)">
+    <rect x="0" y="0" width="70" height="56" rx="8" class="raised" stroke="#e3dccf" stroke-width="3" opacity="0.7"/>
+    <text x="35" y="34" text-anchor="middle" font-size="20" class="ink-soft" font-family="'Fraunces', Georgia, serif" font-weight="900">&#9208;</text>
+  </g>
+  <g transform="translate(670,190)">
+    <rect x="0" y="0" width="70" height="56" rx="8" class="raised" stroke="#e3dccf" stroke-width="3" opacity="0.7"/>
+    <text x="35" y="34" text-anchor="middle" font-size="20" class="ink-soft" font-family="'Fraunces', Georgia, serif" font-weight="900">&#9208;</text>
+  </g>
+  <text x="600" y="272" text-anchor="middle" class="body" font-size="13">pods sit out, still alive, still running</text>
+
+  <line x1="600" y1="140" x2="600" y2="182" class="line" stroke="#2f7d53" stroke-width="3" marker-end="url(#arrow-good)"/>
+
+  <text x="600" y="330" text-anchor="middle" class="label" font-size="18" fill="#2f7d53">calm bench</text>
+  <text x="600" y="360" text-anchor="middle" class="body" font-size="13">traffic pauses, nothing gets rebuilt</text>
+</svg>
