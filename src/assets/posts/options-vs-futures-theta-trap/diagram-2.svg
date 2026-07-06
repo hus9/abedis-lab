@@ -1,0 +1,42 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .ink { fill: #1f1b16; }
+      .intrinsic { fill: #1f1b16; opacity: 0.85; }
+      .extrinsic { fill: #d6552b; }
+      .line { stroke: #1f1b16; stroke-width: 2; opacity: 0.4; fill: none; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-size: 19px; font-weight: 600; fill: #1f1b16; }
+      .stat { font-family: 'Fraunces', Georgia, serif; font-size: 32px; font-weight: 900; fill: #f7f3ec; }
+      .sub { font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 13px; fill: #4a423a; }
+    </style>
+  </defs>
+
+  <rect width="800" height="400" class="paper"/>
+
+  <!-- $6 premium bracket -->
+  <text x="400" y="60" class="label" text-anchor="middle" font-size="18">$6 premium, split two ways</text>
+  <line x1="250" y1="80" x2="550" y2="80" class="line"/>
+  <line x1="250" y1="80" x2="250" y2="90" class="line"/>
+  <line x1="550" y1="80" x2="550" y2="90" class="line"/>
+
+  <!-- $1 extrinsic block (top sliver) -->
+  <rect x="250" y="90" width="300" height="42" rx="6" class="extrinsic"/>
+  <text x="400" y="118" class="stat" font-size="22" text-anchor="middle">$1 extrinsic</text>
+
+  <!-- $5 intrinsic block (bottom, larger) -->
+  <rect x="250" y="132" width="300" height="180" rx="8" class="intrinsic"/>
+  <text x="400" y="235" class="stat" text-anchor="middle">$5</text>
+  <text x="400" y="270" class="sub" font-size="15" text-anchor="middle" fill="#f7f3ec">intrinsic</text>
+
+  <!-- Callouts -->
+  <text x="620" y="105" class="sub" font-size="13">&#8592; the only part</text>
+  <text x="620" y="122" class="sub" font-size="13">theta can erode</text>
+
+  <text x="620" y="225" class="sub" font-size="13">&#8592; moves with</text>
+  <text x="620" y="242" class="sub" font-size="13">the stock, not</text>
+  <text x="620" y="259" class="sub" font-size="13">the calendar</text>
+
+  <text x="400" y="345" class="sub" text-anchor="middle" font-size="13">$50 stock, $45 call &#8212; the strike is already $5 in the money</text>
+  <text x="400" y="380" class="sub" text-anchor="middle" font-size="13">Sellers who count the full $6 as "decay" are off by a factor of six</text>
+</svg>

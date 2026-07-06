@@ -1,0 +1,64 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .ink { fill: #1f1b16; }
+      .accent { fill: #d6552b; }
+      .line { stroke: #e3dccf; stroke-width: 2; fill: none; }
+      .axis { stroke: #1f1b16; stroke-width: 2.5; opacity: 0.7; }
+      .curve { stroke: #d6552b; stroke-width: 5; fill: none; stroke-linecap: round; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-size: 18px; font-weight: 600; fill: #1f1b16; }
+      .sub { font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 13px; fill: #4a423a; }
+      .tick { font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 13px; fill: #4a423a; }
+    </style>
+  </defs>
+
+  <rect width="800" height="400" class="paper"/>
+
+  <!-- Final-30-days shaded zone -->
+  <rect x="560" y="50" width="160" height="260" fill="#f4d9cb" opacity="0.6"/>
+  <!-- Final week zone, darker -->
+  <rect x="690" y="50" width="30" height="260" fill="#d6552b" opacity="0.25"/>
+
+  <!-- Axes -->
+  <line x1="80" y1="310" x2="740" y2="310" class="axis"/>
+  <line x1="80" y1="50" x2="80" y2="310" class="axis"/>
+
+  <!-- Decay curve: slow from day 90 to 60, near-flat 60-30, steep in final 30, near-vertical last week -->
+  <path d="M 80 80
+           C 220 95, 330 115, 400 140
+           C 470 168, 540 210, 600 250
+           C 640 278, 670 295, 690 300
+           C 705 303, 715 306, 720 309"
+        class="curve"/>
+
+  <!-- Day markers -->
+  <g class="tick">
+    <line x1="80" y1="310" x2="80" y2="318" stroke="#1f1b16" stroke-width="2" opacity="0.7"/>
+    <text x="80" y="335" text-anchor="middle">90 days</text>
+
+    <line x1="400" y1="310" x2="400" y2="318" stroke="#1f1b16" stroke-width="2" opacity="0.7"/>
+    <text x="400" y="335" text-anchor="middle">60 days</text>
+
+    <line x1="560" y1="310" x2="560" y2="318" stroke="#1f1b16" stroke-width="2" opacity="0.7"/>
+    <text x="560" y="335" text-anchor="middle">30 days</text>
+
+    <line x1="690" y1="310" x2="690" y2="318" stroke="#1f1b16" stroke-width="2" opacity="0.7"/>
+    <text x="690" y="335" text-anchor="middle">7 days</text>
+
+    <line x1="720" y1="310" x2="720" y2="318" stroke="#1f1b16" stroke-width="2" opacity="0.7"/>
+    <text x="720" y="335" text-anchor="middle">0</text>
+  </g>
+
+  <text x="80" y="65" class="label" font-size="15">Option value</text>
+  <text x="740" y="330" class="label" font-size="15" text-anchor="end">Days to expiration &#8594; 0</text>
+
+  <text x="640" y="80" class="sub" font-size="13" text-anchor="middle">final 30 days:</text>
+  <text x="640" y="98" class="sub" font-size="13" text-anchor="middle">&#8776;2/3 of all decay</text>
+
+  <text x="705" y="115" class="sub" font-size="12" text-anchor="middle">last</text>
+  <text x="705" y="130" class="sub" font-size="12" text-anchor="middle">week:</text>
+  <text x="705" y="145" class="sub" font-size="12" text-anchor="middle">vertical</text>
+
+  <text x="400" y="380" class="sub" text-anchor="middle" font-size="13">Flat, then flat, then a cliff &#8212; theta wakes up late and moves fast</text>
+</svg>

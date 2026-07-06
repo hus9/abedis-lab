@@ -1,0 +1,64 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .ink { fill: #1f1b16; }
+      .accent { fill: #d6552b; }
+      .line { stroke: #e3dccf; stroke-width: 2; fill: none; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-size: 20px; font-weight: 600; fill: #1f1b16; }
+      .sub { font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 12px; fill: #4a423a; }
+      .price { font-family: 'Fraunces', Georgia, serif; font-weight: 900; fill: #d6552b; }
+      .price-fade { font-family: 'Fraunces', Georgia, serif; font-weight: 900; fill: #d6552b; opacity: 0.35; }
+    </style>
+  </defs>
+
+  <rect width="800" height="400" class="paper"/>
+
+  <!-- Divider -->
+  <line x1="400" y1="30" x2="400" y2="340" class="line"/>
+
+  <!-- LEFT: melting option clock -->
+  <g transform="translate(200, 150)">
+    <!-- clock body, bottom edge melting into drips -->
+    <path d="M -85 -85 A 85 85 0 0 1 85 -85
+             L 88 10 Q 70 40 55 20 Q 45 55 25 25 Q 15 60 -5 22 Q -20 50 -35 15 Q -55 45 -70 5 Q -85 30 -88 10 Z"
+          class="ink" opacity="0.9"/>
+    <!-- clock face -->
+    <circle cx="0" cy="-10" r="62" class="paper" stroke="#1f1b16" stroke-width="3" opacity="0.95"/>
+    <!-- clock hands, drooping like they're melting too -->
+    <path d="M 0 -10 L 0 -50" stroke="#1f1b16" stroke-width="4" stroke-linecap="round"/>
+    <path d="M 0 -10 Q 20 5 34 22" stroke="#d6552b" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <circle cx="0" cy="-10" r="5" class="ink"/>
+    <!-- drips -->
+    <circle cx="-70" cy="55" r="5" class="ink" opacity="0.85"/>
+    <circle cx="-33" cy="65" r="4" class="ink" opacity="0.85"/>
+    <circle cx="20" cy="60" r="4.5" class="ink" opacity="0.85"/>
+    <circle cx="60" cy="50" r="4" class="ink" opacity="0.85"/>
+
+    <!-- price tag, melting/fading downward -->
+    <text x="0" y="-95" class="price" font-size="30" text-anchor="middle">$2,000</text>
+    <text x="0" y="115" class="price-fade" font-size="30" text-anchor="middle">$1,000</text>
+
+    <text x="0" y="150" class="label" text-anchor="middle">Option</text>
+    <text x="0" y="170" class="sub" text-anchor="middle">bleeds value while the clock runs</text>
+  </g>
+
+  <!-- RIGHT: untouched futures contract -->
+  <g transform="translate(600, 150)">
+    <rect x="-90" y="-95" width="180" height="150" rx="10" fill="none" stroke="#1f1b16" stroke-width="3"/>
+    <line x1="-65" y1="-65" x2="65" y2="-65" class="line" stroke="#1f1b16" stroke-width="2" opacity="0.5"/>
+    <line x1="-65" y1="-45" x2="65" y2="-45" class="line" stroke="#1f1b16" stroke-width="2" opacity="0.5"/>
+    <line x1="-65" y1="-25" x2="30" y2="-25" class="line" stroke="#1f1b16" stroke-width="2" opacity="0.5"/>
+    <!-- steady checkmark -->
+    <circle cx="0" cy="20" r="26" class="accent"/>
+    <path d="M -12 20 L -2 32 L 15 8" stroke="#fffdf8" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <text x="0" y="-95" class="price" font-size="30" text-anchor="middle">$2,000</text>
+    <text x="0" y="115" class="price" font-size="30" text-anchor="middle">$2,000</text>
+
+    <text x="0" y="150" class="label" text-anchor="middle">Future</text>
+    <text x="0" y="170" class="sub" text-anchor="middle">no premium, nothing to melt</text>
+  </g>
+
+  <text x="400" y="380" class="sub" text-anchor="middle" font-size="13">Same flat price. One of them is quietly disappearing.</text>
+</svg>
