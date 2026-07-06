@@ -4,7 +4,7 @@ Topic for today: {{topic}} (category: {{category}})
 
 Your job: gather the real substance for this post — not the writing itself.
 
-Produce `scripts/pipeline/state/{{date}}-research.md` containing:
+Produce `{{repo}}/scripts/pipeline/state/{{date}}-research.md` containing:
 1. 3-5 core facts/mechanics the post must get right
 2. The single clearest real-world analogy for this concept (must survive
    the "would a smart 12-year-old get it" test)

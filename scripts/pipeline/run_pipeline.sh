@@ -9,8 +9,10 @@ set -uo pipefail
 
 # launchd agents get a minimal PATH (/usr/bin:/bin:/usr/sbin:/sbin) — needed
 # to find `claude` and `yq` (brew's yq, not the system python3's yaml module,
-# which launchd's python3 resolution doesn't have)
-export PATH="$HOME/.local/bin:/opt/homebrew/bin:$PATH"
+# which launchd's python3 resolution doesn't have) and `node` (lives in
+# /usr/local/bin here, not /opt/homebrew/bin -- its absence silently broke
+# the SVG->PNG Instagram slide conversion on 07-04, 07-05, and 07-06).
+export PATH="$HOME/.local/bin:/opt/homebrew/bin:/usr/local/bin:$PATH"
 
 notify() {
   osascript -e "display notification \"$2\" with title \"$1\"" 2>/dev/null || true
@@ -93,7 +95,28 @@ render_stage() {
     -e "s|{{category}}|$CATEGORY|g" \
     -e "s|{{slug}}|$SLUG|g" \
     -e "s|{{stage}}|$stage|g" \
+    -e "s|{{repo}}|$REPO_DIR|g" \
+    -e "s|{{home}}|$HOME|g" \
     > "$out"
+
+  # If the editor previously bounced this topic for fabricated/mismatched
+  # citations, feed its findings to the next researcher attempt so it fixes
+  # the actual problem instead of repeating it.
+  local rejected="$STATE_DIR/$DATE-research-rejected.md"
+  if [[ "$stage" == "01-researcher" && -f "$rejected" ]]; then
+    {
+      echo ""
+      echo "---"
+      echo "## YOUR PRIOR RESEARCH WAS REJECTED BY THE EDITOR"
+      echo "The editor blocked publication because this research doc had"
+      echo "fabricated or mismatched source citations. Fetch and confirm"
+      echo "every source URL actually supports the claim before citing it --"
+      echo "do not repeat these mistakes. Editor's findings:"
+      echo '```'
+      cat "$rejected"
+      echo '```'
+    } >> "$out"
+  fi
 }
 
 # ---- Run a single stage via Claude Code CLI ----
@@ -269,16 +292,21 @@ fail_terminal() {
 }
 
 # ---- Main loop: failures are classified, not treated uniformly ----
-# - editor content flag  -> terminal BLOCKED (a retry cannot verify a fact)
+# - editor content flag  -> the editor can't fix a bad citation itself, so
+#                           this is NOT a same-stage retry. Send the specific
+#                           findings back to 01-researcher and re-run the
+#                           whole chain once; a second block goes terminal.
 # - session rate limit   -> sleep until reset, retry (does not consume a
 #                           stall retry; capped at 2 sleeps)
 # - anything else        -> ONE informed retry of the failed stage (prompt
 #                           gets the previous output appended). Completed
-#                           stages are never wiped: re-running research from
-#                           scratch is how a hallucination got in last time.
+#                           stages are never blindly wiped here -- a full
+#                           reset without the editor's specific critique is
+#                           how a hallucination got in last time.
 STALL_RETRIES=0
 RATE_SLEEPS=0
 API_RETRIES=0
+EDITOR_RETRIES=0
 FAILED_STAGE=""
 # Latest time (HH:MM, same calendar day) the pipeline may still be waiting on
 # a rate-limit reset before declaring the night lost.
@@ -292,7 +320,18 @@ while true; do
   fi
 
   if [[ -f "$STATE_DIR/$DATE-editor-flags.md" ]]; then
-    fail_terminal "editor blocked publication (see $DATE-editor-flags.md) — needs human review"
+    if (( EDITOR_RETRIES >= 1 )); then
+      fail_terminal "editor blocked publication twice for the same topic (see $DATE-research-rejected.md) — needs human review"
+    fi
+    EDITOR_RETRIES=$(( EDITOR_RETRIES + 1 ))
+    log "Editor blocked on unverifiable research (retry $EDITOR_RETRIES/1). Sending its findings back to the researcher and re-running the whole pipeline."
+    mv "$STATE_DIR/$DATE-editor-flags.md" "$STATE_DIR/$DATE-research-rejected.md"
+    rm -f "$STATE_DIR/$DATE-01-researcher.done" "$STATE_DIR/$DATE-02-writer.done" \
+          "$STATE_DIR/$DATE-03-illustrator.done" "$STATE_DIR/$DATE-04-editor.done" \
+          "$STATE_DIR/$DATE-04-editor-pass.md" \
+          "$STATE_DIR/$DATE-01-researcher-output.log" "$STATE_DIR/$DATE-02-writer-output.log" \
+          "$STATE_DIR/$DATE-03-illustrator-output.log" "$STATE_DIR/$DATE-04-editor-output.log"
+    continue
   fi
 
   # Session limit: pause and resume after the reset, as many times as the

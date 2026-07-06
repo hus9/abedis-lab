@@ -8,8 +8,10 @@ Hard rules, no exceptions:
 - Success is defined ONLY by your output files existing on disk when you
   finish. Exit codes and prose summaries prove nothing.
 - If you are genuinely unable to complete the task, write
-  scripts/pipeline/state/{{date}}-{{stage}}-blocked.md explaining exactly
-  what blocked you, then stop.
+  {{repo}}/scripts/pipeline/state/{{date}}-{{stage}}-blocked.md explaining
+  exactly what blocked you, then stop.
+- Every path below is absolute, rooted at {{repo}}. Use them exactly as
+  given — do not substitute your own guess at where the repo lives.
 
 Your task follows.
 
