@@ -1,0 +1,71 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .ink { fill: #1f1b16; }
+      .accent { fill: #d6552b; }
+      .line { stroke: #e3dccf; stroke-width: 2; fill: none; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-size: 20px; font-weight: 600; fill: #1f1b16; }
+      .sub { font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 13px; fill: #4a423a; }
+      .tag { font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; }
+    </style>
+    <linearGradient id="skyFlat" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#aab4bd"/>
+      <stop offset="100%" stop-color="#d9dcd6"/>
+    </linearGradient>
+    <linearGradient id="skyVivid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1c5fae"/>
+      <stop offset="55%" stop-color="#3b86d6"/>
+      <stop offset="100%" stop-color="#9fd0ee"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="400" class="paper"/>
+
+  <!-- Viewfinder frame -->
+  <g>
+    <!-- corner brackets -->
+    <g stroke="#1f1b16" stroke-width="4" fill="none" stroke-linecap="round">
+      <path d="M 130 60 L 108 60 L 108 82"/>
+      <path d="M 670 60 L 692 60 L 692 82"/>
+      <path d="M 130 340 L 108 340 L 108 318"/>
+      <path d="M 670 340 L 692 340 L 692 318"/>
+    </g>
+
+    <!-- Left half: technically accurate, washed out -->
+    <clipPath id="clipLeft"><rect x="108" y="60" width="292" height="280"/></clipPath>
+    <g clip-path="url(#clipLeft)">
+      <rect x="108" y="60" width="292" height="200" fill="url(#skyFlat)"/>
+      <rect x="108" y="260" width="292" height="80" fill="#6b6659"/>
+      <circle cx="230" cy="120" r="26" fill="#e9e4d8" opacity="0.9"/>
+    </g>
+
+    <!-- Right half: Fujifilm punchy -->
+    <clipPath id="clipRight"><rect x="400" y="60" width="292" height="280"/></clipPath>
+    <g clip-path="url(#clipRight)">
+      <rect x="400" y="60" width="292" height="200" fill="url(#skyVivid)"/>
+      <rect x="400" y="260" width="292" height="80" fill="#3a2e22"/>
+      <circle cx="520" cy="110" r="28" fill="#fff6e0"/>
+    </g>
+
+    <!-- divider -->
+    <line x1="400" y1="60" x2="400" y2="340" stroke="#1f1b16" stroke-width="3"/>
+
+    <!-- Exposure ticks along top, camera-UI flavor -->
+    <g stroke="#1f1b16" stroke-width="2" opacity="0.5">
+      <line x1="150" y1="60" x2="150" y2="72"/>
+      <line x1="190" y1="60" x2="190" y2="72"/>
+      <line x1="610" y1="60" x2="610" y2="72"/>
+      <line x1="650" y1="60" x2="650" y2="72"/>
+    </g>
+
+    <!-- Tags -->
+    <rect x="118" y="270" width="90" height="26" rx="6" fill="#f7f3ec" opacity="0.85"/>
+    <text x="163" y="288" class="tag" fill="#4a423a" text-anchor="middle">ACCURATE</text>
+
+    <rect x="592" y="270" width="90" height="26" rx="6" class="accent"/>
+    <text x="637" y="288" class="tag" fill="#fffdf8" text-anchor="middle">FUJIFILM</text>
+  </g>
+
+  <text x="400" y="380" class="sub" text-anchor="middle">Same sky. One version measures true. The other one remembers.</text>
+</svg>
