@@ -1,0 +1,50 @@
+<svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .ink { fill: #1f1b16; }
+      .ink-soft { fill: #4a423a; }
+      .accent { fill: #d6552b; }
+      .accent-soft { fill: #f4d9cb; }
+      .line { stroke: #e3dccf; stroke-width: 2; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-weight: 900; fill: #1f1b16; }
+      .body { font-family: 'Atkinson Hyperlegible', sans-serif; fill: #4a423a; }
+    </style>
+  </defs>
+
+  <rect width="800" height="420" class="paper"/>
+
+  <!-- axis -->
+  <line x1="90" y1="330" x2="740" y2="330" class="line"/>
+  <text x="415" y="368" text-anchor="middle" class="body" font-size="15">position of the fact in the context window</text>
+  <text x="45" y="200" text-anchor="middle" class="body" font-size="15" transform="rotate(-90,45,200)">recall accuracy</text>
+
+  <!-- dip zone shading -->
+  <path d="M 300 330 L 300 210 Q 415 300 530 210 L 530 330 Z" class="accent-soft" opacity="0.55"/>
+
+  <!-- U-shaped recall curve -->
+  <path d="M 110 100 Q 220 100 300 210 Q 415 300 530 210 Q 610 100 720 100"
+        fill="none" stroke="#d6552b" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- endpoints -->
+  <circle cx="110" cy="100" r="8" class="accent"/>
+  <circle cx="720" cy="100" r="8" class="accent"/>
+  <circle cx="415" cy="256" r="8" class="ink"/>
+
+  <!-- labels -->
+  <text x="110" y="75" text-anchor="middle" class="label" font-size="20">Start</text>
+  <text x="110" y="130" text-anchor="middle" class="body" font-size="14">recalled well</text>
+
+  <text x="720" y="75" text-anchor="middle" class="label" font-size="20">End</text>
+  <text x="720" y="130" text-anchor="middle" class="body" font-size="14">recalled well</text>
+
+  <text x="415" y="240" text-anchor="middle" class="label" font-size="20" fill="#d6552b">Middle</text>
+  <g transform="translate(415,280)">
+    <rect x="-95" y="0" width="190" height="34" rx="17" class="ink"/>
+    <text x="0" y="23" text-anchor="middle" class="body" font-size="15" fill="#fffdf8">30%+ accuracy lost</text>
+  </g>
+
+  <!-- baseline ticks -->
+  <line x1="90" y1="330" x2="90" y2="336" class="line"/>
+  <line x1="740" y1="330" x2="740" y2="336" class="line"/>
+</svg>
