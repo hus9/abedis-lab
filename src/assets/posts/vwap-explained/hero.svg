@@ -1,0 +1,50 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .ink { fill: #1f1b16; }
+      .accent { fill: #d6552b; }
+      .line { stroke: #e3dccf; stroke-width: 2; fill: none; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-weight: 600; fill: #1f1b16; }
+      .sub { font-family: 'Atkinson Hyperlegible', sans-serif; fill: #4a423a; }
+    </style>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="800" height="400" class="paper"/>
+
+  <!-- Chaotic river of individual trades -->
+  <g opacity="0.55">
+    <path d="M 40 250 Q 120 180 200 260 T 360 230 T 520 270 T 680 210 T 760 250" class="line" stroke-width="2"/>
+    <path d="M 40 300 Q 130 340 210 290 T 370 320 T 540 280 T 690 330 T 760 300" class="line" stroke-width="2"/>
+    <path d="M 40 190 Q 140 140 220 200 T 380 160 T 550 200 T 700 150 T 760 190" class="line" stroke-width="2"/>
+    <path d="M 40 330 Q 150 360 230 340 T 400 350 T 560 330 T 710 360 T 760 340" class="line" stroke-width="1.5"/>
+    <path d="M 40 150 Q 150 110 230 150 T 400 120 T 560 155 T 710 110 T 760 145" class="line" stroke-width="1.5"/>
+  </g>
+
+  <!-- Trade dots bending toward the benchmark -->
+  <g class="accent" opacity="0.35">
+    <circle cx="120" cy="230" r="4"/>
+    <circle cx="230" cy="255" r="3"/>
+    <circle cx="310" cy="220" r="5"/>
+    <circle cx="420" cy="245" r="3"/>
+    <circle cx="500" cy="215" r="4"/>
+    <circle cx="600" cy="240" r="3"/>
+    <circle cx="670" cy="222" r="4"/>
+  </g>
+
+  <!-- The single glowing benchmark line -->
+  <path d="M 30 235 Q 200 225 400 232 T 770 228" fill="none" stroke="#d6552b" stroke-width="5" stroke-linecap="round" filter="url(#glow)"/>
+
+  <!-- Label -->
+  <rect x="300" y="60" width="200" height="46" rx="10" fill="#fffdf8" stroke="#e3dccf" stroke-width="1.5"/>
+  <text x="400" y="90" class="label" font-size="20" text-anchor="middle" fill="#d6552b">VWAP</text>
+
+  <text x="400" y="380" class="sub" font-size="14" text-anchor="middle">every trade bends toward the same line</text>
+</svg>

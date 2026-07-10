@@ -1,0 +1,56 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .ink { fill: #1f1b16; }
+      .accent { fill: #d6552b; }
+      .line { stroke: #e3dccf; stroke-width: 2; fill: none; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-weight: 600; fill: #1f1b16; }
+      .sub { font-family: 'Atkinson Hyperlegible', sans-serif; fill: #4a423a; }
+    </style>
+  </defs>
+
+  <rect width="800" height="400" class="paper"/>
+
+  <!-- Baseline / market open marker -->
+  <line x1="60" y1="60" x2="60" y2="330" class="line" stroke-width="2"/>
+  <text x="60" y="45" class="sub" font-size="12" text-anchor="middle">open</text>
+  <line x1="740" y1="60" x2="740" y2="330" class="line" stroke-width="2"/>
+  <text x="740" y="45" class="sub" font-size="12" text-anchor="middle">close</text>
+
+  <!-- Volume bars, varying height, pulling the line -->
+  <g class="accent" opacity="0.25">
+    <rect x="80" y="290" width="26" height="40"/>
+    <rect x="130" y="230" width="26" height="100"/>
+    <rect x="180" y="270" width="26" height="60"/>
+    <rect x="230" y="200" width="26" height="130"/>
+    <rect x="280" y="255" width="26" height="75"/>
+    <rect x="330" y="180" width="26" height="150"/>
+    <rect x="380" y="260" width="26" height="70"/>
+    <rect x="430" y="150" width="26" height="180"/>
+    <rect x="480" y="270" width="26" height="60"/>
+    <rect x="530" y="210" width="26" height="120"/>
+    <rect x="580" y="285" width="26" height="45"/>
+    <rect x="630" y="160" width="26" height="170"/>
+    <rect x="680" y="250" width="26" height="80"/>
+  </g>
+
+  <!-- Baseline for volume bars -->
+  <line x1="60" y1="330" x2="740" y2="330" class="line" stroke-width="1.5"/>
+
+  <!-- VWAP line: bends harder toward tall bars -->
+  <path d="M 60 240 L 143 220 L 193 225 L 243 190 L 293 205 L 343 165 L 393 195 L 443 140 L 493 195 L 543 175 L 593 210 L 643 150 L 693 185 L 740 180"
+        fill="none" stroke="#d6552b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Callouts pointing from tall bars to the pull -->
+  <g class="sub" font-size="12">
+    <text x="443" y="130" text-anchor="middle" fill="#d6552b">big volume, big pull</text>
+    <line x1="443" y1="135" x2="443" y2="150" stroke="#d6552b" stroke-width="1.5"/>
+  </g>
+  <g class="sub" font-size="12">
+    <text x="93" y="280" text-anchor="middle">small volume,</text>
+    <text x="93" y="294" text-anchor="middle">small pull</text>
+  </g>
+
+  <text x="400" y="370" class="label" font-size="16" text-anchor="middle">VWAP rises through the trading day</text>
+</svg>

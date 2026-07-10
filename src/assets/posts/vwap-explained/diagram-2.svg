@@ -1,0 +1,53 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .ink { fill: #1f1b16; }
+      .accent { fill: #d6552b; }
+      .line { stroke: #e3dccf; stroke-width: 2; fill: none; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-weight: 600; fill: #1f1b16; }
+      .sub { font-family: 'Atkinson Hyperlegible', sans-serif; fill: #4a423a; }
+    </style>
+  </defs>
+
+  <rect width="800" height="400" class="paper"/>
+
+  <!-- Prior close level -->
+  <line x1="60" y1="280" x2="740" y2="280" class="line" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <text x="65" y="270" class="sub" font-size="12">prior close</text>
+
+  <!-- VWAP line (flat-ish, anchor for the day) -->
+  <line x1="220" y1="190" x2="740" y2="190" stroke="#d6552b" stroke-width="3" stroke-dasharray="2 6" opacity="0.6"/>
+  <text x="745" y="195" class="sub" font-size="13" fill="#d6552b">VWAP</text>
+
+  <!-- Price path: gap up at open, dip to VWAP, bounce -->
+  <path d="M 60 280 L 200 280 L 220 130 L 300 150 L 380 190 L 430 175 L 520 140 L 620 110 L 700 100 L 740 95"
+        fill="none" class="ink" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Gap marker -->
+  <line x1="210" y1="280" x2="210" y2="140" stroke="#d6552b" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <text x="180" y="215" class="sub" font-size="12" fill="#d6552b">gap up</text>
+
+  <!-- Touch point at VWAP -->
+  <circle cx="380" cy="190" r="7" class="accent"/>
+  <text x="380" y="222" class="sub" font-size="12" text-anchor="middle">touches VWAP</text>
+
+  <!-- Bounce arrow -->
+  <path d="M 400 185 Q 460 130 510 145" fill="none" stroke="#d6552b" stroke-width="2" stroke-linecap="round" marker-end="url(#arrow2)"/>
+  <defs>
+    <marker id="arrow2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <polygon points="0 0, 7 3, 0 6" fill="#d6552b"/>
+    </marker>
+  </defs>
+
+  <!-- Stopwatch marking the 90-minute window -->
+  <g transform="translate(300,60)">
+    <circle cx="0" cy="0" r="26" fill="#fffdf8" stroke="#1f1b16" stroke-width="3"/>
+    <line x1="0" y1="0" x2="0" y2="-16" stroke="#1f1b16" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="0" y1="0" x2="12" y2="6" stroke="#d6552b" stroke-width="2.5" stroke-linecap="round"/>
+    <rect x="-8" y="-34" width="16" height="8" rx="2" class="ink"/>
+  </g>
+  <text x="300" y="105" class="sub" font-size="12" text-anchor="middle">first 90 minutes</text>
+
+  <text x="400" y="370" class="label" font-size="16" text-anchor="middle">Gap up, dip to VWAP, bounce</text>
+</svg>
