@@ -42,7 +42,7 @@
   category: Trading
   topic: VWAP explained
   slug: vwap-explained
-  status: pending
+  status: done
 - day: 9
   category: Tech
   topic: ConfigMaps vs Secrets
