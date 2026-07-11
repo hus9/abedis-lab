@@ -1,0 +1,60 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .raised { fill: #fffdf8; }
+      .ink { fill: #1f1b16; }
+      .ink-soft { fill: #4a423a; }
+      .accent { fill: #d6552b; }
+      .accent-soft { fill: #f4d9cb; }
+      .line { stroke: #e3dccf; stroke-width: 2; fill: none; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-weight: 900; fill: #1f1b16; }
+      .caption { font-family: 'Atkinson Hyperlegible', sans-serif; fill: #4a423a; }
+    </style>
+  </defs>
+
+  <rect width="800" height="400" class="paper"/>
+
+  <!-- LEFT: ordinary unlocked drawer labeled CONFIGMAP -->
+  <g>
+    <rect x="70" y="200" width="220" height="110" rx="8" class="raised" stroke="#e3dccf" stroke-width="3"/>
+    <!-- drawer front pulled slightly open -->
+    <rect x="90" y="230" width="180" height="60" rx="6" class="paper" stroke="#e3dccf" stroke-width="2"/>
+    <circle cx="180" cy="260" r="5" class="ink-soft"/>
+    <!-- papers sticking out, visible -->
+    <rect x="150" y="205" width="60" height="30" rx="2" class="raised" stroke="#e3dccf" stroke-width="1.5" transform="rotate(-4 180 220)"/>
+    <line x1="160" y1="215" x2="195" y2="215" class="line" stroke-width="1.5"/>
+    <line x1="160" y1="222" x2="190" y2="222" class="line" stroke-width="1.5"/>
+
+    <text x="180" y="345" class="label" font-size="22" text-anchor="middle">CONFIGMAP</text>
+    <text x="180" y="368" class="caption" font-size="13" text-anchor="middle">plain text, unlocked</text>
+  </g>
+
+  <!-- RIGHT: glass safe labeled SECRET, wide open and transparent -->
+  <g>
+    <!-- safe body, drawn transparent/glass-like with dashed hint -->
+    <rect x="500" y="150" width="230" height="160" rx="10" fill="#fffdf8" fill-opacity="0.35" stroke="#e3dccf" stroke-width="3"/>
+    <!-- open door swung aside -->
+    <rect x="470" y="150" width="20" height="160" rx="4" class="raised" stroke="#e3dccf" stroke-width="2" transform="rotate(-35 480 230)"/>
+    <circle cx="480" cy="230" r="6" class="accent" opacity="0.6" transform="rotate(-35 480 230)"/>
+
+    <!-- same kind of paper visible inside, unprotected -->
+    <rect x="530" y="195" width="70" height="35" rx="2" class="raised" stroke="#e3dccf" stroke-width="1.5"/>
+    <line x1="540" y1="207" x2="590" y2="207" class="line" stroke-width="1.5"/>
+    <line x1="540" y1="215" x2="580" y2="215" class="line" stroke-width="1.5"/>
+
+    <rect x="615" y="210" width="70" height="35" rx="2" class="raised" stroke="#e3dccf" stroke-width="1.5" transform="rotate(3 650 227)"/>
+    <line x1="625" y1="222" x2="675" y2="222" class="line" stroke-width="1.5" transform="rotate(3 650 227)"/>
+    <line x1="625" y1="230" x2="665" y2="230" class="line" stroke-width="1.5" transform="rotate(3 650 227)"/>
+
+    <!-- big dial, purely decorative — implies "locked" but isn't -->
+    <circle cx="600" cy="270" r="22" class="accent" opacity="0.85"/>
+    <circle cx="600" cy="270" r="10" fill="#fffdf8"/>
+
+    <text x="615" y="345" class="label" font-size="22" text-anchor="middle">SECRET</text>
+    <text x="615" y="368" class="caption" font-size="13" text-anchor="middle">base64, wide open</text>
+  </g>
+
+  <!-- connective idea: same kind of paper, both exposed -->
+  <text x="400" y="60" class="label" font-size="26" text-anchor="middle">Same paper. Different disguise.</text>
+</svg>
