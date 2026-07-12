@@ -1,0 +1,62 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .raised { fill: #fffdf8; }
+      .ink { fill: #1f1b16; }
+      .ink-soft { fill: #4a423a; }
+      .accent { fill: #d6552b; }
+      .line { stroke: #e3dccf; stroke-width: 2; fill: none; }
+      .ring { stroke: #1f1b16; fill: none; opacity: 0.6; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-size: 20px; font-weight: 900; fill: #1f1b16; }
+      .sub { font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 13px; fill: #4a423a; }
+      .spec { font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 15px; font-weight: 700; fill: #d6552b; }
+    </style>
+  </defs>
+
+  <rect width="800" height="400" class="paper"/>
+
+  <!-- Divider -->
+  <line x1="400" y1="30" x2="400" y2="330" class="line" stroke-dasharray="6 8"/>
+
+  <!-- LEFT: phone lens, tiny -->
+  <g transform="translate(200, 185)">
+    <circle cx="0" cy="0" r="30" class="raised" stroke="#1f1b16" stroke-width="3"/>
+    <circle cx="0" cy="0" r="30" class="ring" stroke-width="2"/>
+    <circle cx="0" cy="0" r="20" fill="#1f1b16" opacity="0.85"/>
+    <circle cx="0" cy="0" r="11" class="accent"/>
+    <!-- aperture blade ticks -->
+    <g stroke="#fffdf8" stroke-width="1.5" opacity="0.8">
+      <line x1="0" y1="-11" x2="0" y2="-5"/>
+      <line x1="9.5" y1="-5.5" x2="4.5" y2="-2.5"/>
+      <line x1="9.5" y1="5.5" x2="4.5" y2="2.5"/>
+      <line x1="0" y1="11" x2="0" y2="5"/>
+      <line x1="-9.5" y1="5.5" x2="-4.5" y2="2.5"/>
+      <line x1="-9.5" y1="-5.5" x2="-4.5" y2="-2.5"/>
+    </g>
+    <text x="0" y="70" class="spec" text-anchor="middle">f/1.8</text>
+    <text x="0" y="118" class="label" text-anchor="middle">Phone lens</text>
+    <text x="0" y="140" class="sub" text-anchor="middle">5.6 &#215; 4.2mm sensor</text>
+  </g>
+
+  <!-- RIGHT: DSLR lens, huge -->
+  <g transform="translate(600, 185)">
+    <circle cx="0" cy="0" r="95" class="raised" stroke="#1f1b16" stroke-width="3"/>
+    <circle cx="0" cy="0" r="95" class="ring" stroke-width="2"/>
+    <circle cx="0" cy="0" r="70" fill="#1f1b16" opacity="0.85"/>
+    <circle cx="0" cy="0" r="38" class="accent"/>
+    <g stroke="#fffdf8" stroke-width="2" opacity="0.8">
+      <line x1="0" y1="-38" x2="0" y2="-18"/>
+      <line x1="33" y1="-19" x2="16" y2="-9"/>
+      <line x1="33" y1="19" x2="16" y2="9"/>
+      <line x1="0" y1="38" x2="0" y2="18"/>
+      <line x1="-33" y1="19" x2="-16" y2="9"/>
+      <line x1="-33" y1="-19" x2="-16" y2="-9"/>
+    </g>
+    <text x="0" y="135" class="spec" text-anchor="middle">f/1.8</text>
+    <text x="0" y="160" class="label" text-anchor="middle">Full-frame lens</text>
+    <text x="0" y="182" class="sub" text-anchor="middle">36 &#215; 24mm sensor</text>
+  </g>
+
+  <text x="400" y="380" class="sub" text-anchor="middle" font-size="14">Same number on the ring. Not the same hole in the world.</text>
+</svg>
