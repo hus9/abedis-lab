@@ -1,0 +1,72 @@
+<svg viewBox="0 0 800 440" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .raised { fill: #fffdf8; }
+      .ink { fill: #1f1b16; }
+      .ink-soft { fill: #4a423a; }
+      .accent { fill: #d6552b; }
+      .accent-line { stroke: #d6552b; }
+      .good { fill: #2f7d53; }
+      .line { stroke: #e3dccf; stroke-width: 2; fill: none; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-weight: 900; fill: #1f1b16; }
+      .body { font-family: 'Atkinson Hyperlegible', sans-serif; fill: #4a423a; }
+    </style>
+    <marker id="arrow-accent" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 9 3, 0 6" class="accent"/>
+    </marker>
+    <marker id="arrow-good" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 9 3, 0 6" class="good"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="440" class="paper"/>
+
+  <!-- Divider -->
+  <line x1="400" y1="30" x2="400" y2="410" class="line" stroke-dasharray="6 8"/>
+
+  <!-- LEFT PANEL: RAG -->
+  <text x="200" y="40" text-anchor="middle" class="label" font-size="22">RAG</text>
+
+  <rect x="115" y="70" width="170" height="56" rx="10" class="raised" stroke="#1f1b16" stroke-width="3"/>
+  <text x="200" y="104" text-anchor="middle" class="body" font-size="15">question</text>
+
+  <line x1="200" y1="126" x2="200" y2="164" class="line" stroke="#d6552b" stroke-width="3" marker-end="url(#arrow-accent)"/>
+
+  <rect x="115" y="168" width="170" height="56" rx="10" class="raised" stroke="#1f1b16" stroke-width="3"/>
+  <text x="200" y="196" text-anchor="middle" class="body" font-size="15">search</text>
+  <text x="200" y="214" text-anchor="middle" class="body" font-size="13">documents</text>
+
+  <line x1="200" y1="224" x2="200" y2="262" class="line" stroke="#d6552b" stroke-width="3" marker-end="url(#arrow-accent)"/>
+
+  <rect x="115" y="266" width="170" height="56" rx="10" class="raised" stroke="#2f7d53" stroke-width="3"/>
+  <text x="200" y="300" text-anchor="middle" class="body" font-size="15">answer</text>
+
+  <text x="200" y="352" text-anchor="middle" class="label" font-size="17" fill="#2f7d53">looks it up, every time</text>
+  <text x="200" y="378" text-anchor="middle" class="body" font-size="13">stays current when docs change</text>
+
+  <!-- RIGHT PANEL: Fine-tuning -->
+  <text x="600" y="40" text-anchor="middle" class="label" font-size="22">Fine-Tuning</text>
+
+  <rect x="515" y="70" width="170" height="56" rx="10" class="raised" stroke="#1f1b16" stroke-width="3"/>
+  <text x="600" y="98" text-anchor="middle" class="body" font-size="15">training</text>
+  <text x="600" y="116" text-anchor="middle" class="body" font-size="13">examples</text>
+
+  <line x1="600" y1="126" x2="600" y2="164" class="line" stroke="#d6552b" stroke-width="3" marker-end="url(#arrow-accent)"/>
+
+  <rect x="515" y="168" width="170" height="56" rx="10" class="raised" stroke="#1f1b16" stroke-width="3"/>
+  <text x="600" y="202" text-anchor="middle" class="body" font-size="15">adjust weights</text>
+
+  <line x1="600" y1="224" x2="600" y2="262" class="line" stroke="#d6552b" stroke-width="3" marker-end="url(#arrow-accent)"/>
+
+  <rect x="515" y="266" width="170" height="56" rx="10" class="raised" stroke="#d6552b" stroke-width="3"/>
+  <text x="600" y="300" text-anchor="middle" class="body" font-size="15">answer</text>
+
+  <!-- small crack icon over the model, showing forgetting -->
+  <g transform="translate(600,196)">
+    <path d="M -6 -46 L 4 -20 L -8 -8 L 6 20 L -4 40" fill="none" class="accent-line" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <text x="600" y="352" text-anchor="middle" class="label" font-size="17" fill="#d6552b">recalls from memory</text>
+  <text x="600" y="378" text-anchor="middle" class="body" font-size="13">risks catastrophic forgetting</text>
+</svg>

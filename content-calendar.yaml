@@ -57,7 +57,7 @@
   category: AI
   topic: RAG vs fine-tuning
   slug: rag-vs-fine-tuning
-  status: pending
+  status: done
 - day: 12
   category: Trading
   topic: Backtesting lies
