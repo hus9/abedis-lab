@@ -3,22 +3,40 @@
    Accessibility-first: ADHD, dyslexia, new-to-tech
    ============================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
 
+/* Theme tokens live in four blocks: the media queries follow the OS default,
+   the [data-theme] attributes (set by ThemeToggle.astro) let a visitor
+   override that choice. Component CSS only ever reads the variables below —
+   never a raw color/border/font — so both paths stay in sync automatically. */
 :root {
-  /* Color — warm paper, ink, single accent */
-  --paper: #f7f3ec;
-  --paper-raised: #fffdf8;
-  --ink: #1f1b16;
-  --ink-soft: #4a423a;
-  --accent: #d6552b;        /* warm signal orange */
-  --accent-soft: #f4d9cb;
-  --line: #e3dccf;
+  /* Dark-mode-equivalent values live here as the fallback: the dark media
+     query only overrides colors, so anything not redefined there (or in the
+     light blocks) keeps behaving exactly as before this redesign. */
+  --paper: #16130f;
+  --paper-raised: #211c16;
+  --ink: #f2ebdf;
+  --ink-soft: #c3b9a8;
+  --accent: #f47b4f;
+  --accent-soft: #3a261c;
+  --line: #322b22;
   --good: #2f7d53;
+
+  --cat-ai: var(--accent);
+  --cat-ai-bg: var(--accent-soft);
+  --cat-tech: var(--accent);
+  --cat-tech-bg: var(--accent-soft);
+  --cat-trading: var(--accent);
+  --cat-trading-bg: var(--accent-soft);
+  --cat-tinkering: var(--accent);
+  --cat-tinkering-bg: var(--accent-soft);
 
   /* Type */
   --font-display: 'Fraunces', Georgia, serif;
   --font-body: 'Atkinson Hyperlegible', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace; /* code blocks only */
+  --heading-weight: 900;
+  --heading-tracking: -0.01em;
 
   /* Spacing — generous, calm */
   --step: 1.25rem;
@@ -26,19 +44,127 @@
   --measure: 38rem;         /* short line length, easier tracking */
 
   --radius: 14px;
+  --radius-tag: 99px;
+  --border-w: 1px;
+  --divider-style: dashed;
+  --card-border: var(--border-w) solid var(--line);
 }
 
+@media (prefers-color-scheme: light) {
+  :root { color-scheme: light; }
+}
 @media (prefers-color-scheme: dark) {
+  :root { color-scheme: dark; }
+}
+
+/* Black-and-white minimalist light theme: grayscale UI, color reserved for
+   actions, category tags, and code syntax highlighting. Dark mode (above) is
+   untouched — every token here has an old-equivalent fallback in :root. */
+@media (prefers-color-scheme: light) {
   :root {
-    --paper: #16130f;
-    --paper-raised: #211c16;
-    --ink: #f2ebdf;
-    --ink-soft: #c3b9a8;
-    --accent: #f47b4f;
-    --accent-soft: #3a261c;
-    --line: #322b22;
+    --paper: #ffffff;
+    --paper-raised: #eeeeee;
+    --ink: #0a0a0a;
+    --ink-soft: #666666;
+    --accent: #e8480a;
+    --accent-soft: #fce0d2;
+    --line: #e5e5e5;
+
+    --cat-ai: #7c4dff;
+    --cat-ai-bg: color-mix(in srgb, #7c4dff 12%, white);
+    --cat-tech: #2f6fed;
+    --cat-tech-bg: color-mix(in srgb, #2f6fed 12%, white);
+    --cat-trading: #16a34a;
+    --cat-trading-bg: color-mix(in srgb, #16a34a 12%, white);
+    --cat-tinkering: #d6336c;
+    --cat-tinkering-bg: color-mix(in srgb, #d6336c 12%, white);
+
+    --font-display: 'Space Grotesk', system-ui, sans-serif;
+    --heading-weight: 700;
+    --heading-tracking: -0.02em;
+
+    --radius: 4px;
+    --radius-tag: 3px;
+    --border-w: 1px;
+    --divider-style: solid;
+    --card-border: none;
   }
 }
+
+/* Manual override from the theme toggle (src/components/ThemeToggle.astro).
+   Attribute selectors outrank the media queries above by specificity, so
+   these win once a visitor has picked a theme, regardless of OS setting. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #16130f;
+  --paper-raised: #211c16;
+  --ink: #f2ebdf;
+  --ink-soft: #c3b9a8;
+  --accent: #f47b4f;
+  --accent-soft: #3a261c;
+  --line: #322b22;
+
+  --cat-ai: var(--accent);
+  --cat-ai-bg: var(--accent-soft);
+  --cat-tech: var(--accent);
+  --cat-tech-bg: var(--accent-soft);
+  --cat-trading: var(--accent);
+  --cat-trading-bg: var(--accent-soft);
+  --cat-tinkering: var(--accent);
+  --cat-tinkering-bg: var(--accent-soft);
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --heading-weight: 900;
+  --heading-tracking: -0.01em;
+
+  --radius: 14px;
+  --radius-tag: 99px;
+  --border-w: 1px;
+  --divider-style: dashed;
+  --card-border: var(--border-w) solid var(--line);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --paper: #ffffff;
+  --paper-raised: #eeeeee;
+  --ink: #0a0a0a;
+  --ink-soft: #666666;
+  --accent: #e8480a;
+  --accent-soft: #fce0d2;
+  --line: #e5e5e5;
+
+  --cat-ai: #7c4dff;
+  --cat-ai-bg: color-mix(in srgb, #7c4dff 12%, white);
+  --cat-tech: #2f6fed;
+  --cat-tech-bg: color-mix(in srgb, #2f6fed 12%, white);
+  --cat-trading: #16a34a;
+  --cat-trading-bg: color-mix(in srgb, #16a34a 12%, white);
+  --cat-tinkering: #d6336c;
+  --cat-tinkering-bg: color-mix(in srgb, #d6336c 12%, white);
+
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --heading-weight: 700;
+  --heading-tracking: -0.02em;
+
+  --radius: 4px;
+  --radius-tag: 3px;
+  --border-w: 1px;
+  --divider-style: solid;
+  --card-border: none;
+}
+
+/* Category tag color — the one place besides actions/code where color is
+   allowed. The tokens above collapse to the shared accent in dark, so this
+   is a visual no-op there and only diverges in the light theme. */
+/* body-qualified so this always outranks a page's own scoped .category-badge
+   rule (Astro's per-component scope attribute gives it the same specificity
+   as a bare attribute selector here, and it would otherwise win the tie by
+   source order). */
+body .category-badge[data-category="ai"] { color: var(--cat-ai); background: var(--cat-ai-bg); }
+body .category-badge[data-category="tech"] { color: var(--cat-tech); background: var(--cat-tech-bg); }
+body .category-badge[data-category="trading"] { color: var(--cat-trading); background: var(--cat-trading-bg); }
+body .category-badge[data-category="tinkering"] { color: var(--cat-tinkering); background: var(--cat-tinkering-bg); }
 
 * { box-sizing: border-box; }
 
@@ -60,8 +186,8 @@ body {
 h1, h2, h3 {
   font-family: var(--font-display);
   line-height: 1.1;
-  font-weight: 900;
-  letter-spacing: -0.01em;
+  font-weight: var(--heading-weight);
+  letter-spacing: var(--heading-tracking);
 }
 
 p { max-width: var(--measure); }

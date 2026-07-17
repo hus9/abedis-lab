@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import ThemeToggle from '../components/ThemeToggle.astro';
 import { getPublishedPosts } from '../lib/posts';
 
 const [latest] = await getPublishedPosts();
@@ -20,6 +21,7 @@ const [latest] = await getPublishedPosts();
         <a href="/#topics">Topics</a>
         <a href="/#why">Why</a>
         <a href="/posts">Posts</a>
+        <ThemeToggle />
       </nav>
     </header>
 

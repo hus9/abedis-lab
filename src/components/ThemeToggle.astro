@@ -1,0 +1,73 @@
+---
+---
+
+<button class="theme-toggle" type="button" aria-label="Switch between light and dark mode" aria-pressed="false">
+  <span class="track"><span class="thumb"></span></span>
+</button>
+
+<script>
+  const KEY = 'theme';
+  const toggles = document.querySelectorAll<HTMLButtonElement>('.theme-toggle');
+
+  function systemIsDark() {
+    return matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+
+  function currentTheme(): 'light' | 'dark' {
+    const set = document.documentElement.getAttribute('data-theme');
+    return set === 'dark' || set === 'light' ? set : (systemIsDark() ? 'dark' : 'light');
+  }
+
+  function reflect(theme: 'light' | 'dark') {
+    toggles.forEach((t) => t.setAttribute('aria-pressed', String(theme === 'dark')));
+  }
+
+  const stored = localStorage.getItem(KEY);
+  if (stored === 'dark' || stored === 'light') document.documentElement.setAttribute('data-theme', stored);
+  reflect(currentTheme());
+
+  toggles.forEach((toggle) => {
+    toggle.addEventListener('click', () => {
+      const next = currentTheme() === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem(KEY, next);
+      reflect(next);
+    });
+  });
+</script>
+
+<style>
+  .theme-toggle {
+    background: none;
+    border: none;
+    padding: 0;
+    margin-left: 1.5rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+  }
+  .track {
+    width: 2.4rem;
+    height: 1.3rem;
+    background: var(--line);
+    border: var(--border-w) solid var(--line-strong);
+    border-radius: 999px;
+    position: relative;
+    box-sizing: border-box;
+    transition: background 0.15s;
+  }
+  .thumb {
+    position: absolute;
+    top: 50%;
+    left: 2px;
+    width: 0.95rem;
+    height: 0.95rem;
+    background: var(--paper-raised);
+    border-radius: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.15s;
+  }
+  .theme-toggle[aria-pressed="true"] .track { background: var(--accent); }
+  .theme-toggle[aria-pressed="true"] .thumb { transform: translateY(-50%) translateX(1.05rem); }
+</style>

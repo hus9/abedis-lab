@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import SeoHead from '../components/SeoHead.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
 
 interface PostLink {
   slug: string;
@@ -45,13 +46,14 @@ const dateStr = pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'l
         <a href="/#topics">Topics</a>
         <a href="/#why">Why</a>
         <a href="/posts">Posts</a>
+        <ThemeToggle />
       </nav>
     </header>
 
     <main>
       <article class="wrap post">
         <div class="post-meta">
-          <span class="category-badge">{category}</span>
+          <span class="category-badge" data-category={category.toLowerCase()}>{category}</span>
           {topic && <span class="topic-label">{topic}</span>}
           <span class="meta-divider" aria-hidden="true">·</span>
           <span class="muted">{readingTime} min read</span>
@@ -135,7 +137,7 @@ const dateStr = pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'l
     gap: 1rem;
     margin-top: 3rem;
     padding-top: 2rem;
-    border-top: 1px solid var(--line);
+    border-top: var(--border-w) solid var(--line);
     max-width: var(--measure);
   }
   .share-label { font-weight: 700; color: var(--ink-soft); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.08em; }
@@ -160,7 +162,7 @@ const dateStr = pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'l
     gap: 1.5rem;
     margin-top: 2rem;
     padding-top: 2rem;
-    border-top: 1px solid var(--line);
+    border-top: var(--border-w) solid var(--line);
     max-width: var(--measure);
   }
   .post-nav-link {
@@ -197,7 +199,7 @@ const dateStr = pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'l
     background: var(--accent-soft);
     color: var(--accent);
     padding: 0.2rem 0.7rem;
-    border-radius: 99px;
+    border-radius: var(--radius-tag);
     font-size: 0.8rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -234,7 +236,7 @@ const dateStr = pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'l
     font-size: clamp(1.5rem, 3vw, 2rem);
     margin: 3rem 0 1rem;
     padding-top: 1rem;
-    border-top: 1px solid var(--line);
+    border-top: var(--border-w) solid var(--line);
   }
   .post-body :global(h3) {
     font-size: 1.2rem;
@@ -265,7 +267,7 @@ const dateStr = pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'l
   }
   .post-body :global(td) {
     padding: 0.75rem 1rem;
-    border-bottom: 1px solid var(--line);
+    border-bottom: var(--border-w) solid var(--line);
     vertical-align: top;
   }
   .post-body :global(tr:last-child td) { border-bottom: none; }
@@ -279,7 +281,7 @@ const dateStr = pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'l
   }
   .post-body :global(code) {
     background: var(--paper-raised);
-    border: 1px solid var(--line);
+    border: var(--border-w) solid var(--line);
     border-radius: 4px;
     padding: 0.1em 0.4em;
     font-size: 0.9em;
@@ -290,7 +292,7 @@ const dateStr = pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'l
     justify-content: space-between;
     padding-block: 2.5rem;
     margin-top: clamp(2rem, 6vw, 5rem);
-    border-top: 1px solid var(--line);
+    border-top: var(--border-w) solid var(--line);
     font-weight: 700;
   }
 </style>

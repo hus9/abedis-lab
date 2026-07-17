@@ -74,7 +74,7 @@ const { slides } = Astro.props;
 <style>
   .carousel {
     margin: 2rem 0;
-    border: 1px solid var(--line);
+    border: var(--card-border);
     border-radius: var(--radius);
     overflow: hidden;
     background: var(--paper-raised);
@@ -108,7 +108,7 @@ const { slides } = Astro.props;
     padding: 0.85rem 1.25rem;
     font-size: 0.9rem;
     color: var(--ink-soft);
-    border-top: 1px solid var(--line);
+    border-top: var(--border-w) solid var(--line);
     font-style: italic;
   }
 
@@ -117,12 +117,12 @@ const { slides } = Astro.props;
     align-items: center;
     justify-content: space-between;
     padding: 0.75rem 1rem;
-    border-top: 1px solid var(--line);
+    border-top: var(--border-w) solid var(--line);
   }
 
   .carousel-btn {
     background: none;
-    border: 1px solid var(--line);
+    border: var(--border-w) solid var(--line);
     border-radius: 99px;
     width: 2.2rem;
     height: 2.2rem;
