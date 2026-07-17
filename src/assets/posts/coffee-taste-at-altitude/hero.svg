@@ -1,0 +1,64 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="hero-title hero-desc">
+  <title id="hero-title">A kettle steaming atop a mountain peak next to a thermometer reading 190°F instead of the usual 212°F</title>
+  <desc id="hero-desc">An illustration of a kettle boiling on a mountaintop, with a thermometer showing water boiling at only 190 degrees Fahrenheit — well short of the 212 degrees it would reach at sea level.</desc>
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .raised { fill: #fffdf8; }
+      .ink { fill: #1f1b16; }
+      .ink-soft { fill: #4a423a; }
+      .accent { fill: #d6552b; }
+      .accent-stroke { stroke: #d6552b; }
+      .line { stroke: #e3dccf; stroke-width: 2; fill: none; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-weight: 900; fill: #1f1b16; }
+      .body { font-family: 'Atkinson Hyperlegible', sans-serif; fill: #4a423a; }
+    </style>
+  </defs>
+
+  <rect width="800" height="400" class="paper"/>
+
+  <!-- distant mountain range -->
+  <path d="M 0 260 L 120 150 L 220 240 L 340 110 L 460 250 L 560 170 L 660 250 L 800 190 L 800 400 L 0 400 Z"
+        fill="#efe6d8"/>
+
+  <!-- foreground mountain the kettle sits on -->
+  <path d="M 140 400 L 400 120 L 660 400 Z" class="raised" stroke="#1f1b16" stroke-width="4"/>
+  <!-- snow cap -->
+  <path d="M 400 120 L 460 190 L 420 185 L 400 210 L 380 185 L 340 190 Z" fill="#fffdf8" stroke="#1f1b16" stroke-width="3"/>
+
+  <!-- summit flat where kettle rests -->
+  <ellipse cx="400" cy="210" rx="70" ry="14" fill="#efe6d8"/>
+
+  <!-- kettle body -->
+  <g transform="translate(400,190)">
+    <path d="M -55 20 Q -55 -30 0 -32 Q 55 -30 55 20 Q 55 45 0 48 Q -55 45 -55 20 Z" class="ink"/>
+    <!-- spout -->
+    <path d="M 48 -8 Q 85 -18 90 -40" fill="none" stroke="#1f1b16" stroke-width="10" stroke-linecap="round"/>
+    <!-- handle -->
+    <path d="M -30 -30 Q 0 -70 30 -30" fill="none" stroke="#1f1b16" stroke-width="8" stroke-linecap="round"/>
+    <!-- accent band -->
+    <rect x="-55" y="4" width="110" height="12" class="accent"/>
+
+    <!-- steam -->
+    <g stroke="#c3b9a8" stroke-width="6" stroke-linecap="round" fill="none" opacity="0.8">
+      <path d="M 78 -46 Q 68 -70 84 -90 Q 98 -108 86 -128"/>
+      <path d="M 100 -40 Q 112 -62 98 -84 Q 86 -102 100 -122"/>
+    </g>
+  </g>
+
+  <!-- thermometer callout -->
+  <g transform="translate(600,90)">
+    <rect x="-95" y="-55" width="220" height="130" rx="16" class="raised" stroke="#1f1b16" stroke-width="3"/>
+    <!-- thermometer glyph -->
+    <g transform="translate(-55,10)">
+      <rect x="-8" y="-45" width="16" height="60" rx="8" fill="#efe6d8" stroke="#1f1b16" stroke-width="3"/>
+      <circle cx="0" cy="20" r="16" class="accent" stroke="#1f1b16" stroke-width="3"/>
+      <rect x="-5" y="-15" width="10" height="35" class="accent"/>
+    </g>
+    <text x="30" y="-8" text-anchor="middle" class="label" font-size="30" fill="#d6552b">190°F</text>
+    <text x="30" y="18" text-anchor="middle" class="body" font-size="14">boils here</text>
+    <text x="30" y="42" text-anchor="middle" class="body" font-size="14" text-decoration="line-through" opacity="0.6">212°F at sea level</text>
+  </g>
+
+  <text x="400" y="378" text-anchor="middle" class="body" font-size="16">The higher you climb, the cooler your water boils.</text>
+</svg>

@@ -1,0 +1,60 @@
+<svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="diag-title diag-desc">
+  <title id="diag-title">Bar chart of water's boiling point falling as elevation rises: 212°F at sea level, 203°F at 5,000 feet, 197°F at 8,000 feet, 194°F at 10,000 feet</title>
+  <desc id="diag-desc">A chart showing the boiling point of water dropping steadily with elevation: 212 degrees Fahrenheit at sea level, 203 degrees at 5,000 feet, 197 degrees at 8,000 feet, and 194 degrees at 10,000 feet — each bar shorter and more orange than the last, illustrating a shrinking margin above coffee's ideal 195 to 205 degree brewing window.</desc>
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .ink { fill: #1f1b16; }
+      .ink-soft { fill: #4a423a; }
+      .accent { fill: #d6552b; }
+      .accent-soft { fill: #f4d9cb; }
+      .good { fill: #2f7d53; }
+      .line { stroke: #e3dccf; stroke-width: 2; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-weight: 900; fill: #1f1b16; }
+      .body { font-family: 'Atkinson Hyperlegible', sans-serif; fill: #4a423a; }
+    </style>
+  </defs>
+
+  <rect width="800" height="420" class="paper"/>
+
+  <!-- axes -->
+  <line x1="90" y1="330" x2="740" y2="330" class="line"/>
+  <text x="415" y="372" text-anchor="middle" class="body" font-size="15">elevation</text>
+  <text x="45" y="200" text-anchor="middle" class="body" font-size="15" transform="rotate(-90,45,200)">boiling point (°F)</text>
+
+  <!-- ideal coffee brewing band, 195-205F -->
+  <rect x="90" y="130" width="650" height="46" class="good" opacity="0.15"/>
+  <text x="748" y="139" class="body" font-size="12" fill="#2f7d53" text-anchor="end">ideal brew</text>
+  <text x="748" y="155" class="body" font-size="12" fill="#2f7d53" text-anchor="end">195–205°F</text>
+
+  <!-- bars: baseline 330 = 0F reference at y-scale, using compressed scale from 180F to 215F -->
+  <!-- scale: y = 330 - (temp-180)*8 -->
+  <!-- 212F -> y=66 ; 203F -> y=130 ; 197F -> y=178 ; 194F -> y=202 -->
+
+  <g>
+    <rect x="140" y="66" width="90" height="264" class="ink" opacity="0.85"/>
+    <text x="185" y="50" text-anchor="middle" class="label" font-size="24">212°F</text>
+    <text x="185" y="352" text-anchor="middle" class="body" font-size="14">sea level</text>
+  </g>
+
+  <g>
+    <rect x="300" y="130" width="90" height="200" class="accent" opacity="0.6"/>
+    <text x="345" y="114" text-anchor="middle" class="label" font-size="24" fill="#d6552b">203°F</text>
+    <text x="345" y="352" text-anchor="middle" class="body" font-size="14">5,000 ft</text>
+  </g>
+
+  <g>
+    <rect x="460" y="178" width="90" height="152" class="accent" opacity="0.8"/>
+    <text x="505" y="162" text-anchor="middle" class="label" font-size="24" fill="#d6552b">197°F</text>
+    <text x="505" y="352" text-anchor="middle" class="body" font-size="14">8,000 ft</text>
+  </g>
+
+  <g>
+    <rect x="620" y="202" width="90" height="128" class="accent"/>
+    <text x="665" y="186" text-anchor="middle" class="label" font-size="24" fill="#d6552b">194°F</text>
+    <text x="665" y="352" text-anchor="middle" class="body" font-size="14">10,000 ft</text>
+  </g>
+
+  <!-- downward trend arrow -->
+  <path d="M 185 60 Q 400 40 655 196" fill="none" stroke="#1f1b16" stroke-width="2" stroke-dasharray="6 8" opacity="0.35"/>
+</svg>
