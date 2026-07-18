@@ -77,7 +77,7 @@
   category: AI
   topic: Multi-agent AI
   slug: multi-agent-ai
-  status: pending
+  status: done
 - day: 16
   category: Trading
   topic: Kelly Criterion
