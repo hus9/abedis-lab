@@ -1,0 +1,72 @@
+<svg viewBox="0 0 800 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="diagram-title diagram-desc">
+  <title id="diagram-title">One lead orchestrator agent branching into four parallel subagents, with results feeding back up</title>
+  <desc id="diagram-desc">A flow diagram: a lead orchestrator box at the top sends arrows down to four specialized subagent boxes working in parallel, and each of those sends an arrow back up into a single combined result box at the bottom.</desc>
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .raised { fill: #fffdf8; }
+      .ink { fill: #1f1b16; }
+      .ink-soft { fill: #4a423a; }
+      .accent { fill: #d6552b; }
+      .accent-line { stroke: #d6552b; }
+      .good { fill: #2f7d53; }
+      .line { stroke: #e3dccf; stroke-width: 2; fill: none; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-weight: 900; fill: #1f1b16; }
+      .body { font-family: 'Atkinson Hyperlegible', sans-serif; fill: #4a423a; }
+    </style>
+    <marker id="arrow-accent" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 9 3, 0 6" class="accent"/>
+    </marker>
+    <marker id="arrow-good" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 9 3, 0 6" class="good"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="440" class="paper"/>
+
+  <!-- Orchestrator -->
+  <rect x="290" y="24" width="220" height="60" rx="12" class="raised" stroke="#d6552b" stroke-width="3.5"/>
+  <text x="400" y="48" text-anchor="middle" class="label" font-size="17">Lead Orchestrator</text>
+  <text x="400" y="70" text-anchor="middle" class="body" font-size="13">breaks the job into pieces</text>
+
+  <!-- Down arrows: orchestrator -> subagents -->
+  <path d="M 320 84 Q 210 130 155 168" fill="none" class="accent-line" stroke-width="3" marker-end="url(#arrow-accent)"/>
+  <path d="M 370 84 Q 340 130 330 168" fill="none" class="accent-line" stroke-width="3" marker-end="url(#arrow-accent)"/>
+  <path d="M 430 84 Q 460 130 470 168" fill="none" class="accent-line" stroke-width="3" marker-end="url(#arrow-accent)"/>
+  <path d="M 480 84 Q 590 130 645 168" fill="none" class="accent-line" stroke-width="3" marker-end="url(#arrow-accent)"/>
+
+  <!-- Four parallel subagents -->
+  <g>
+    <rect x="60" y="170" width="150" height="70" rx="10" class="raised" stroke="#1f1b16" stroke-width="3"/>
+    <text x="135" y="200" text-anchor="middle" class="body" font-size="15" font-weight="700" fill="#1f1b16">Subagent A</text>
+    <text x="135" y="220" text-anchor="middle" class="body" font-size="13">research</text>
+  </g>
+  <g>
+    <rect x="255" y="170" width="150" height="70" rx="10" class="raised" stroke="#1f1b16" stroke-width="3"/>
+    <text x="330" y="200" text-anchor="middle" class="body" font-size="15" font-weight="700" fill="#1f1b16">Subagent B</text>
+    <text x="330" y="220" text-anchor="middle" class="body" font-size="13">draft</text>
+  </g>
+  <g>
+    <rect x="395" y="170" width="150" height="70" rx="10" class="raised" stroke="#1f1b16" stroke-width="3"/>
+    <text x="470" y="200" text-anchor="middle" class="body" font-size="15" font-weight="700" fill="#1f1b16">Subagent C</text>
+    <text x="470" y="220" text-anchor="middle" class="body" font-size="13">fact-check</text>
+  </g>
+  <g>
+    <rect x="590" y="170" width="150" height="70" rx="10" class="raised" stroke="#1f1b16" stroke-width="3"/>
+    <text x="665" y="200" text-anchor="middle" class="body" font-size="15" font-weight="700" fill="#1f1b16">Subagent D</text>
+    <text x="665" y="220" text-anchor="middle" class="body" font-size="13">format</text>
+  </g>
+
+  <!-- Up arrows: subagents -> combined result -->
+  <path d="M 150 240 Q 250 300 320 328" fill="none" class="good" stroke="#2f7d53" stroke-width="3" marker-end="url(#arrow-good)"/>
+  <path d="M 335 240 Q 365 290 380 328" fill="none" class="good" stroke="#2f7d53" stroke-width="3" marker-end="url(#arrow-good)"/>
+  <path d="M 465 240 Q 440 290 425 328" fill="none" class="good" stroke="#2f7d53" stroke-width="3" marker-end="url(#arrow-good)"/>
+  <path d="M 650 240 Q 550 300 480 328" fill="none" class="good" stroke="#2f7d53" stroke-width="3" marker-end="url(#arrow-good)"/>
+
+  <!-- Combined result -->
+  <rect x="270" y="330" width="260" height="60" rx="12" class="raised" stroke="#2f7d53" stroke-width="3.5"/>
+  <text x="400" y="356" text-anchor="middle" class="label" font-size="17" fill="#2f7d53">Combined Result</text>
+  <text x="400" y="376" text-anchor="middle" class="body" font-size="13">pieces merged back together</text>
+
+  <text x="400" y="420" text-anchor="middle" class="body" font-size="15">Fine when the job splits cleanly. Expensive when it doesn't.</text>
+</svg>

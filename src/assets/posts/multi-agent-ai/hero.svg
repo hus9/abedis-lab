@@ -1,0 +1,91 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="hero-title hero-desc">
+  <title id="hero-title">A lone AI agent calmly finishing a task while five squabbling agents burn tokens arguing nearby</title>
+  <desc id="hero-desc">An illustration split into two scenes: on the left, a single calm agent checks off a finished task list. On the right, a cluttered cluster of five small agents connected by jagged argument lines, with flames rising above them to show tokens burning away.</desc>
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .raised { fill: #fffdf8; }
+      .ink { fill: #1f1b16; }
+      .ink-soft { fill: #4a423a; }
+      .accent { fill: #d6552b; }
+      .accent-line { stroke: #d6552b; }
+      .line { stroke: #e3dccf; stroke-width: 2; fill: none; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-weight: 900; fill: #1f1b16; }
+      .body { font-family: 'Atkinson Hyperlegible', sans-serif; fill: #4a423a; }
+    </style>
+  </defs>
+
+  <rect width="800" height="400" class="paper"/>
+
+  <!-- Divider between the two scenes -->
+  <line x1="392" y1="40" x2="392" y2="330" class="line" stroke-dasharray="6 8"/>
+
+  <!-- LEFT: solo calm agent, task done -->
+  <g transform="translate(160,180)">
+    <!-- body -->
+    <rect x="-34" y="10" width="68" height="66" rx="16" class="raised" stroke="#1f1b16" stroke-width="4"/>
+    <!-- head -->
+    <circle cx="0" cy="-28" r="30" class="raised" stroke="#1f1b16" stroke-width="4"/>
+    <circle cx="-10" cy="-30" r="3.5" class="ink"/>
+    <circle cx="10" cy="-30" r="3.5" class="ink"/>
+    <path d="M -10 -16 Q 0 -8 10 -16" fill="none" stroke="#1f1b16" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- checklist card, all done -->
+  <g transform="translate(230,70)">
+    <rect x="0" y="0" width="150" height="96" rx="10" class="raised" stroke="#1f1b16" stroke-width="3"/>
+    <path d="M 16 24 L 22 30 L 34 16" fill="none" stroke="#d6552b" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="44" y1="24" x2="130" y2="24" class="line" stroke="#1f1b16" opacity="0.5"/>
+    <path d="M 16 50 L 22 56 L 34 42" fill="none" stroke="#d6552b" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="44" y1="50" x2="130" y2="50" class="line" stroke="#1f1b16" opacity="0.5"/>
+    <path d="M 16 76 L 22 82 L 34 68" fill="none" stroke="#d6552b" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="44" y1="76" x2="130" y2="76" class="line" stroke="#1f1b16" opacity="0.5"/>
+  </g>
+
+  <text x="196" y="300" text-anchor="middle" class="body" font-size="16">One agent.</text>
+  <text x="196" y="322" text-anchor="middle" class="body" font-size="16">Job done.</text>
+
+  <!-- RIGHT: crowd of five squabbling agents -->
+  <g transform="translate(0,0)">
+    <!-- jagged argument lines drawn first, underneath the agents -->
+    <path d="M 530 130 L 555 108 L 545 122 L 575 100" class="accent-line" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 600 100 L 622 122 L 608 118 L 640 140" class="accent-line" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 540 150 L 565 170 L 552 168 L 585 195" class="accent-line" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 655 150 L 632 172 L 646 168 L 615 195" class="accent-line" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 575 205 L 610 210 L 595 202 L 630 208" class="accent-line" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- five small agents -->
+    <g transform="translate(520,90)">
+      <rect x="-18" y="6" width="36" height="30" rx="8" class="raised" stroke="#1f1b16" stroke-width="3"/>
+      <circle cx="0" cy="-10" r="16" class="raised" stroke="#1f1b16" stroke-width="3"/>
+    </g>
+    <g transform="translate(600,72)">
+      <rect x="-18" y="6" width="36" height="30" rx="8" class="raised" stroke="#1f1b16" stroke-width="3"/>
+      <circle cx="0" cy="-10" r="16" class="raised" stroke="#1f1b16" stroke-width="3"/>
+    </g>
+    <g transform="translate(668,105)">
+      <rect x="-18" y="6" width="36" height="30" rx="8" class="raised" stroke="#1f1b16" stroke-width="3"/>
+      <circle cx="0" cy="-10" r="16" class="raised" stroke="#1f1b16" stroke-width="3"/>
+    </g>
+    <g transform="translate(548,178)">
+      <rect x="-18" y="6" width="36" height="30" rx="8" class="raised" stroke="#1f1b16" stroke-width="3"/>
+      <circle cx="0" cy="-10" r="16" class="raised" stroke="#1f1b16" stroke-width="3"/>
+    </g>
+    <g transform="translate(645,180)">
+      <rect x="-18" y="6" width="36" height="30" rx="8" class="raised" stroke="#1f1b16" stroke-width="3"/>
+      <circle cx="0" cy="-10" r="16" class="raised" stroke="#1f1b16" stroke-width="3"/>
+    </g>
+
+    <!-- flames burning above the crowd: tokens going up in smoke -->
+    <g class="accent" stroke="#1f1b16" stroke-width="2">
+      <path d="M 545 55 Q 538 40 546 28 Q 556 40 550 55 Q 548 58 545 55 Z" transform="translate(0,0)"/>
+      <path d="M 585 42 Q 578 25 588 12 Q 599 25 592 42 Q 589 46 585 42 Z"/>
+      <path d="M 630 55 Q 623 38 632 25 Q 643 38 636 55 Q 633 58 630 55 Z"/>
+      <path d="M 670 68 Q 664 54 672 44 Q 681 54 675 68 Q 673 71 670 68 Z"/>
+    </g>
+  </g>
+
+  <text x="606" y="300" text-anchor="middle" class="body" font-size="16">Five agents.</text>
+  <text x="606" y="322" text-anchor="middle" class="body" font-size="16">Fifteen times the tokens.</text>
+  <text x="606" y="344" text-anchor="middle" class="body" font-size="16">Still arguing.</text>
+</svg>
