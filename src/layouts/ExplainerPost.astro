@@ -37,6 +37,7 @@ const dateStr = pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'l
       description={gist}
       image={slug ? `/og/${slug}.png` : undefined}
       type="article"
+      pubDate={pubDate}
     />
   </head>
   <body>

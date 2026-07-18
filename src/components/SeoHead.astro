@@ -5,11 +5,33 @@ interface Props {
   /** Path under site root, e.g. /og/docker-vs-kubernetes.png */
   image?: string;
   type?: 'website' | 'article';
+  /** Required when type is 'article' */
+  pubDate?: Date;
 }
 
-const { title, description, image = '/og/default.png', type = 'website' } = Astro.props;
+const { title, description, image = '/og/default.png', type = 'website', pubDate } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const imageUrl = new URL(image, Astro.site);
+
+const jsonLd = type === 'article'
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      headline: title,
+      description,
+      image: imageUrl,
+      url: canonical,
+      datePublished: pubDate?.toISOString(),
+      author: { '@type': 'Organization', name: 'Lit Bulb Lab' },
+      publisher: { '@type': 'Organization', name: 'Lit Bulb Lab' },
+    }
+  : {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: 'Lit Bulb Lab',
+      url: Astro.site,
+      description,
+    };
 ---
 
 <link rel="canonical" href={canonical} />
@@ -24,3 +46,4 @@ const imageUrl = new URL(image, Astro.site);
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={imageUrl} />
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
