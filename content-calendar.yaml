@@ -82,7 +82,7 @@
   category: Trading
   topic: Kelly Criterion
   slug: kelly-criterion
-  status: pending
+  status: done
 - day: 17
   category: Tech
   topic: CI/CD anatomy
