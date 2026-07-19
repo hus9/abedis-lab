@@ -1,0 +1,53 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .ink { fill: #1f1b16; }
+      .accent { fill: #d6552b; }
+      .line { stroke: #e3dccf; stroke-width: 2; fill: none; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-weight: 600; fill: #1f1b16; }
+      .sub { font-family: 'Atkinson Hyperlegible', sans-serif; fill: #4a423a; }
+    </style>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="800" height="400" class="paper"/>
+
+  <!-- Start marker -->
+  <line x1="60" y1="55" x2="60" y2="340" class="line" stroke-width="2"/>
+  <text x="60" y="42" class="sub" font-size="12" text-anchor="middle">start</text>
+
+  <!-- Dashed reference line at starting account value -->
+  <line x1="60" y1="300" x2="740" y2="300" class="line" stroke-width="1.5" stroke-dasharray="4 5"/>
+
+  <!-- 15% — overbet, trends toward ruin -->
+  <path d="M 60,300 C 130,300 130,320 200,320 C 270,320 270,345 340,345 C 410,345 410,368 480,368 C 550,368 550,388 620,388 C 690,388 690,398 740,398"
+        fill="none" stroke="#b23a2e" stroke-width="3" stroke-linecap="round" stroke-dasharray="7 5"/>
+
+  <!-- 5% — underbet, slow steady climb -->
+  <path d="M 60,300 C 130,300 130,285 200,285 C 270,285 270,265 340,265 C 410,265 410,245 480,245 C 550,245 550,225 620,225 C 690,225 690,205 740,205"
+        fill="none" stroke="#a89b86" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- 10% — full Kelly, fastest growth -->
+  <path d="M 60,300 C 130,300 130,255 200,255 C 270,255 270,205 340,205 C 410,205 410,160 480,160 C 550,160 550,120 620,120 C 690,120 690,90 740,90"
+        fill="none" stroke="#d6552b" stroke-width="4.5" stroke-linecap="round" filter="url(#glow)"/>
+
+  <!-- End labels -->
+  <rect x="746" y="76" width="50" height="28" rx="6" fill="#fffdf8" stroke="#e3dccf" stroke-width="1.5"/>
+  <text x="771" y="95" class="label" font-size="15" text-anchor="middle" fill="#d6552b">10%</text>
+
+  <rect x="746" y="191" width="50" height="28" rx="6" fill="#fffdf8" stroke="#e3dccf" stroke-width="1.5"/>
+  <text x="771" y="210" class="label" font-size="15" text-anchor="middle">5%</text>
+
+  <rect x="720" y="384" width="70" height="28" rx="6" fill="#fffdf8" stroke="#e3dccf" stroke-width="1.5"/>
+  <text x="755" y="403" class="label" font-size="15" text-anchor="middle" fill="#7a2c22">15%</text>
+
+  <text x="400" y="35" class="label" font-size="17" text-anchor="middle">same edge, three bet sizes</text>
+  <text x="400" y="380" class="sub" font-size="13" text-anchor="middle" fill="#7a2c22">five points over optimal turns growth negative</text>
+</svg>
