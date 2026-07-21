@@ -1,0 +1,84 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .raised { fill: #fffdf8; }
+      .ink { fill: #1f1b16; }
+      .ink-soft { fill: #4a423a; }
+      .accent { fill: #d6552b; }
+      .shadow { fill: #1f1b16; opacity: 0.14; }
+      .line { stroke: #e3dccf; stroke-width: 2; fill: none; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-weight: 900; fill: #1f1b16; }
+      .body { font-family: 'Atkinson Hyperlegible', sans-serif; fill: #4a423a; }
+    </style>
+  </defs>
+
+  <rect width="800" height="400" class="paper"/>
+
+  <!-- distant building silhouettes, left to right, receding -->
+  <g class="ink-soft" opacity="0.85">
+    <rect x="0" y="70" width="90" height="150"/>
+    <rect x="90" y="40" width="120" height="180"/>
+    <rect x="640" y="55" width="110" height="165"/>
+    <rect x="750" y="90" width="50" height="130"/>
+  </g>
+
+  <!-- window grid, a few lit orange, most dark -->
+  <g>
+    <g fill="#2c2620">
+      <rect x="110" y="60" width="14" height="18"/>
+      <rect x="140" y="60" width="14" height="18"/>
+      <rect x="170" y="60" width="14" height="18"/>
+      <rect x="110" y="95" width="14" height="18"/>
+      <rect x="170" y="95" width="14" height="18"/>
+      <rect x="110" y="130" width="14" height="18"/>
+      <rect x="140" y="130" width="14" height="18"/>
+      <rect x="660" y="80" width="14" height="18"/>
+      <rect x="690" y="80" width="14" height="18"/>
+      <rect x="660" y="115" width="14" height="18"/>
+      <rect x="720" y="115" width="14" height="18"/>
+    </g>
+    <rect x="140" y="95" width="14" height="18" class="accent"/>
+    <rect x="690" y="115" width="14" height="18" class="accent"/>
+  </g>
+
+  <!-- sidewalk -->
+  <rect x="0" y="270" width="800" height="130" class="raised"/>
+  <line x1="0" y1="270" x2="800" y2="270" stroke="#1f1b16" stroke-width="3"/>
+
+  <!-- sidewalk expansion-joint lines, perspective lines converging toward figure -->
+  <g class="line" stroke="#d8cfbd" stroke-width="2">
+    <line x1="60" y1="270" x2="20" y2="400"/>
+    <line x1="220" y1="270" x2="220" y2="400"/>
+    <line x1="400" y1="270" x2="400" y2="400"/>
+    <line x1="580" y1="270" x2="580" y2="400"/>
+    <line x1="740" y1="270" x2="780" y2="400"/>
+  </g>
+
+  <!-- long cast shadow of the walking figure, stretched diagonally -->
+  <path d="M 330 330 L 620 300 L 640 314 L 350 350 Z" class="shadow"/>
+  <path d="M 336 300 L 470 260 L 480 272 L 344 314 Z" class="shadow"/>
+
+  <!-- FIGURE walking away, seen from behind, camera swung to the hip -->
+  <g transform="translate(380,220)">
+    <!-- coat / torso -->
+    <path d="M -30 -30 Q -34 -70 0 -76 Q 34 -70 30 -30 L 40 60 Q 0 76 -40 60 Z" class="ink"/>
+    <!-- head -->
+    <circle cx="0" cy="-96" r="20" class="ink"/>
+    <!-- neck strap, crossing shoulder -->
+    <path d="M -14 -84 L 26 40" stroke="#d6552b" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <!-- twin-lens camera swung at the hip, seen at an angle -->
+    <g transform="translate(30,44) rotate(8)">
+      <rect x="-22" y="-20" width="44" height="40" rx="4" class="raised" stroke="#1f1b16" stroke-width="3"/>
+      <circle cx="-9" cy="-2" r="10" fill="none" stroke="#1f1b16" stroke-width="3"/>
+      <circle cx="12" cy="-2" r="10" fill="none" stroke="#1f1b16" stroke-width="3"/>
+      <circle cx="-9" cy="-2" r="4" class="ink-soft"/>
+      <circle cx="12" cy="-2" r="4" class="ink-soft"/>
+    </g>
+    <!-- legs, mid-stride -->
+    <path d="M -18 58 L -32 130 L -16 130 L -4 66 Z" class="ink"/>
+    <path d="M 14 58 L 30 122 L 46 118 L 20 60 Z" class="ink"/>
+  </g>
+
+  <text x="400" y="380" text-anchor="middle" class="body" font-size="16">Forty years of walking, looking, and pressing the shutter — for no one.</text>
+</svg>

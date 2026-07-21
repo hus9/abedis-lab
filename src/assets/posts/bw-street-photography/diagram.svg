@@ -1,0 +1,82 @@
+<svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .raised { fill: #fffdf8; }
+      .ink { fill: #1f1b16; }
+      .ink-soft { fill: #4a423a; }
+      .accent { fill: #d6552b; }
+      .line { stroke: #e3dccf; stroke-width: 2; fill: none; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-weight: 900; fill: #1f1b16; }
+      .stage-label { font-family: 'Atkinson Hyperlegible', sans-serif; font-weight: 700; fill: #1f1b16; }
+      .body { font-family: 'Atkinson Hyperlegible', sans-serif; fill: #4a423a; }
+    </style>
+    <marker id="d-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 9 3, 0 6" class="accent"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="420" class="paper"/>
+
+  <text x="400" y="42" text-anchor="middle" class="label" font-size="22">Two ways to get light to your eye</text>
+
+  <!-- divider -->
+  <line x1="400" y1="70" x2="400" y2="330" class="line" stroke="#d8cfbd" stroke-width="2" stroke-dasharray="4 8"/>
+  <text x="400" y="200" text-anchor="middle" class="body" font-size="14" fill="#8a8071">vs</text>
+
+  <!-- LEFT: RANGEFINDER -->
+  <text x="200" y="80" text-anchor="middle" class="stage-label" font-size="17">RANGEFINDER</text>
+
+  <!-- body -->
+  <rect x="110" y="130" width="180" height="110" rx="6" class="raised" stroke="#1f1b16" stroke-width="3"/>
+  <!-- lens -->
+  <circle cx="105" cy="200" r="26" fill="none" stroke="#1f1b16" stroke-width="4"/>
+  <circle cx="105" cy="200" r="10" class="ink-soft"/>
+  <!-- straight light path lens -> film plane, nothing in the way -->
+  <line x1="120" y1="200" x2="280" y2="200" stroke="#d6552b" stroke-width="3" stroke-dasharray="6 6" marker-end="url(#d-arrow)"/>
+  <!-- film plane -->
+  <rect x="278" y="180" width="8" height="40" class="ink"/>
+  <!-- separate optical viewfinder window, independent little window up top, offset from the lens -->
+  <rect x="230" y="112" width="30" height="16" rx="2" class="ink-soft"/>
+  <line x1="245" y1="112" x2="245" y2="90" class="line" stroke="#4a423a" stroke-width="2" stroke-dasharray="3 4"/>
+  <circle cx="245" cy="84" r="5" fill="none" stroke="#4a423a" stroke-width="2"/>
+
+  <text x="200" y="268" text-anchor="middle" class="body" font-size="14">straight optical path,</text>
+  <text x="200" y="288" text-anchor="middle" class="body" font-size="14">nothing moves inside</text>
+  <g transform="translate(140,314)">
+    <circle r="10" class="accent"/>
+    <text y="4" text-anchor="middle" font-size="12" fill="#fffdf8" class="label">&#10003;</text>
+  </g>
+  <text x="160" y="318" class="stage-label" font-size="14">silent shutter</text>
+
+  <!-- RIGHT: SLR -->
+  <text x="600" y="80" text-anchor="middle" class="stage-label" font-size="17">SLR</text>
+
+  <!-- body -->
+  <rect x="510" y="130" width="180" height="110" rx="6" class="raised" stroke="#1f1b16" stroke-width="3"/>
+  <!-- lens -->
+  <circle cx="505" cy="200" r="26" fill="none" stroke="#1f1b16" stroke-width="4"/>
+  <circle cx="505" cy="200" r="10" class="ink-soft"/>
+  <!-- pentaprism hump -->
+  <path d="M 570 130 L 590 100 L 630 100 L 650 130 Z" class="raised" stroke="#1f1b16" stroke-width="3"/>
+  <!-- mirror, angled, resting position -->
+  <line x1="524" y1="222" x2="580" y2="150" stroke="#1f1b16" stroke-width="4"/>
+  <!-- light path bouncing up to the finder (resting / before shutter fires) -->
+  <path d="M 522 200 L 555 186 L 600 118" stroke="#4a423a" stroke-width="2" stroke-dasharray="3 5" fill="none"/>
+  <!-- mirror-flip arc + motion burst, the moment of exposure -->
+  <path d="M 524 222 A 40 40 0 0 1 580 150" fill="none" stroke="#d6552b" stroke-width="2" stroke-dasharray="2 5"/>
+  <path d="M 560 165 l 14 6 l -4 14" fill="none" stroke="#d6552b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- straight path opened up once mirror is out of the way -->
+  <line x1="524" y1="222" x2="680" y2="222" stroke="#d6552b" stroke-width="3" stroke-dasharray="6 6" marker-end="url(#d-arrow)"/>
+  <rect x="678" y="202" width="8" height="40" class="ink"/>
+
+  <text x="600" y="268" text-anchor="middle" class="body" font-size="14">mirror swings up first —</text>
+  <text x="600" y="288" text-anchor="middle" class="body" font-size="14">then the shutter fires</text>
+  <g transform="translate(540,314)">
+    <circle r="10" fill="none" stroke="#d6552b" stroke-width="3"/>
+    <text y="4" text-anchor="middle" font-size="12" fill="#d6552b" class="label">&#10005;</text>
+  </g>
+  <text x="560" y="318" class="stage-label" font-size="14">mirror slap</text>
+
+  <text x="400" y="370" text-anchor="middle" class="body" font-size="16">Same photograph. One camera announces itself. One doesn't.</text>
+</svg>
