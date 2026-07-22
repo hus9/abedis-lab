@@ -1,0 +1,70 @@
+<svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .raised { fill: #fffdf8; }
+      .ink { fill: #1f1b16; }
+      .ink-soft { fill: #4a423a; }
+      .accent { fill: #d6552b; }
+      .line { stroke: #e3dccf; stroke-width: 2; fill: none; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-weight: 900; fill: #1f1b16; }
+      .job-label { font-family: 'Atkinson Hyperlegible', sans-serif; font-weight: 700; fill: #1f1b16; }
+      .body { font-family: 'Atkinson Hyperlegible', sans-serif; fill: #4a423a; }
+    </style>
+    <marker id="arrow2" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 9 3, 0 6" class="ink-soft"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="420" class="paper"/>
+
+  <text x="400" y="46" text-anchor="middle" class="label" font-size="24">One tiny box, four jobs, all at once</text>
+
+  <!-- center: the router -->
+  <g transform="translate(400,210)">
+    <rect x="-70" y="-32" width="140" height="64" rx="10" class="raised" stroke="#1f1b16" stroke-width="4"/>
+    <g stroke="#c9bfa9" stroke-width="3">
+      <line x1="-50" y1="-18" x2="-50" y2="18"/>
+      <line x1="-38" y1="-18" x2="-38" y2="18"/>
+      <line x1="-26" y1="-18" x2="-26" y2="18"/>
+    </g>
+    <circle cx="20" cy="-14" r="4" class="accent"/>
+    <circle cx="34" cy="-14" r="4" fill="#2f7d53"/>
+    <circle cx="48" cy="-14" r="4" class="accent"/>
+    <text x="0" y="20" text-anchor="middle" class="job-label" font-size="14">your router</text>
+  </g>
+
+  <!-- four branches: top-left DHCP, top-right DNS, bottom-left Firewall, bottom-right Admin page -->
+
+  <!-- DHCP: top-left -->
+  <path d="M 340 185 Q 240 130 180 100" class="line" stroke="#4a423a" stroke-width="3" marker-end="url(#arrow2)"/>
+  <g transform="translate(150,80)">
+    <rect x="-70" y="-30" width="140" height="60" rx="10" class="raised" stroke="#1f1b16" stroke-width="3"/>
+    <text x="0" y="-4" text-anchor="middle" class="job-label" font-size="16">DHCP</text>
+    <text x="0" y="16" text-anchor="middle" class="body" font-size="12">hands out addresses</text>
+  </g>
+
+  <!-- DNS: top-right -->
+  <path d="M 460 185 Q 560 130 620 100" class="line" stroke="#4a423a" stroke-width="3" marker-end="url(#arrow2)"/>
+  <g transform="translate(650,80)">
+    <rect x="-70" y="-30" width="140" height="60" rx="10" class="raised" stroke="#1f1b16" stroke-width="3"/>
+    <text x="0" y="-4" text-anchor="middle" class="job-label" font-size="16">DNS</text>
+    <text x="0" y="16" text-anchor="middle" class="body" font-size="12">resolves site names</text>
+  </g>
+
+  <!-- Firewall: bottom-left -->
+  <path d="M 340 235 Q 240 300 180 335" class="line" stroke="#4a423a" stroke-width="3" marker-end="url(#arrow2)"/>
+  <g transform="translate(150,355)">
+    <rect x="-70" y="-30" width="140" height="60" rx="10" class="raised" stroke="#d6552b" stroke-width="3"/>
+    <text x="0" y="-4" text-anchor="middle" class="job-label" font-size="16">Firewall</text>
+    <text x="0" y="16" text-anchor="middle" class="body" font-size="12">blocks the bad stuff</text>
+  </g>
+
+  <!-- Admin web page: bottom-right -->
+  <path d="M 460 235 Q 560 300 620 335" class="line" stroke="#4a423a" stroke-width="3" marker-end="url(#arrow2)"/>
+  <g transform="translate(650,355)">
+    <rect x="-70" y="-30" width="140" height="60" rx="10" class="raised" stroke="#1f1b16" stroke-width="3"/>
+    <text x="0" y="-4" text-anchor="middle" class="job-label" font-size="16">Admin page</text>
+    <text x="0" y="16" text-anchor="middle" class="body" font-size="12">the login you forget</text>
+  </g>
+</svg>

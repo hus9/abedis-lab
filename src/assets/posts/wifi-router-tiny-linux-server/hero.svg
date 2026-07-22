@@ -1,0 +1,81 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .raised { fill: #fffdf8; }
+      .ink { fill: #1f1b16; }
+      .ink-soft { fill: #4a423a; }
+      .accent { fill: #d6552b; }
+      .accent-stroke { stroke: #d6552b; }
+      .line { stroke: #e3dccf; stroke-width: 2; fill: none; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-weight: 900; fill: #1f1b16; }
+      .mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; fill: #2f7d53; }
+      .body { font-family: 'Atkinson Hyperlegible', sans-serif; fill: #4a423a; }
+    </style>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#d6552b" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#d6552b" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="400" class="paper"/>
+
+  <!-- closet interior: back wall shading + hanging rod up top -->
+  <rect x="0" y="0" width="800" height="180" fill="#efe8da"/>
+  <line x1="40" y1="46" x2="760" y2="46" stroke="#c9bfa9" stroke-width="6" stroke-linecap="round"/>
+  <!-- a couple of hangers, barely there, to sell "closet" -->
+  <g stroke="#c9bfa9" stroke-width="3" fill="none" opacity="0.7">
+    <path d="M 120 46 v 10 M 108 66 q 12 -14 24 0 l -24 6 z"/>
+    <path d="M 660 46 v 10 M 648 66 q 12 -14 24 0 l -24 6 z"/>
+  </g>
+
+  <!-- the shelf the router sits on -->
+  <rect x="0" y="250" width="800" height="16" class="ink-soft"/>
+  <rect x="0" y="250" width="800" height="4" fill="#5c5148"/>
+
+  <!-- warm glow behind the router, like a tiny server rack light -->
+  <circle cx="330" cy="200" r="150" fill="url(#glow)"/>
+
+  <!-- the router: small server-rack-like box -->
+  <g transform="translate(250,170)">
+    <rect x="0" y="0" width="160" height="70" rx="8" class="raised" stroke="#1f1b16" stroke-width="3"/>
+    <!-- vents -->
+    <g stroke="#c9bfa9" stroke-width="3">
+      <line x1="16" y1="16" x2="16" y2="54"/>
+      <line x1="28" y1="16" x2="28" y2="54"/>
+      <line x1="40" y1="16" x2="40" y2="54"/>
+    </g>
+    <!-- status LEDs, glowing accent -->
+    <circle cx="70" cy="24" r="4" class="accent"/>
+    <circle cx="86" cy="24" r="4" fill="#2f7d53"/>
+    <circle cx="102" cy="24" r="4" class="accent"/>
+    <circle cx="118" cy="24" r="4" fill="#2f7d53"/>
+    <text x="70" y="50" class="body" font-size="11">WiFi · LAN · WAN · PWR</text>
+    <!-- antennas -->
+    <line x1="30" y1="0" x2="20" y2="-38" stroke="#1f1b16" stroke-width="5" stroke-linecap="round"/>
+    <line x1="130" y1="0" x2="140" y2="-38" stroke="#1f1b16" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="20" cy="-38" r="4" class="ink"/>
+    <circle cx="140" cy="-38" r="4" class="ink"/>
+  </g>
+
+  <!-- little terminal window overlay, hinting at a command prompt hiding inside -->
+  <g transform="translate(470,90)">
+    <rect x="0" y="0" width="270" height="130" rx="10" class="ink" stroke="#1f1b16" stroke-width="3"/>
+    <rect x="0" y="0" width="270" height="26" rx="10" class="ink-soft"/>
+    <rect x="0" y="14" width="270" height="12" fill="#4a423a"/>
+    <circle cx="18" cy="13" r="5" class="accent"/>
+    <circle cx="36" cy="13" r="5" fill="#e3dccf"/>
+    <circle cx="54" cy="13" r="5" fill="#e3dccf"/>
+    <text x="16" y="52" class="mono" font-size="14">$ ssh root@192.168.1.1</text>
+    <text x="16" y="76" class="mono" font-size="14" fill="#f2ebdf">Linux 2.6.36 #1</text>
+    <text x="16" y="100" class="mono" font-size="14" fill="#d6552b">~ #</text>
+    <rect x="46" y="90" width="9" height="14" fill="#d6552b">
+      <animate attributeName="opacity" values="1;0;1" dur="1.2s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- connecting line from terminal to router, "this is what's inside" -->
+  <path d="M 470 150 Q 420 150 400 175" class="line" stroke="#c9bfa9" stroke-width="3" stroke-dasharray="3 7"/>
+
+  <text x="400" y="365" text-anchor="middle" class="label" font-size="24">A full Linux server, glowing quietly in the closet</text>
+</svg>
