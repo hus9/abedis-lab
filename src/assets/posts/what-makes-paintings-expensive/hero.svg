@@ -1,0 +1,96 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .raised { fill: #fffdf8; }
+      .ink { fill: #1f1b16; }
+      .ink-soft { fill: #4a423a; }
+      .accent { fill: #d6552b; }
+      .accent-line { stroke: #d6552b; }
+      .line { stroke: #e3dccf; stroke-width: 2; fill: none; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-weight: 900; fill: #1f1b16; }
+      .body { font-family: 'Atkinson Hyperlegible', sans-serif; fill: #4a423a; }
+    </style>
+    <radialGradient id="portholeGlow" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#fce9c9" stop-opacity="0.9"/>
+      <stop offset="60%" stop-color="#e8c988" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#e8c988" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="hullShade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2b2621"/>
+      <stop offset="100%" stop-color="#1f1b16"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="400" fill="url(#hullShade)"/>
+
+  <!-- hull ribs, below-deck cargo hold feel -->
+  <g stroke="#38322a" stroke-width="10" opacity="0.6">
+    <line x1="70" y1="0" x2="70" y2="400"/>
+    <line x1="240" y1="0" x2="240" y2="400"/>
+    <line x1="560" y1="0" x2="560" y2="400"/>
+    <line x1="730" y1="0" x2="730" y2="400"/>
+  </g>
+
+  <!-- porthole, single source of light -->
+  <circle cx="620" cy="110" r="150" fill="url(#portholeGlow)"/>
+  <circle cx="620" cy="110" r="58" fill="none" stroke="#e8c988" stroke-width="5" opacity="0.55"/>
+  <circle cx="620" cy="110" r="70" fill="none" stroke="#c9a05a" stroke-width="10" opacity="0.5"/>
+  <!-- bolts around porthole rim -->
+  <g fill="#c9a05a" opacity="0.6">
+    <circle cx="620" cy="34" r="4"/>
+    <circle cx="620" cy="186" r="4"/>
+    <circle cx="544" cy="110" r="4"/>
+    <circle cx="696" cy="110" r="4"/>
+    <circle cx="566" cy="60" r="4"/>
+    <circle cx="674" cy="60" r="4"/>
+    <circle cx="566" cy="160" r="4"/>
+    <circle cx="674" cy="160" r="4"/>
+  </g>
+
+  <!-- floor line -->
+  <line x1="0" y1="336" x2="800" y2="336" stroke="#38322a" stroke-width="3"/>
+
+  <!-- climate-controlled crate holding the painting -->
+  <g transform="translate(260,336)">
+    <!-- crate shadow -->
+    <ellipse cx="0" cy="8" rx="180" ry="14" fill="#0d0b09" opacity="0.5"/>
+    <!-- crate body -->
+    <rect x="-170" y="-230" width="340" height="230" rx="6" fill="#3a3128" stroke="#1a1611" stroke-width="4"/>
+    <!-- crate slats -->
+    <g stroke="#2a2319" stroke-width="3" opacity="0.7">
+      <line x1="-170" y1="-172" x2="170" y2="-172"/>
+      <line x1="-170" y1="-114" x2="170" y2="-114"/>
+      <line x1="-170" y1="-56" x2="170" y2="-56"/>
+      <line x1="-114" y1="-230" x2="-114" y2="0"/>
+      <line x1="114" y1="-230" x2="114" y2="0"/>
+    </g>
+    <!-- climate control readout, small warm glow -->
+    <rect x="-30" y="-214" width="60" height="24" rx="4" fill="#161310" stroke="#c9a05a" stroke-width="2"/>
+    <text x="0" y="-197" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="13" fill="#c9a05a">18.5&#176;C</text>
+
+    <!-- front panel removed / ajar, painting visible inside, lit by the porthole light -->
+    <rect x="-96" y="-186" width="192" height="150" rx="3" fill="#100d0a"/>
+    <g transform="translate(0,-115)">
+      <!-- ornate frame -->
+      <rect x="-70" y="-58" width="140" height="116" rx="2" fill="#caa24a" stroke="#8f6f2c" stroke-width="4"/>
+      <rect x="-58" y="-46" width="116" height="92" fill="#efe6d2"/>
+      <!-- suggested figure, minimal, no detail — this is about absence, not the artwork -->
+      <path d="M -20 30 Q -20 -10 0 -14 Q 20 -10 20 30 Z" fill="#8a7a58" opacity="0.55"/>
+      <circle cx="0" cy="-24" r="14" fill="#8a7a58" opacity="0.55"/>
+      <!-- glare from the porthole light hitting the glass -->
+      <path d="M -58 -46 L 20 -46 L -30 46 L -58 46 Z" fill="#fce9c9" opacity="0.18"/>
+    </g>
+  </g>
+
+  <!-- no viewers: empty hold, dust motes in the light -->
+  <g fill="#e8c988" opacity="0.35">
+    <circle cx="470" cy="150" r="2.5"/>
+    <circle cx="500" cy="200" r="2"/>
+    <circle cx="440" cy="230" r="2"/>
+    <circle cx="530" cy="260" r="2.5"/>
+    <circle cx="410" cy="180" r="1.8"/>
+  </g>
+
+  <text x="400" y="380" text-anchor="middle" class="body" font-size="16" fill="#c3b9a8">Below deck, in the dark, worth more than the yacht itself.</text>
+</svg>
