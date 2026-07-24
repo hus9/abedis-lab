@@ -1,0 +1,67 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .raised { fill: #fffdf8; }
+      .ink { fill: #1f1b16; }
+      .ink-soft { fill: #4a423a; }
+      .accent { fill: #d6552b; }
+      .accent-soft { fill: #f4d9cb; }
+      .line { stroke: #e3dccf; stroke-width: 2; fill: none; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-weight: 900; fill: #1f1b16; }
+      .caption { font-family: 'Atkinson Hyperlegible', sans-serif; fill: #4a423a; }
+      .mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; fill: #4a423a; }
+    </style>
+  </defs>
+
+  <rect width="800" height="400" class="paper"/>
+
+  <!-- cable body, X-ray style: outer sheath drawn as dashed outline, inner wires visible -->
+  <g>
+    <!-- outer jacket, ghosted -->
+    <path d="M 40 220 C 200 150, 400 290, 620 210" fill="none" stroke="#e3dccf" stroke-width="46" stroke-linecap="round"/>
+    <path d="M 40 220 C 200 150, 400 290, 620 210" fill="none" stroke="#d6552b" stroke-width="46" stroke-linecap="round" opacity="0.06"/>
+    <!-- dashed X-ray outline over the jacket -->
+    <path d="M 40 220 C 200 150, 400 290, 620 210" fill="none" stroke="#4a423a" stroke-width="46" stroke-linecap="round" opacity="0" />
+    <path d="M 40 197 C 200 127, 400 267, 620 187" fill="none" stroke="#c3b9a8" stroke-width="1.5" stroke-dasharray="3 4"/>
+    <path d="M 40 243 C 200 173, 400 313, 620 233" fill="none" stroke="#c3b9a8" stroke-width="1.5" stroke-dasharray="3 4"/>
+
+    <!-- internal copper wires, thin, visible inside the ghosted jacket -->
+    <path d="M 60 214 C 210 148, 400 280, 600 206" fill="none" stroke="#d6552b" stroke-width="4" opacity="0.55"/>
+    <path d="M 60 226 C 210 162, 400 296, 600 222" fill="none" stroke="#d6552b" stroke-width="4" opacity="0.4"/>
+  </g>
+
+  <!-- USB-C connector at right, drawn as a simple raised plug -->
+  <g>
+    <rect x="605" y="188" width="72" height="46" rx="8" class="raised" stroke="#4a423a" stroke-width="2.5"/>
+    <rect x="615" y="198" width="52" height="26" rx="5" fill="none" stroke="#4a423a" stroke-width="2"/>
+  </g>
+
+  <!-- E-marker chip near the connector, revealed like an X-ray callout -->
+  <g>
+    <circle cx="560" cy="211" r="26" class="accent-soft" stroke="#d6552b" stroke-width="2.5"/>
+    <rect x="548" y="200" width="24" height="22" rx="3" fill="#fffdf8" stroke="#d6552b" stroke-width="2"/>
+    <line x1="553" y1="206" x2="567" y2="206" stroke="#d6552b" stroke-width="1.5"/>
+    <line x1="553" y1="212" x2="567" y2="212" stroke="#d6552b" stroke-width="1.5"/>
+    <line x1="553" y1="218" x2="561" y2="218" stroke="#d6552b" stroke-width="1.5"/>
+  </g>
+
+  <!-- speech bubble from the chip -->
+  <g>
+    <path d="M 470 90 h 200 a 12 12 0 0 1 12 12 v 56 a 12 12 0 0 1 -12 12 h -110 l -26 26 v -26 h -64 a 12 12 0 0 1 -12 -12 v -56 a 12 12 0 0 1 12 -12 z"
+      class="raised" stroke="#d6552b" stroke-width="2.5"/>
+    <text x="570" y="128" class="label" font-size="24" text-anchor="middle">"100W,</text>
+    <text x="570" y="156" class="label" font-size="24" text-anchor="middle">I promise"</text>
+  </g>
+
+  <!-- small pointer line connecting bubble to chip -->
+  <line x1="540" y1="184" x2="558" y2="188" stroke="#d6552b" stroke-width="1.5" stroke-dasharray="3 3"/>
+
+  <!-- connector plug end (left), simple -->
+  <g>
+    <rect x="20" y="200" width="44" height="40" rx="6" class="raised" stroke="#4a423a" stroke-width="2.5"/>
+  </g>
+
+  <text x="400" y="358" class="label" font-size="26" text-anchor="middle">The chip decides. The copper pays.</text>
+  <text x="400" y="384" class="caption" font-size="14" text-anchor="middle">A tiny E-marker chip tells your charger what the cable can handle — nothing checks if it's telling the truth</text>
+</svg>
