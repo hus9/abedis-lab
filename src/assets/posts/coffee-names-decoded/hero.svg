@@ -1,0 +1,75 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .raised { fill: #fffdf8; }
+      .ink { fill: #1f1b16; }
+      .ink-soft { fill: #4a423a; }
+      .accent { fill: #d6552b; }
+      .accent-soft { fill: #f4d9cb; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-weight: 900; fill: #1f1b16; }
+      .tag { font-family: 'Atkinson Hyperlegible', sans-serif; font-weight: 700; fill: #d6552b; }
+      .caption { font-family: 'Atkinson Hyperlegible', sans-serif; fill: #4a423a; }
+      .mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; fill: #4a423a; }
+    </style>
+  </defs>
+
+  <rect width="800" height="400" class="paper"/>
+
+  <!-- ground line the two cups sit on -->
+  <line x1="60" y1="330" x2="740" y2="330" stroke="#e3dccf" stroke-width="2"/>
+
+  <!-- tiny espresso macchiato glass, left -->
+  <g transform="translate(210,0)">
+    <!-- glass body, small tapered tumbler, 2oz -->
+    <path d="M -34 260 L -28 328 L 28 328 L 34 260 Z" class="raised" stroke="#1f1b16" stroke-width="3"/>
+    <!-- espresso fill -->
+    <path d="M -30 270 L -26 322 L 26 322 L 30 270 Z" class="accent" opacity="0.85"/>
+    <!-- dab of foam on top -->
+    <ellipse cx="0" cy="266" rx="30" ry="7" class="raised" stroke="#1f1b16" stroke-width="2.5"/>
+    <ellipse cx="0" cy="264" rx="14" ry="4" fill="#fffdf8"/>
+    <!-- rim -->
+    <ellipse cx="0" cy="260" rx="34" ry="8" fill="none" stroke="#1f1b16" stroke-width="3"/>
+
+    <!-- size callout -->
+    <text x="0" y="230" class="tag" font-size="20" text-anchor="middle">2 OZ</text>
+
+    <!-- label tag hanging on glass -->
+    <g transform="translate(56,290) rotate(8)">
+      <rect x="0" y="-16" width="112" height="34" rx="6" class="raised" stroke="#d6552b" stroke-width="2.5"/>
+      <circle cx="0" cy="1" r="3" fill="#d6552b"/>
+      <text x="56" y="6" class="label" font-size="16" text-anchor="middle">MACCHIATO</text>
+    </g>
+  </g>
+
+  <!-- tall Starbucks-style cup, right, 16oz -->
+  <g transform="translate(560,0)">
+    <!-- cup body, tall tapered paper cup -->
+    <path d="M -62 140 L -46 328 L 46 328 L 62 140 Z" class="raised" stroke="#1f1b16" stroke-width="3"/>
+    <!-- caramel/milk fill -->
+    <path d="M -58 155 L -44 322 L 44 322 L 58 155 Z" fill="#c9925a" opacity="0.9"/>
+    <!-- caramel drizzle lines -->
+    <path d="M -50 170 Q -20 190 -46 210" fill="none" stroke="#8a5a2b" stroke-width="3" opacity="0.6"/>
+    <path d="M 10 180 Q 40 205 14 230" fill="none" stroke="#8a5a2b" stroke-width="3" opacity="0.6"/>
+    <!-- whipped foam lid -->
+    <ellipse cx="0" cy="150" rx="58" ry="14" fill="#fffdf8" stroke="#1f1b16" stroke-width="2.5"/>
+    <ellipse cx="0" cy="145" rx="30" ry="8" fill="#fffdf8" opacity="0.9"/>
+    <!-- sip lid -->
+    <ellipse cx="0" cy="140" rx="62" ry="10" fill="none" stroke="#1f1b16" stroke-width="3"/>
+    <rect x="-16" y="112" width="32" height="20" rx="4" class="raised" stroke="#1f1b16" stroke-width="2.5"/>
+
+    <!-- sleeve -->
+    <rect x="-52" y="220" width="104" height="70" rx="6" class="accent-soft" stroke="#d6552b" stroke-width="2"/>
+    <text x="0" y="262" class="label" font-size="18" text-anchor="middle">MACCHIATO</text>
+
+    <!-- size callout -->
+    <text x="0" y="95" class="tag" font-size="20" text-anchor="middle">16 OZ</text>
+  </g>
+
+  <!-- connecting "same name" bracket -->
+  <g>
+    <path d="M 236 60 C 340 30, 460 30, 564 60" fill="none" stroke="#d6552b" stroke-width="2.5" stroke-dasharray="5 5"/>
+  </g>
+
+  <text x="400" y="42" class="label" font-size="24" text-anchor="middle">Same word. Not the same drink.</text>
+</svg>

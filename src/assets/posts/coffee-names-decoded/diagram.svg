@@ -1,0 +1,60 @@
+<svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .raised { fill: #fffdf8; }
+      .ink { fill: #1f1b16; }
+      .ink-soft { fill: #4a423a; }
+      .accent { fill: #d6552b; }
+      .accent-soft { fill: #f4d9cb; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-weight: 900; fill: #1f1b16; }
+      .stage-label { font-family: 'Atkinson Hyperlegible', sans-serif; font-weight: 700; fill: #1f1b16; }
+      .body { font-family: 'Atkinson Hyperlegible', sans-serif; fill: #4a423a; }
+      .mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; fill: #4a423a; }
+    </style>
+    <linearGradient id="sweetBitter" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#e8a45c"/>
+      <stop offset="50%" stop-color="#d6552b"/>
+      <stop offset="100%" stop-color="#5c2e18"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="420" class="paper"/>
+
+  <text x="400" y="46" text-anchor="middle" class="label" font-size="24">Same grounds, different clock</text>
+
+  <!-- three shot glasses side by side -->
+  <g>
+    <!-- Ristretto -->
+    <g transform="translate(150,0)">
+      <path d="M -46 150 L -34 300 L 34 300 L 46 150 Z" class="raised" stroke="#1f1b16" stroke-width="3"/>
+      <path d="M -40 220 L -30 294 L 30 294 L 40 220 Z" fill="#e8a45c"/>
+      <text x="0" y="330" class="stage-label" font-size="20" text-anchor="middle">Ristretto</text>
+      <text x="0" y="356" class="body" font-size="16" text-anchor="middle">20&#8211;25 sec</text>
+      <text x="0" y="380" class="body" font-size="14" text-anchor="middle" fill="#d6552b">sweet, concentrated</text>
+    </g>
+
+    <!-- Espresso -->
+    <g transform="translate(400,0)">
+      <path d="M -46 150 L -34 300 L 34 300 L 46 150 Z" class="raised" stroke="#1f1b16" stroke-width="3"/>
+      <path d="M -41 195 L -30 294 L 30 294 L 41 195 Z" fill="#d6552b"/>
+      <text x="0" y="330" class="stage-label" font-size="20" text-anchor="middle">Espresso</text>
+      <text x="0" y="356" class="body" font-size="16" text-anchor="middle">25&#8211;30 sec</text>
+      <text x="0" y="380" class="body" font-size="14" text-anchor="middle" fill="#d6552b">the balance point</text>
+    </g>
+
+    <!-- Lungo -->
+    <g transform="translate(650,0)">
+      <path d="M -46 150 L -34 300 L 34 300 L 46 150 Z" class="raised" stroke="#1f1b16" stroke-width="3"/>
+      <path d="M -43 165 L -32 294 L 32 294 L 43 165 Z" fill="#5c2e18"/>
+      <text x="0" y="330" class="stage-label" font-size="20" text-anchor="middle">Lungo</text>
+      <text x="0" y="356" class="body" font-size="16" text-anchor="middle">35&#8211;45 sec</text>
+      <text x="0" y="380" class="body" font-size="14" text-anchor="middle" fill="#d6552b">bitter, pulled long</text>
+    </g>
+  </g>
+
+  <!-- gradient bar underneath: sweet to bitter -->
+  <rect x="90" y="404" width="620" height="10" rx="5" fill="url(#sweetBitter)"/>
+  <text x="90" y="398" class="body" font-size="13">sweet</text>
+  <text x="710" y="398" class="body" font-size="13" text-anchor="end">bitter</text>
+</svg>
