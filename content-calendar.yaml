@@ -117,7 +117,7 @@
   category: AI
   topic: Vector embeddings, the librarian's card catalog
   slug: vector-embeddings-librarian-card-catalog
-  status: pending
+  status: done
 - day: 24
   category: Trading
   topic: Slippage, the tax nobody mentions
