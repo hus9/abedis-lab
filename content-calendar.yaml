@@ -113,3 +113,43 @@
   topic: Coffee names decoded
   slug: coffee-names-decoded
   status: done
+- day: 23
+  category: AI
+  topic: Vector embeddings, the librarian's card catalog
+  slug: vector-embeddings-librarian-card-catalog
+  status: pending
+- day: 24
+  category: Trading
+  topic: Slippage, the tax nobody mentions
+  slug: slippage-the-tax-nobody-mentions
+  status: pending
+- day: 25
+  category: Tech
+  topic: DNS, the internet's phone book
+  slug: dns-internets-phone-book
+  status: pending
+- day: 26
+  category: Tinkering
+  topic: Mechanical keyboard switches explained
+  slug: mechanical-keyboard-switches-explained
+  status: pending
+- day: 27
+  category: AI
+  topic: Temperature and top-p, tuning creativity
+  slug: temperature-top-p-tuning-creativity
+  status: pending
+- day: 28
+  category: Trading
+  topic: Iron condors explained
+  slug: iron-condors-explained
+  status: pending
+- day: 29
+  category: Tech
+  topic: Load balancers, the bouncer at the club
+  slug: load-balancers-bouncer-at-the-club
+  status: pending
+- day: 30
+  category: Tinkering
+  topic: Espresso vs pour-over, the physics
+  slug: espresso-vs-pour-over-physics
+  status: pending
