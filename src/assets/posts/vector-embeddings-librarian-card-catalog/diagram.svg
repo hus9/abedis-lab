@@ -1,0 +1,74 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="diagram-title diagram-desc">
+  <title id="diagram-title">Two incompatible card catalogs being compared, with no error shown</title>
+  <desc id="diagram-desc">Two separate library card-catalog drawers side by side, one scored on a scale of 1 to 10 and the other on a scale of 1 to 100. A card is pulled from each and set next to each other with a red X between them, marking a meaningless comparison — but no error symbol or alert appears anywhere, since the system reports a confident answer regardless.</desc>
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .raised { fill: #fffdf8; }
+      .wood { fill: #c99a6b; }
+      .wood-dark { fill: #a97c4f; }
+      .ink { fill: #1f1b16; }
+      .ink-soft { fill: #4a423a; }
+      .accent { fill: #d6552b; }
+      .line { stroke: #e3dccf; stroke-width: 2; fill: none; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-weight: 900; fill: #1f1b16; }
+      .body { font-family: 'Atkinson Hyperlegible', sans-serif; fill: #4a423a; }
+    </style>
+  </defs>
+
+  <rect width="800" height="400" class="paper"/>
+
+  <!-- Left cabinet: Librarian A, scale 1-10 -->
+  <g transform="translate(60,70)">
+    <rect x="0" y="0" width="150" height="180" rx="6" class="wood" stroke="#1f1b16" stroke-width="3"/>
+    <rect x="12" y="14" width="126" height="42" rx="4" class="wood-dark" stroke="#1f1b16" stroke-width="2"/>
+    <circle cx="75" cy="35" r="4.5" class="raised"/>
+    <rect x="12" y="64" width="126" height="42" rx="4" class="accent" stroke="#1f1b16" stroke-width="2"/>
+    <circle cx="75" cy="85" r="4.5" class="raised"/>
+    <rect x="12" y="114" width="126" height="42" rx="4" class="wood-dark" stroke="#1f1b16" stroke-width="2"/>
+    <circle cx="75" cy="135" r="4.5" class="raised"/>
+    <text x="75" y="205" text-anchor="middle" class="label" font-size="16">Librarian A</text>
+    <text x="75" y="224" text-anchor="middle" class="body" font-size="12">scores 1–10</text>
+  </g>
+
+  <!-- Right cabinet: Librarian B, scale 1-100 -->
+  <g transform="translate(590,70)">
+    <rect x="0" y="0" width="150" height="180" rx="6" class="wood" stroke="#1f1b16" stroke-width="3"/>
+    <rect x="12" y="14" width="126" height="42" rx="4" class="wood-dark" stroke="#1f1b16" stroke-width="2"/>
+    <circle cx="75" cy="35" r="4.5" class="raised"/>
+    <rect x="12" y="64" width="126" height="42" rx="4" class="accent" stroke="#1f1b16" stroke-width="2"/>
+    <circle cx="75" cy="85" r="4.5" class="raised"/>
+    <rect x="12" y="114" width="126" height="42" rx="4" class="wood-dark" stroke="#1f1b16" stroke-width="2"/>
+    <circle cx="75" cy="135" r="4.5" class="raised"/>
+    <text x="75" y="205" text-anchor="middle" class="label" font-size="16">Librarian B</text>
+    <text x="75" y="224" text-anchor="middle" class="body" font-size="12">scores 1–100</text>
+  </g>
+
+  <!-- Two pulled cards being compared in the middle -->
+  <g transform="translate(280,140)">
+    <rect x="0" y="0" width="110" height="70" rx="4" class="raised" stroke="#1f1b16" stroke-width="2.5"/>
+    <text x="55" y="24" text-anchor="middle" class="body" font-size="11">historical</text>
+    <text x="55" y="38" text-anchor="middle" class="body" font-size="11">setting: 7</text>
+    <line x1="12" y1="50" x2="98" y2="50" class="line"/>
+  </g>
+  <g transform="translate(410,140)">
+    <rect x="0" y="0" width="110" height="70" rx="4" class="raised" stroke="#1f1b16" stroke-width="2.5"/>
+    <text x="55" y="24" text-anchor="middle" class="body" font-size="11">historical</text>
+    <text x="55" y="38" text-anchor="middle" class="body" font-size="11">setting: 70</text>
+    <line x1="12" y1="50" x2="98" y2="50" class="line"/>
+  </g>
+
+  <!-- Red X between the two cards, meaningless comparison, no alert symbol -->
+  <g transform="translate(400,175)" stroke="#c23b1f" stroke-width="6" stroke-linecap="round">
+    <line x1="-14" y1="-14" x2="14" y2="14"/>
+    <line x1="14" y1="-14" x2="-14" y2="14"/>
+  </g>
+
+  <!-- A calm, confident answer surfaces below — no error state -->
+  <g transform="translate(400,280)">
+    <rect x="-140" y="0" width="280" height="46" rx="23" class="accent" stroke="#1f1b16" stroke-width="2.5"/>
+    <text x="0" y="29" text-anchor="middle" font-family="'Fraunces', Georgia, serif" font-weight="900" font-size="16" fill="#fffdf8">"92% match" — confidently wrong</text>
+  </g>
+
+  <text x="400" y="370" text-anchor="middle" class="body" font-size="16">Nothing crashes. No error appears. It just measures an angle that means nothing.</text>
+</svg>
