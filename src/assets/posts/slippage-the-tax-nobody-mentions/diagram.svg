@@ -1,0 +1,58 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .ink { fill: #1f1b16; }
+      .accent { fill: #d6552b; }
+      .accent-soft { fill: #f4d9cb; }
+      .line { stroke: #e3dccf; stroke-width: 2; fill: none; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-size: 20px; font-weight: 600; fill: #1f1b16; }
+      .sub { font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 13px; fill: #4a423a; }
+      .tick { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 13px; fill: #4a423a; }
+      .num { font-family: 'Fraunces', Georgia, serif; font-size: 26px; font-weight: 900; fill: #1f1b16; }
+    </style>
+  </defs>
+
+  <rect width="800" height="400" class="paper"/>
+
+  <text x="400" y="60" class="label" text-anchor="middle" font-size="18">A scalper's whole trade, drawn to scale</text>
+
+  <!-- bar: 0 to 5 pips, 100px = 1 pip, starting x=150 -->
+  <g transform="translate(150, 150)">
+    <!-- full target bar (5 pips) outline -->
+    <rect x="0" y="0" width="500" height="90" rx="8" fill="none" stroke="#1f1b16" stroke-width="2.5"/>
+
+    <!-- kept profit: pips 0-3 (typical low end after slippage: target 3, slippage ~2) -->
+    <rect x="0" y="0" width="300" height="90" rx="0" class="accent-soft"/>
+
+    <!-- slippage bite: pips 3-5 shown as eaten, hatched accent -->
+    <rect x="300" y="0" width="200" height="90" class="accent"/>
+
+    <!-- pip gridlines every 100px -->
+    <g class="line">
+      <line x1="100" y1="0" x2="100" y2="90"/>
+      <line x1="200" y1="0" x2="200" y2="90"/>
+      <line x1="300" y1="0" x2="300" y2="90"/>
+      <line x1="400" y1="0" x2="400" y2="90"/>
+    </g>
+
+    <!-- pip ticks below -->
+    <g class="tick">
+      <text x="0" y="115">0</text>
+      <text x="100" y="115">1</text>
+      <text x="200" y="115">2</text>
+      <text x="300" y="115">3</text>
+      <text x="400" y="115">4</text>
+      <text x="500" y="115">5 pips</text>
+    </g>
+
+    <!-- labels -->
+    <text x="140" y="45" class="num" text-anchor="middle" fill="#1f1b16">profit</text>
+    <text x="400" y="45" class="num" text-anchor="middle" fill="#fffdf8">slippage</text>
+
+    <text x="140" y="-15" class="sub" text-anchor="middle">target: 3&#8211;5 pips</text>
+  </g>
+
+  <text x="400" y="330" class="sub" text-anchor="middle" font-size="14">Slippage typically eats 1&#8211;2 of every 3&#8211;5 pips a scalper is chasing</text>
+  <text x="400" y="355" class="sub" text-anchor="middle" font-size="13">&#8212; before commissions, before the spread, before anything else</text>
+</svg>

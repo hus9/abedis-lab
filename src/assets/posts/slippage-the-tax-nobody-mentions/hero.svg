@@ -1,0 +1,54 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .ink { fill: #1f1b16; }
+      .accent { fill: #d6552b; }
+      .line { stroke: #e3dccf; stroke-width: 2; fill: none; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-size: 20px; font-weight: 600; fill: #1f1b16; }
+      .sub { font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 13px; fill: #4a423a; }
+      .quoted { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 34px; font-weight: 600; fill: #1f1b16; }
+      .filled { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 46px; font-weight: 600; fill: #d6552b; }
+      .stampring { fill: none; stroke: #d6552b; stroke-width: 4; }
+      .stamptext { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; fill: #d6552b; letter-spacing: 2px; }
+    </style>
+  </defs>
+
+  <rect width="800" height="400" class="paper"/>
+
+  <!-- ticket -->
+  <g transform="translate(260, 200)">
+    <path d="M -180 -150
+             L 180 -150
+             L 180 150
+             L -180 150
+             Z"
+          class="ink" opacity="0.04"/>
+    <rect x="-180" y="-150" width="360" height="300" rx="6" class="paper" stroke="#1f1b16" stroke-width="2.5"/>
+    <!-- perforation -->
+    <g stroke="#e3dccf" stroke-width="2" stroke-dasharray="6 8">
+      <line x1="-160" y1="-95" x2="160" y2="-95"/>
+      <line x1="-160" y1="60" x2="160" y2="60"/>
+    </g>
+
+    <text x="0" y="-125" class="label" text-anchor="middle" font-size="16">PRICE TICKET</text>
+
+    <text x="-140" y="-45" class="sub">Quoted</text>
+    <text x="140" y="-45" class="quoted" text-anchor="end" text-decoration="line-through">$50.05</text>
+
+    <text x="-140" y="35" class="sub">Filled</text>
+    <text x="140" y="45" class="filled" text-anchor="end">$50.45</text>
+
+    <text x="0" y="115" class="sub" text-anchor="middle">the gap nobody bills you for</text>
+  </g>
+
+  <!-- stamp, rotated over the ticket edge -->
+  <g transform="translate(560, 150) rotate(-18)">
+    <circle r="72" class="stampring"/>
+    <circle r="60" class="stampring" stroke-width="2"/>
+    <text x="0" y="-6" class="stamptext" text-anchor="middle">SLIPPAGE</text>
+    <text x="0" y="18" class="stamptext" text-anchor="middle" font-size="12">+$0.40 / SHARE</text>
+  </g>
+
+  <text x="400" y="380" class="sub" text-anchor="middle" font-size="13">The price you expected, and the price you actually got &#8212; not a fee, just a gap</text>
+</svg>
