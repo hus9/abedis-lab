@@ -1,0 +1,73 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .raised { fill: #fffdf8; }
+      .ink { fill: #1f1b16; }
+      .ink-soft { fill: #4a423a; }
+      .accent { fill: #d6552b; }
+      .accent-soft { fill: #f4d9cb; }
+      .line { stroke: #e3dccf; stroke-width: 2; fill: none; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-weight: 900; fill: #1f1b16; }
+      .caption { font-family: 'Atkinson Hyperlegible', sans-serif; fill: #4a423a; }
+    </style>
+  </defs>
+
+  <rect width="800" height="400" class="paper"/>
+
+  <!-- LEFT: old rotary phone book, closed, worn -->
+  <g>
+    <rect x="70" y="130" width="200" height="240" rx="6" class="raised" stroke="#e3dccf" stroke-width="3"/>
+    <rect x="70" y="130" width="200" height="240" rx="6" fill="none" stroke="#d6552b" stroke-width="2" stroke-dasharray="3 4" opacity="0.4"/>
+    <!-- page edges -->
+    <rect x="266" y="136" width="8" height="228" class="paper" stroke="#e3dccf" stroke-width="1"/>
+    <rect x="270" y="140" width="6" height="220" class="paper" stroke="#e3dccf" stroke-width="1"/>
+    <!-- catalog number stamped on spine like a library book -->
+    <rect x="90" y="155" width="160" height="60" rx="4" class="accent-soft"/>
+    <text x="170" y="200" class="label accent" font-size="46" text-anchor="middle" fill="#d6552b">13</text>
+    <text x="170" y="255" class="label" font-size="20" text-anchor="middle">PHONE BOOK</text>
+    <text x="170" y="280" class="caption" font-size="13" text-anchor="middle">names → numbers</text>
+    <!-- rotary dial hint, half-emerging into digital -->
+    <circle cx="170" cy="330" r="26" fill="none" stroke="#4a423a" stroke-width="2.5" opacity="0.5"/>
+    <circle cx="170" cy="330" r="6" fill="#4a423a" opacity="0.5"/>
+  </g>
+
+  <!-- connecting morph arrow -->
+  <g transform="translate(400, 250)" opacity="0.85">
+    <line x1="-40" y1="0" x2="40" y2="0" stroke="#d6552b" stroke-width="4" stroke-linecap="round"/>
+    <polygon points="40,0 24,-10 24,10" fill="#d6552b"/>
+  </g>
+
+  <!-- RIGHT: glowing server rack -->
+  <g>
+    <rect x="520" y="110" width="210" height="260" rx="8" class="ink"/>
+    <rect x="520" y="110" width="210" height="260" rx="8" fill="none" stroke="#d6552b" stroke-width="2" opacity="0.5"/>
+    <!-- rack units -->
+    <g>
+      <rect x="540" y="130" width="170" height="34" rx="3" fill="#2a251f"/>
+      <circle cx="558" cy="147" r="5" class="accent"/>
+      <rect x="580" y="142" width="110" height="10" rx="2" fill="#4a423a"/>
+
+      <rect x="540" y="174" width="170" height="34" rx="3" fill="#2a251f"/>
+      <circle cx="558" cy="191" r="5" class="accent" opacity="0.85"/>
+      <rect x="580" y="186" width="110" height="10" rx="2" fill="#4a423a"/>
+
+      <rect x="540" y="218" width="170" height="34" rx="3" fill="#2a251f"/>
+      <circle cx="558" cy="235" r="5" class="accent" opacity="0.6"/>
+      <rect x="580" y="230" width="110" height="10" rx="2" fill="#4a423a"/>
+
+      <rect x="540" y="262" width="170" height="34" rx="3" fill="#2a251f"/>
+      <circle cx="558" cy="279" r="5" class="accent"/>
+      <rect x="580" y="274" width="110" height="10" rx="2" fill="#4a423a"/>
+
+      <rect x="540" y="306" width="170" height="34" rx="3" fill="#2a251f"/>
+      <circle cx="558" cy="323" r="5" class="accent" opacity="0.85"/>
+      <rect x="580" y="318" width="110" height="10" rx="2" fill="#4a423a"/>
+    </g>
+    <!-- glow -->
+    <ellipse cx="625" cy="380" rx="140" ry="18" class="accent-soft" opacity="0.6"/>
+    <text x="625" y="405" class="caption" font-size="13" text-anchor="middle">2,000+ machines, same 13 addresses</text>
+  </g>
+
+  <text x="400" y="55" class="label" font-size="30" text-anchor="middle">The Internet's Phone Book</text>
+</svg>

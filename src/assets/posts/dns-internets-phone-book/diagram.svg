@@ -1,0 +1,74 @@
+<svg viewBox="0 0 800 460" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .raised { fill: #fffdf8; }
+      .ink { fill: #1f1b16; }
+      .ink-soft { fill: #4a423a; }
+      .accent { fill: #d6552b; }
+      .accent-soft { fill: #f4d9cb; }
+      .line { stroke: #e3dccf; stroke-width: 2; fill: none; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-weight: 700; fill: #1f1b16; }
+      .caption { font-family: 'Atkinson Hyperlegible', sans-serif; fill: #4a423a; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" class="accent"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="460" class="paper"/>
+
+  <text x="400" y="46" class="label" font-size="26" text-anchor="middle">A relay, not a lookup</text>
+
+  <!-- 5 stops in a row -->
+  <g>
+    <!-- device -->
+    <rect x="30" y="180" width="130" height="90" rx="10" class="raised" stroke="#e3dccf" stroke-width="2"/>
+    <text x="95" y="215" class="label" font-size="15" text-anchor="middle">Your</text>
+    <text x="95" y="235" class="label" font-size="15" text-anchor="middle">Device</text>
+    <text x="95" y="255" class="caption" font-size="11" text-anchor="middle">"example.com?"</text>
+
+    <line x1="160" y1="225" x2="185" y2="225" class="line" stroke="#d6552b" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+    <!-- resolver -->
+    <rect x="190" y="180" width="130" height="90" rx="10" class="accent-soft" stroke="#d6552b" stroke-width="2"/>
+    <text x="255" y="215" class="label" font-size="14" text-anchor="middle">Recursive</text>
+    <text x="255" y="235" class="label" font-size="14" text-anchor="middle">Resolver</text>
+    <text x="255" y="255" class="caption" font-size="11" text-anchor="middle">does the legwork</text>
+
+    <line x1="320" y1="225" x2="345" y2="225" class="line" stroke="#d6552b" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+    <!-- root -->
+    <rect x="350" y="180" width="130" height="90" rx="10" class="raised" stroke="#e3dccf" stroke-width="2"/>
+    <text x="415" y="215" class="label" font-size="15" text-anchor="middle">Root</text>
+    <text x="415" y="235" class="label" font-size="15" text-anchor="middle">Server</text>
+    <text x="415" y="255" class="caption" font-size="11" text-anchor="middle">1 of 13</text>
+
+    <line x1="480" y1="225" x2="505" y2="225" class="line" stroke="#d6552b" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+    <!-- tld -->
+    <rect x="510" y="180" width="130" height="90" rx="10" class="raised" stroke="#e3dccf" stroke-width="2"/>
+    <text x="575" y="215" class="label" font-size="14" text-anchor="middle">TLD</text>
+    <text x="575" y="235" class="label" font-size="14" text-anchor="middle">Server</text>
+    <text x="575" y="255" class="caption" font-size="11" text-anchor="middle">runs ".com"</text>
+
+    <line x1="640" y1="225" x2="665" y2="225" class="line" stroke="#d6552b" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+    <!-- authoritative -->
+    <rect x="670" y="180" width="110" height="90" rx="10" class="accent" stroke="#d6552b" stroke-width="2"/>
+    <text x="725" y="215" class="label" font-size="13" text-anchor="middle" fill="#fffdf8">Authoritative</text>
+    <text x="725" y="235" class="label" font-size="13" text-anchor="middle" fill="#fffdf8">Server</text>
+    <text x="725" y="255" class="caption" font-size="11" text-anchor="middle" fill="#fffdf8">has the IP</text>
+  </g>
+
+  <text x="400" y="330" class="caption" font-size="15" text-anchor="middle">Each stop only knows who's next — never the final answer.</text>
+
+  <!-- knowledge bar, growing as you go right -->
+  <g transform="translate(0, 370)">
+    <text x="95" y="0" class="caption" font-size="11" text-anchor="middle">knows: nothing</text>
+    <text x="255" y="0" class="caption" font-size="11" text-anchor="middle">knows: who's next</text>
+    <text x="415" y="0" class="caption" font-size="11" text-anchor="middle">knows: who's next</text>
+    <text x="575" y="0" class="caption" font-size="11" text-anchor="middle">knows: who's next</text>
+    <text x="725" y="0" class="caption" font-size="11" text-anchor="middle" fill="#d6552b" font-weight="700">knows: the answer</text>
+  </g>
+</svg>
