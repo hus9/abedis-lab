@@ -1,0 +1,67 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .ink { fill: #1f1b16; }
+      .accent { fill: #d6552b; }
+      .grey { fill: #b8b0a2; }
+      .line { stroke: #e3dccf; stroke-width: 2; fill: none; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-size: 20px; font-weight: 600; fill: #1f1b16; }
+      .sub { font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 13px; fill: #4a423a; }
+      .tag { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 1.5px; }
+    </style>
+    <radialGradient id="rgbGlow" cx="50%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#d6552b" stop-opacity="0.55"/>
+      <stop offset="55%" stop-color="#d6552b" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#d6552b" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="400" class="paper"/>
+
+  <!-- vertical divider -->
+  <line x1="400" y1="30" x2="400" y2="345" stroke="#1f1b16" stroke-width="2" stroke-dasharray="2 6"/>
+
+  <!-- LEFT: gaming side, glowing -->
+  <g>
+    <rect x="0" y="0" width="400" height="400" fill="url(#rgbGlow)"/>
+    <text x="200" y="55" class="tag accent" text-anchor="middle">GAMING RGB</text>
+
+    <!-- keycap -->
+    <rect x="130" y="90" width="140" height="55" rx="8" class="paper" stroke="#1f1b16" stroke-width="2.5"/>
+    <!-- stem -->
+    <rect x="185" y="145" width="30" height="60" class="accent"/>
+    <!-- housing -->
+    <rect x="145" y="205" width="110" height="90" rx="6" class="paper" stroke="#1f1b16" stroke-width="2.5"/>
+    <!-- spring -->
+    <path d="M 200 215 q -18 8 0 16 q 18 8 0 16 q -18 8 0 16 q 18 8 0 16" class="line" stroke="#d6552b" stroke-width="3"/>
+
+    <!-- glow rays -->
+    <g stroke="#d6552b" stroke-width="2" opacity="0.6">
+      <line x1="120" y1="100" x2="90" y2="80"/>
+      <line x1="280" y1="100" x2="310" y2="80"/>
+      <line x1="120" y1="130" x2="85" y2="140"/>
+      <line x1="280" y1="130" x2="315" y2="140"/>
+    </g>
+
+    <text x="200" y="335" class="sub" text-anchor="middle">same switch, different lighting</text>
+  </g>
+
+  <!-- RIGHT: cash register side, plain -->
+  <g>
+    <text x="600" y="55" class="tag" fill="#5a5348" text-anchor="middle">CASH REGISTER</text>
+
+    <!-- keycap -->
+    <rect x="530" y="90" width="140" height="55" rx="8" class="paper" stroke="#1f1b16" stroke-width="2.5"/>
+    <!-- stem -->
+    <rect x="585" y="145" width="30" height="60" class="grey"/>
+    <!-- housing -->
+    <rect x="545" y="205" width="110" height="90" rx="6" class="paper" stroke="#1f1b16" stroke-width="2.5"/>
+    <!-- spring -->
+    <path d="M 600 215 q -18 8 0 16 q 18 8 0 16 q -18 8 0 16 q 18 8 0 16" class="line" stroke="#8f887a" stroke-width="3"/>
+
+    <text x="600" y="335" class="sub" text-anchor="middle">the original MX Black, 1984</text>
+  </g>
+
+  <text x="400" y="380" class="sub" text-anchor="middle" font-size="13">The switch never changed &#8212; only the sales pitch did</text>
+</svg>
