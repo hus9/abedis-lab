@@ -137,7 +137,7 @@
   category: AI
   topic: Temperature and top-p, tuning creativity
   slug: temperature-top-p-tuning-creativity
-  status: pending
+  status: done
 - day: 28
   category: Trading
   topic: Iron condors explained
