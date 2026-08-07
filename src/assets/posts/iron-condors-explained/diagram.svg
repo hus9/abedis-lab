@@ -1,0 +1,63 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="diagram-title diagram-desc">
+  <title id="diagram-title">A calendar strip of the final week before options expiration</title>
+  <desc id="diagram-desc">Seven day boxes for the last week before expiration, with a warning marker on the earnings-announcement day and another warning marker on the last Friday before expiration — the two nights a winning trade can flip to a max loss overnight.</desc>
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .ink { fill: #1f1b16; }
+      .accent { fill: #d6552b; }
+      .line { stroke: #e3dccf; stroke-width: 2; fill: none; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-weight: 600; fill: #1f1b16; }
+      .sub { font-family: 'Atkinson Hyperlegible', sans-serif; fill: #4a423a; }
+      .day { font-family: 'Atkinson Hyperlegible', sans-serif; font-weight: 700; fill: #1f1b16; }
+    </style>
+  </defs>
+
+  <rect width="800" height="400" class="paper"/>
+
+  <text x="400" y="50" class="label" font-size="20" text-anchor="middle">final week before expiration</text>
+
+  <!-- 7 day boxes -->
+  <g>
+    <!-- Mon -->
+    <rect x="60" y="90" width="90" height="150" rx="10" fill="#fffdf8" stroke="#e3dccf" stroke-width="2"/>
+    <text x="105" y="120" class="day" font-size="15" text-anchor="middle">MON</text>
+
+    <!-- Tue -->
+    <rect x="160" y="90" width="90" height="150" rx="10" fill="#fffdf8" stroke="#e3dccf" stroke-width="2"/>
+    <text x="205" y="120" class="day" font-size="15" text-anchor="middle">TUE</text>
+
+    <!-- Wed — earnings day -->
+    <rect x="260" y="90" width="90" height="150" rx="10" fill="#f4d9cb" stroke="#b23a2e" stroke-width="3"/>
+    <text x="305" y="120" class="day" font-size="15" text-anchor="middle">WED</text>
+    <g transform="translate(305,165)">
+      <polygon points="0,-20 18,14 -18,14" fill="#b23a2e"/>
+      <text x="0" y="9" text-anchor="middle" font-family="'Atkinson Hyperlegible', sans-serif" font-size="16" font-weight="700" fill="#fffdf8">!</text>
+    </g>
+    <text x="305" y="222" class="sub" font-size="11" text-anchor="middle">earnings</text>
+
+    <!-- Thu -->
+    <rect x="360" y="90" width="90" height="150" rx="10" fill="#fffdf8" stroke="#e3dccf" stroke-width="2"/>
+    <text x="405" y="120" class="day" font-size="15" text-anchor="middle">THU</text>
+
+    <!-- Fri — expiration -->
+    <rect x="460" y="90" width="90" height="150" rx="10" fill="#f4d9cb" stroke="#d6552b" stroke-width="3"/>
+    <text x="505" y="120" class="day" font-size="15" text-anchor="middle">FRI</text>
+    <g transform="translate(505,165)">
+      <polygon points="0,-20 18,14 -18,14" fill="#d6552b"/>
+      <text x="0" y="9" text-anchor="middle" font-family="'Atkinson Hyperlegible', sans-serif" font-size="16" font-weight="700" fill="#fffdf8">!</text>
+    </g>
+    <text x="505" y="222" class="sub" font-size="11" text-anchor="middle">expiration</text>
+
+    <!-- Sat -->
+    <rect x="560" y="90" width="90" height="150" rx="10" fill="#fffdf8" stroke="#e3dccf" stroke-width="2" opacity="0.6"/>
+    <text x="605" y="120" class="day" font-size="15" text-anchor="middle" opacity="0.6">SAT</text>
+
+    <!-- Sun -->
+    <rect x="660" y="90" width="90" height="150" rx="10" fill="#fffdf8" stroke="#e3dccf" stroke-width="2" opacity="0.6"/>
+    <text x="705" y="120" class="day" font-size="15" text-anchor="middle" opacity="0.6">SUN</text>
+  </g>
+
+  <text x="400" y="290" class="label" font-size="16" text-anchor="middle" fill="#7a2c22">Two nights this week can end the trade while you sleep.</text>
+  <text x="400" y="320" class="sub" font-size="14" text-anchor="middle">a gap on earnings, or assignment on the last Friday</text>
+</svg>

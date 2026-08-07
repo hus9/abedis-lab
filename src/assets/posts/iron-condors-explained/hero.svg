@@ -1,0 +1,48 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="hero-title hero-desc">
+  <title id="hero-title">A profit-and-loss diagram shaped like a bird with spread wings</title>
+  <desc id="hero-desc">A flat green "you win" plateau sits in the middle of the chart, with two lines sloping down on either side into flat red "you lose" zones — the wing-shaped payoff curve that gives the iron condor its name.</desc>
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .ink { fill: #1f1b16; }
+      .accent { fill: #d6552b; }
+      .line { stroke: #e3dccf; stroke-width: 2; fill: none; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-weight: 600; fill: #1f1b16; }
+      .sub { font-family: 'Atkinson Hyperlegible', sans-serif; fill: #4a423a; }
+    </style>
+  </defs>
+
+  <rect width="800" height="400" class="paper"/>
+
+  <!-- Breakeven baseline -->
+  <line x1="60" y1="250" x2="740" y2="250" class="line" stroke-dasharray="4 5"/>
+  <text x="60" y="238" class="sub" font-size="12">breakeven</text>
+
+  <!-- Loss zone fills (below baseline) -->
+  <polygon points="70,250 70,330 190,330 260,250" fill="#b23a2e" opacity="0.75"/>
+  <polygon points="540,250 610,330 740,330 740,250" fill="#b23a2e" opacity="0.75"/>
+
+  <!-- Profit zone fill (above baseline, the wing "body") -->
+  <polygon points="260,250 330,170 470,170 540,250" fill="#5a8f5f" opacity="0.85"/>
+
+  <!-- Payoff outline -->
+  <path d="M 70,330 L 190,330 L 330,170 L 470,170 L 610,330 L 740,330"
+        fill="none" stroke="#1f1b16" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
+
+  <!-- Wingtip feather accents -->
+  <g stroke="#1f1b16" stroke-width="2" opacity="0.5">
+    <line x1="82" y1="330" x2="72" y2="345"/>
+    <line x1="100" y1="330" x2="93" y2="347"/>
+    <line x1="118" y1="330" x2="114" y2="348"/>
+    <line x1="700" y1="330" x2="710" y2="345"/>
+    <line x1="682" y1="330" x2="689" y2="347"/>
+    <line x1="664" y1="330" x2="668" y2="348"/>
+  </g>
+
+  <!-- Zone labels -->
+  <text x="400" y="200" class="label" font-size="20" text-anchor="middle" fill="#2c4a2e">MAX PROFIT</text>
+  <text x="130" y="360" class="label" font-size="16" text-anchor="middle" fill="#7a2c22">MAX LOSS</text>
+  <text x="680" y="360" class="label" font-size="16" text-anchor="middle" fill="#7a2c22">MAX LOSS</text>
+
+  <text x="400" y="385" class="sub" text-anchor="middle" font-size="14">stock price &#8594;</text>
+</svg>
