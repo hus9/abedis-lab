@@ -1,0 +1,76 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .raised { fill: #fffdf8; }
+      .ink { fill: #1f1b16; }
+      .ink-soft { fill: #4a423a; }
+      .accent { fill: #d6552b; }
+      .accent-soft { fill: #f4d9cb; }
+      .accent-line { stroke: #d6552b; }
+      .line { stroke: #e3dccf; stroke-width: 2; fill: none; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-weight: 900; fill: #1f1b16; }
+      .accent-label { font-family: 'Fraunces', Georgia, serif; font-weight: 900; fill: #d6552b; }
+      .caption { font-family: 'Atkinson Hyperlegible', sans-serif; fill: #4a423a; }
+      .mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; fill: #4a423a; }
+    </style>
+  </defs>
+
+  <rect width="800" height="400" class="paper"/>
+
+  <!-- LEFT: temperature dial, pointer jammed at 0 -->
+  <g transform="translate(220,190)">
+    <circle r="110" class="raised" stroke="#1f1b16" stroke-width="4"/>
+
+    <!-- tick marks along a 180 degree sweep, left(0) -> top(.5) -> right(1.0) -->
+    <g stroke="#1f1b16" stroke-width="4" stroke-linecap="round">
+      <line x1="-110" y1="0" x2="-88" y2="0"/>
+      <line x1="-77.8" y1="-77.8" x2="-62.2" y2="-62.2"/>
+      <line x1="0" y1="-110" x2="0" y2="-88"/>
+      <line x1="77.8" y1="-77.8" x2="62.2" y2="-62.2"/>
+      <line x1="110" y1="0" x2="88" y2="0"/>
+    </g>
+
+    <!-- knob face -->
+    <circle r="60" class="accent-soft" stroke="#1f1b16" stroke-width="3"/>
+    <!-- needle pinned hard left, at the 0 stop -->
+    <line x1="0" y1="0" x2="-46" y2="0" stroke="#d6552b" stroke-width="8" stroke-linecap="round"/>
+    <circle r="10" class="ink"/>
+
+    <!-- 0 callout, glowing / stuck -->
+    <circle cx="-110" cy="0" r="20" fill="none" stroke="#d6552b" stroke-width="3" stroke-dasharray="3 5"/>
+    <text x="-110" y="45" text-anchor="middle" class="accent-label" font-size="28">0</text>
+    <text x="110" y="45" text-anchor="middle" class="caption" font-size="18">1.0</text>
+
+    <text x="0" y="150" text-anchor="middle" class="label" font-size="26">TEMPERATURE</text>
+  </g>
+
+  <!-- Dashed path from dial to the stuck AI -->
+  <path d="M 335 190 C 400 190 420 260 460 280" class="line" stroke-dasharray="5 7"/>
+
+  <!-- RIGHT: robotic face, stuck expression, looping speech bubble -->
+  <g transform="translate(560,300)">
+    <circle r="42" class="raised" stroke="#1f1b16" stroke-width="4"/>
+    <line x1="0" y1="-42" x2="0" y2="-60" stroke="#1f1b16" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="0" cy="-64" r="6" class="accent"/>
+    <circle cx="-15" cy="-4" r="6" class="ink"/>
+    <circle cx="15" cy="-4" r="6" class="ink"/>
+    <line x1="-16" y1="20" x2="16" y2="20" stroke="#1f1b16" stroke-width="4" stroke-linecap="round"/>
+  </g>
+
+  <g transform="translate(555,120)">
+    <path d="M -30 90 C -30 60 -60 55 -60 20 C -60 -20 -10 -40 55 -40 C 145 -40 175 -10 175 25 C 175 60 145 90 60 90 C 40 90 25 100 10 112 Z"
+          class="raised" stroke="#1f1b16" stroke-width="4" stroke-linejoin="round"/>
+    <text x="20" y="0" text-anchor="middle" class="mono" font-size="20" font-weight="600">the cat sat on</text>
+    <text x="20" y="26" text-anchor="middle" class="mono" font-size="20" font-weight="600">the cat sat on</text>
+    <text x="20" y="52" text-anchor="middle" class="mono" font-size="20" font-weight="600" fill="#d6552b">the cat sat on&#8230;</text>
+  </g>
+
+  <!-- infinite loop arrow above the bubble -->
+  <g transform="translate(660,55)">
+    <path d="M -32 0 A 32 32 0 1 1 -32 8" fill="none" class="accent-line" stroke-width="5" stroke-linecap="round"/>
+    <polygon points="-32,8 -48,4 -36,-10" class="accent"/>
+  </g>
+
+  <text x="660" y="365" text-anchor="middle" class="caption" font-size="19" font-weight="700">Stuck on repeat &#8212; forever.</text>
+</svg>
