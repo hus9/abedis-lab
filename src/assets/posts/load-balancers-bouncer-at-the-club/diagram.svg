@@ -1,6 +1,6 @@
-<svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="diagram-title diagram-desc">
-  <title id="diagram-title">Two clocks disagreeing by ten seconds, with a request vanishing into the gap</title>
-  <desc id="diagram-desc">Two clock faces side by side: the load balancer's clock timing out at 360 seconds, and the backend's clock timing out at 350 seconds. A request arrow travels toward the backend and disappears into the ten-second gap between the two timeouts, with no error and no alert.</desc>
+<svg viewBox="0 0 800 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="diagram-title diagram-desc">
+  <title id="diagram-title">Fifty servers with no load balancer versus fifty servers with a load balancer</title>
+  <desc id="diagram-desc">Split comparison panel. Left side: fifty small servers with no load balancer, all traffic funneling into a single overloaded server shown cracked and glowing red. Right side: the same fifty servers with a load balancer evenly spreading the same traffic across all of them, each server glowing a calm even amber.</desc>
   <defs>
     <style>
       .paper { fill: #f7f3ec; }
@@ -9,54 +9,97 @@
       .ink-soft { fill: #4a423a; }
       .accent { fill: #d6552b; }
       .amber { fill: #c98a2b; }
+      .rust { fill: #a8392a; }
       .line { stroke: #e3dccf; stroke-width: 2; fill: none; }
       .label { font-family: 'Fraunces', Georgia, serif; font-weight: 900; fill: #1f1b16; }
       .body { font-family: 'Atkinson Hyperlegible', sans-serif; fill: #4a423a; }
     </style>
   </defs>
 
-  <rect width="800" height="420" class="paper"/>
+  <rect width="800" height="460" class="paper"/>
 
-  <!-- Clock 1: load balancer, 360s, still ticking -->
-  <g transform="translate(190,150)">
-    <circle r="110" class="raised" stroke="#1f1b16" stroke-width="4"/>
-    <circle r="110" fill="none" stroke="#c98a2b" stroke-width="6" stroke-dasharray="670 20" transform="rotate(-90)"/>
-    <line x1="0" y1="0" x2="0" y2="-72" stroke="#1f1b16" stroke-width="6" stroke-linecap="round"/>
-    <line x1="0" y1="0" x2="50" y2="30" stroke="#1f1b16" stroke-width="6" stroke-linecap="round"/>
-    <circle r="8" class="ink"/>
-    <text x="0" y="160" text-anchor="middle" class="label" font-size="24">360s</text>
-    <text x="0" y="188" text-anchor="middle" class="body" font-size="15">load balancer</text>
-    <text x="0" y="208" text-anchor="middle" class="body" font-size="15">still thinks it's open</text>
+  <!-- divider -->
+  <line x1="400" y1="20" x2="400" y2="410" class="line"/>
+
+  <!-- LEFT: no load balancer -->
+  <text x="200" y="46" text-anchor="middle" class="label" font-size="22">No load balancer</text>
+
+  <!-- grid of 49 small idle servers -->
+  <g>
+    <!-- 7x7 grid, skipping none, all small and dim since traffic bypasses them -->
+  </g>
+  <g transform="translate(56,70)">
+    <!-- render 7 rows x 7 cols of tiny idle server racks -->
+    <!-- row generation done manually for clarity -->
   </g>
 
-  <!-- Clock 2: backend, 350s, already closed (grayed / X) -->
-  <g transform="translate(610,150)">
-    <circle r="110" class="raised" stroke="#1f1b16" stroke-width="4" opacity="0.6"/>
-    <circle r="110" fill="none" class="accent" stroke-width="6" stroke-dasharray="650 20" transform="rotate(-90)" opacity="0.85"/>
-    <line x1="0" y1="0" x2="0" y2="-72" stroke="#4a423a" stroke-width="6" stroke-linecap="round" opacity="0.6"/>
-    <line x1="0" y1="0" x2="46" y2="26" stroke="#4a423a" stroke-width="6" stroke-linecap="round" opacity="0.6"/>
-    <circle r="8" class="ink-soft" opacity="0.6"/>
-    <!-- closed mark -->
-    <g transform="translate(70,-78)">
-      <circle r="22" class="accent"/>
-      <path d="M -9 -9 L 9 9 M 9 -9 L -9 9" stroke="#fffdf8" stroke-width="5" stroke-linecap="round"/>
+  <!-- small idle servers (7x6 = 42 shown, representative of the 49 untouched ones) -->
+  <g fill="#e3dccf" stroke="#1f1b16" stroke-width="1.5">
+    <g id="left-grid">
+      <rect x="56" y="72" width="18" height="18" rx="3"/><rect x="82" y="72" width="18" height="18" rx="3"/><rect x="108" y="72" width="18" height="18" rx="3"/><rect x="134" y="72" width="18" height="18" rx="3"/><rect x="160" y="72" width="18" height="18" rx="3"/><rect x="186" y="72" width="18" height="18" rx="3"/><rect x="212" y="72" width="18" height="18" rx="3"/><rect x="238" y="72" width="18" height="18" rx="3"/><rect x="264" y="72" width="18" height="18" rx="3"/><rect x="290" y="72" width="18" height="18" rx="3"/><rect x="316" y="72" width="18" height="18" rx="3"/><rect x="342" y="72" width="18" height="18" rx="3"/>
+
+      <rect x="56" y="98" width="18" height="18" rx="3"/><rect x="82" y="98" width="18" height="18" rx="3"/><rect x="108" y="98" width="18" height="18" rx="3"/><rect x="134" y="98" width="18" height="18" rx="3"/><rect x="160" y="98" width="18" height="18" rx="3"/><rect x="186" y="98" width="18" height="18" rx="3"/><rect x="212" y="98" width="18" height="18" rx="3"/><rect x="238" y="98" width="18" height="18" rx="3"/><rect x="264" y="98" width="18" height="18" rx="3"/><rect x="290" y="98" width="18" height="18" rx="3"/><rect x="316" y="98" width="18" height="18" rx="3"/><rect x="342" y="98" width="18" height="18" rx="3"/>
+
+      <rect x="56" y="124" width="18" height="18" rx="3"/><rect x="82" y="124" width="18" height="18" rx="3"/><rect x="108" y="124" width="18" height="18" rx="3"/><rect x="134" y="124" width="18" height="18" rx="3"/><rect x="160" y="124" width="18" height="18" rx="3"/><rect x="186" y="124" width="18" height="18" rx="3"/><rect x="212" y="124" width="18" height="18" rx="3"/><rect x="238" y="124" width="18" height="18" rx="3"/><rect x="264" y="124" width="18" height="18" rx="3"/><rect x="290" y="124" width="18" height="18" rx="3"/><rect x="316" y="124" width="18" height="18" rx="3"/><rect x="342" y="124" width="18" height="18" rx="3"/>
+
+      <rect x="56" y="150" width="18" height="18" rx="3"/><rect x="82" y="150" width="18" height="18" rx="3"/><rect x="108" y="150" width="18" height="18" rx="3"/><rect x="134" y="150" width="18" height="18" rx="3"/><rect x="160" y="150" width="18" height="18" rx="3"/><rect x="186" y="150" width="18" height="18" rx="3"/><rect x="212" y="150" width="18" height="18" rx="3"/><rect x="238" y="150" width="18" height="18" rx="3"/><rect x="264" y="150" width="18" height="18" rx="3"/><rect x="290" y="150" width="18" height="18" rx="3"/><rect x="316" y="150" width="18" height="18" rx="3"/><rect x="342" y="150" width="18" height="18" rx="3"/>
     </g>
-    <text x="0" y="160" text-anchor="middle" class="label" font-size="24">350s</text>
-    <text x="0" y="188" text-anchor="middle" class="body" font-size="15">backend</text>
-    <text x="0" y="208" text-anchor="middle" class="body" font-size="15">already closed it</text>
   </g>
 
-  <!-- request arrow traveling from left, vanishing in the gap -->
-  <path d="M 40 340 Q 300 300 400 300" fill="none" stroke="#1f1b16" stroke-width="3" stroke-dasharray="2 8" stroke-linecap="round"/>
-  <circle cx="400" cy="300" r="5" class="ink"/>
-  <path d="M 410 285 L 440 300 L 410 315" fill="none" stroke="#1f1b16" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.4"/>
-
-  <!-- the gap, called out -->
-  <g transform="translate(400,300)">
-    <rect x="-46" y="-58" width="92" height="34" rx="8" class="accent"/>
-    <text x="0" y="-34" text-anchor="middle" class="body" font-size="14" fill="#fffdf8" font-weight="700">10s gap</text>
+  <!-- all arrows converge on ONE server -->
+  <g stroke="#1f1b16" stroke-width="1.5" stroke-dasharray="1 5" opacity="0.55">
+    <path d="M 65 90 Q 130 230 190 300" fill="none"/>
+    <path d="M 120 90 Q 150 230 195 300" fill="none"/>
+    <path d="M 180 90 Q 190 220 200 300" fill="none"/>
+    <path d="M 250 90 Q 220 220 205 300" fill="none"/>
+    <path d="M 300 90 Q 250 220 210 300" fill="none"/>
+    <path d="M 350 90 Q 270 220 215 300" fill="none"/>
+    <path d="M 65 150 Q 140 250 195 300" fill="none"/>
+    <path d="M 350 150 Q 260 250 215 300" fill="none"/>
   </g>
-  <text x="400" y="330" text-anchor="middle" class="body" font-size="16" font-weight="700" fill="#1f1b16">request vanishes here — no error, no alert</text>
 
-  <text x="40" y="345" text-anchor="middle" class="body" font-size="13">request</text>
+  <!-- the one overloaded, cracked server -->
+  <g transform="translate(160,300)">
+    <rect x="0" y="0" width="80" height="80" rx="10" class="rust"/>
+    <rect x="0" y="0" width="80" height="80" rx="10" fill="none" stroke="#1f1b16" stroke-width="3"/>
+    <path d="M 18 0 L 34 34 L 22 40 L 46 80" fill="none" stroke="#1f1b16" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 50 0 L 40 30 L 56 36 L 40 80" fill="none" stroke="#1f1b16" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="200" y="400" text-anchor="middle" class="body" font-size="15" fill="#a8392a" font-weight="700">one server, 50x the load</text>
+
+  <!-- RIGHT: with load balancer -->
+  <text x="600" y="46" text-anchor="middle" class="label" font-size="22">With a load balancer</text>
+
+  <!-- the load balancer diamond, centered above the grid -->
+  <g transform="translate(600,90)">
+    <rect x="-26" y="-20" width="52" height="40" rx="8" class="accent"/>
+    <rect x="-26" y="-20" width="52" height="40" rx="8" fill="none" stroke="#1f1b16" stroke-width="2.5"/>
+    <text x="0" y="6" text-anchor="middle" class="body" font-size="12" fill="#fffdf8" font-weight="700">LB</text>
+  </g>
+
+  <!-- evenly lit grid of 42 servers, all amber, all same intensity -->
+  <g fill="#c98a2b" stroke="#1f1b16" stroke-width="1.5">
+    <rect x="456" y="150" width="18" height="18" rx="3"/><rect x="482" y="150" width="18" height="18" rx="3"/><rect x="508" y="150" width="18" height="18" rx="3"/><rect x="534" y="150" width="18" height="18" rx="3"/><rect x="560" y="150" width="18" height="18" rx="3"/><rect x="586" y="150" width="18" height="18" rx="3"/><rect x="612" y="150" width="18" height="18" rx="3"/><rect x="638" y="150" width="18" height="18" rx="3"/><rect x="664" y="150" width="18" height="18" rx="3"/><rect x="690" y="150" width="18" height="18" rx="3"/><rect x="716" y="150" width="18" height="18" rx="3"/><rect x="742" y="150" width="18" height="18" rx="3"/>
+
+    <rect x="456" y="176" width="18" height="18" rx="3"/><rect x="482" y="176" width="18" height="18" rx="3"/><rect x="508" y="176" width="18" height="18" rx="3"/><rect x="534" y="176" width="18" height="18" rx="3"/><rect x="560" y="176" width="18" height="18" rx="3"/><rect x="586" y="176" width="18" height="18" rx="3"/><rect x="612" y="176" width="18" height="18" rx="3"/><rect x="638" y="176" width="18" height="18" rx="3"/><rect x="664" y="176" width="18" height="18" rx="3"/><rect x="690" y="176" width="18" height="18" rx="3"/><rect x="716" y="176" width="18" height="18" rx="3"/><rect x="742" y="176" width="18" height="18" rx="3"/>
+
+    <rect x="456" y="202" width="18" height="18" rx="3"/><rect x="482" y="202" width="18" height="18" rx="3"/><rect x="508" y="202" width="18" height="18" rx="3"/><rect x="534" y="202" width="18" height="18" rx="3"/><rect x="560" y="202" width="18" height="18" rx="3"/><rect x="586" y="202" width="18" height="18" rx="3"/><rect x="612" y="202" width="18" height="18" rx="3"/><rect x="638" y="202" width="18" height="18" rx="3"/><rect x="664" y="202" width="18" height="18" rx="3"/><rect x="690" y="202" width="18" height="18" rx="3"/><rect x="716" y="202" width="18" height="18" rx="3"/><rect x="742" y="202" width="18" height="18" rx="3"/>
+
+    <rect x="456" y="228" width="18" height="18" rx="3"/><rect x="482" y="228" width="18" height="18" rx="3"/><rect x="508" y="228" width="18" height="18" rx="3"/><rect x="534" y="228" width="18" height="18" rx="3"/><rect x="560" y="228" width="18" height="18" rx="3"/><rect x="586" y="228" width="18" height="18" rx="3"/><rect x="612" y="228" width="18" height="18" rx="3"/><rect x="638" y="228" width="18" height="18" rx="3"/><rect x="664" y="228" width="18" height="18" rx="3"/><rect x="690" y="228" width="18" height="18" rx="3"/><rect x="716" y="228" width="18" height="18" rx="3"/><rect x="742" y="228" width="18" height="18" rx="3"/>
+
+    <rect x="456" y="254" width="18" height="18" rx="3"/><rect x="482" y="254" width="18" height="18" rx="3"/><rect x="508" y="254" width="18" height="18" rx="3"/><rect x="534" y="254" width="18" height="18" rx="3"/><rect x="560" y="254" width="18" height="18" rx="3"/><rect x="586" y="254" width="18" height="18" rx="3"/><rect x="612" y="254" width="18" height="18" rx="3"/><rect x="638" y="254" width="18" height="18" rx="3"/><rect x="664" y="254" width="18" height="18" rx="3"/><rect x="690" y="254" width="18" height="18" rx="3"/><rect x="716" y="254" width="18" height="18" rx="3"/><rect x="742" y="254" width="18" height="18" rx="3"/>
+  </g>
+
+  <!-- even fan-out arrows from LB to grid -->
+  <g stroke="#1f1b16" stroke-width="1.5" stroke-dasharray="1 5" opacity="0.5">
+    <path d="M 600 110 L 465 150" fill="none"/>
+    <path d="M 600 110 L 545 150" fill="none"/>
+    <path d="M 600 110 L 625 150" fill="none"/>
+    <path d="M 600 110 L 700 150" fill="none"/>
+    <path d="M 600 110 L 751 150" fill="none"/>
+  </g>
+
+  <text x="600" y="400" text-anchor="middle" class="body" font-size="15" fill="#c98a2b" font-weight="700">same load, spread evenly</text>
+
+  <text x="400" y="440" text-anchor="middle" class="body" font-size="16" fill="#1f1b16">Same fifty servers. Same traffic. One host makes all the difference.</text>
 </svg>
