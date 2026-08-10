@@ -1,7 +1,7 @@
 ---
 ---
 
-<button class="theme-toggle" type="button" aria-label="Switch between light and dark mode" aria-pressed="false">
+<button class="theme-toggle" type="button" aria-label="Switch to the dark side" aria-pressed="false">
   <span class="track"><span class="thumb"></span></span>
 </button>
 
@@ -19,7 +19,10 @@
   }
 
   function reflect(theme: 'light' | 'dark') {
-    toggles.forEach((t) => t.setAttribute('aria-pressed', String(theme === 'dark')));
+    toggles.forEach((t) => {
+      t.setAttribute('aria-pressed', String(theme === 'dark'));
+      t.setAttribute('aria-label', theme === 'dark' ? 'Switch to the light side' : 'Switch to the dark side');
+    });
   }
 
   const stored = localStorage.getItem(KEY);
@@ -47,15 +50,20 @@
     align-items: center;
     vertical-align: middle;
   }
+  /* Dark side / light side: a lightsaber-glow toggle. Deliberately its own
+     fixed black-void palette rather than the site's tokens — red vs. blue
+     glow reads as unmistakably Star Wars without reproducing any character's
+     likeness (no Vader mask, just the classic saber colors). */
   .track {
     width: 2.4rem;
     height: 1.3rem;
-    background: var(--line);
-    border: var(--border-w) solid var(--line-strong);
+    background: #0a0a0a;
+    border: 1px solid #333;
     border-radius: 999px;
     position: relative;
     box-sizing: border-box;
-    transition: background 0.15s;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    box-shadow: 0 0 6px 1px rgba(79, 195, 247, 0.45);
   }
   .thumb {
     position: absolute;
@@ -63,11 +71,19 @@
     left: 2px;
     width: 0.95rem;
     height: 0.95rem;
-    background: var(--paper-raised);
+    background: #bfe9ff;
     border-radius: 50%;
     transform: translateY(-50%);
-    transition: transform 0.15s;
+    transition: transform 0.15s ease, background 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 0 5px 1px rgba(79, 195, 247, 0.9);
   }
-  .theme-toggle[aria-pressed="true"] .track { background: var(--accent); }
-  .theme-toggle[aria-pressed="true"] .thumb { transform: translateY(-50%) translateX(1.05rem); }
+  .theme-toggle[aria-pressed="true"] .track {
+    border-color: #4a1410;
+    box-shadow: 0 0 7px 1px rgba(227, 53, 13, 0.55);
+  }
+  .theme-toggle[aria-pressed="true"] .thumb {
+    transform: translateY(-50%) translateX(1.05rem);
+    background: #ff5a3c;
+    box-shadow: 0 0 6px 1px rgba(227, 53, 13, 0.95);
+  }
 </style>

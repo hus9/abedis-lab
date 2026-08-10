@@ -1,0 +1,62 @@
+<svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="diagram-title diagram-desc">
+  <title id="diagram-title">Two clocks disagreeing by ten seconds, with a request vanishing into the gap</title>
+  <desc id="diagram-desc">Two clock faces side by side: the load balancer's clock timing out at 360 seconds, and the backend's clock timing out at 350 seconds. A request arrow travels toward the backend and disappears into the ten-second gap between the two timeouts, with no error and no alert.</desc>
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .raised { fill: #fffdf8; }
+      .ink { fill: #1f1b16; }
+      .ink-soft { fill: #4a423a; }
+      .accent { fill: #d6552b; }
+      .amber { fill: #c98a2b; }
+      .line { stroke: #e3dccf; stroke-width: 2; fill: none; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-weight: 900; fill: #1f1b16; }
+      .body { font-family: 'Atkinson Hyperlegible', sans-serif; fill: #4a423a; }
+    </style>
+  </defs>
+
+  <rect width="800" height="420" class="paper"/>
+
+  <!-- Clock 1: load balancer, 360s, still ticking -->
+  <g transform="translate(190,150)">
+    <circle r="110" class="raised" stroke="#1f1b16" stroke-width="4"/>
+    <circle r="110" fill="none" stroke="#c98a2b" stroke-width="6" stroke-dasharray="670 20" transform="rotate(-90)"/>
+    <line x1="0" y1="0" x2="0" y2="-72" stroke="#1f1b16" stroke-width="6" stroke-linecap="round"/>
+    <line x1="0" y1="0" x2="50" y2="30" stroke="#1f1b16" stroke-width="6" stroke-linecap="round"/>
+    <circle r="8" class="ink"/>
+    <text x="0" y="160" text-anchor="middle" class="label" font-size="24">360s</text>
+    <text x="0" y="188" text-anchor="middle" class="body" font-size="15">load balancer</text>
+    <text x="0" y="208" text-anchor="middle" class="body" font-size="15">still thinks it's open</text>
+  </g>
+
+  <!-- Clock 2: backend, 350s, already closed (grayed / X) -->
+  <g transform="translate(610,150)">
+    <circle r="110" class="raised" stroke="#1f1b16" stroke-width="4" opacity="0.6"/>
+    <circle r="110" fill="none" class="accent" stroke-width="6" stroke-dasharray="650 20" transform="rotate(-90)" opacity="0.85"/>
+    <line x1="0" y1="0" x2="0" y2="-72" stroke="#4a423a" stroke-width="6" stroke-linecap="round" opacity="0.6"/>
+    <line x1="0" y1="0" x2="46" y2="26" stroke="#4a423a" stroke-width="6" stroke-linecap="round" opacity="0.6"/>
+    <circle r="8" class="ink-soft" opacity="0.6"/>
+    <!-- closed mark -->
+    <g transform="translate(70,-78)">
+      <circle r="22" class="accent"/>
+      <path d="M -9 -9 L 9 9 M 9 -9 L -9 9" stroke="#fffdf8" stroke-width="5" stroke-linecap="round"/>
+    </g>
+    <text x="0" y="160" text-anchor="middle" class="label" font-size="24">350s</text>
+    <text x="0" y="188" text-anchor="middle" class="body" font-size="15">backend</text>
+    <text x="0" y="208" text-anchor="middle" class="body" font-size="15">already closed it</text>
+  </g>
+
+  <!-- request arrow traveling from left, vanishing in the gap -->
+  <path d="M 40 340 Q 300 300 400 300" fill="none" stroke="#1f1b16" stroke-width="3" stroke-dasharray="2 8" stroke-linecap="round"/>
+  <circle cx="400" cy="300" r="5" class="ink"/>
+  <path d="M 410 285 L 440 300 L 410 315" fill="none" stroke="#1f1b16" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.4"/>
+
+  <!-- the gap, called out -->
+  <g transform="translate(400,300)">
+    <rect x="-46" y="-58" width="92" height="34" rx="8" class="accent"/>
+    <text x="0" y="-34" text-anchor="middle" class="body" font-size="14" fill="#fffdf8" font-weight="700">10s gap</text>
+  </g>
+  <text x="400" y="330" text-anchor="middle" class="body" font-size="16" font-weight="700" fill="#1f1b16">request vanishes here — no error, no alert</text>
+
+  <text x="40" y="345" text-anchor="middle" class="body" font-size="13">request</text>
+</svg>

@@ -4,6 +4,6 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://abedis.net',
+  site: 'https://www.abedis.net',
   integrations: [mdx(), sitemap()],
 });
