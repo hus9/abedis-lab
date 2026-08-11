@@ -1,0 +1,92 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="hero-title hero-desc">
+  <title id="hero-title">An espresso portafilter forcing a fast dark stream into a small cup next to a Hario V60 dripper slowly dripping into a wide cup</title>
+  <desc id="hero-desc">Split illustration: on the left, an espresso portafilter under pressure shoots a fast, forceful stream into a small cup, labeled 9 bar and 30 seconds. On the right, a cone-shaped V60 pour-over dripper releases a slow, gentle drip into a wider cup by gravity alone, labeled 0 bar and 4 minutes. A dashed line down the middle separates the two, with both paths described as reaching the same finish line.</desc>
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .raised { fill: #fffdf8; }
+      .ink { fill: #1f1b16; }
+      .ink-soft { fill: #4a423a; }
+      .accent { fill: #d6552b; }
+      .accent-stroke { stroke: #d6552b; }
+      .line { stroke: #e3dccf; stroke-width: 2; fill: none; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-weight: 900; fill: #1f1b16; }
+      .body { font-family: 'Atkinson Hyperlegible', sans-serif; fill: #4a423a; }
+    </style>
+  </defs>
+
+  <rect width="800" height="400" class="paper"/>
+
+  <!-- center divider -->
+  <line x1="400" y1="30" x2="400" y2="340" stroke="#e3dccf" stroke-width="3" stroke-dasharray="8 10"/>
+  <text x="400" y="20" text-anchor="middle" class="body" font-size="14" opacity="0.6">vs</text>
+
+  <!-- ===== LEFT: espresso portafilter ===== -->
+  <g transform="translate(195,0)">
+    <!-- portafilter group hangs from top -->
+    <g transform="translate(0,60)">
+      <!-- handle -->
+      <rect x="-14" y="-40" width="28" height="46" rx="8" class="ink"/>
+      <!-- spout basket -->
+      <path d="M -70 6 L 70 6 L 46 46 L -46 46 Z" class="ink"/>
+      <rect x="-70" y="0" width="140" height="12" rx="4" class="ink"/>
+      <!-- two spouts -->
+      <rect x="-30" y="46" width="10" height="18" class="ink"/>
+      <rect x="20" y="46" width="10" height="18" class="ink"/>
+    </g>
+
+    <!-- fast forceful streams with speed lines -->
+    <g stroke="#8a5a2e" stroke-width="6" stroke-linecap="round" opacity="0.9">
+      <line x1="-25" y1="124" x2="-25" y2="185"/>
+      <line x1="25" y1="124" x2="25" y2="185"/>
+    </g>
+    <g stroke="#d6552b" stroke-width="3" stroke-linecap="round" opacity="0.55">
+      <line x1="-40" y1="130" x2="-40" y2="170"/>
+      <line x1="40" y1="130" x2="40" y2="170"/>
+    </g>
+
+    <!-- small espresso cup -->
+    <path d="M -50 185 L 50 185 L 40 225 L -40 225 Z" class="raised" stroke="#1f1b16" stroke-width="4"/>
+    <rect x="-50" y="178" width="100" height="10" rx="4" class="ink"/>
+    <path d="M 40 190 Q 65 195 62 212 Q 60 226 40 220" fill="none" stroke="#1f1b16" stroke-width="4"/>
+
+    <!-- crema fill hint -->
+    <rect x="-40" y="182" width="80" height="6" class="accent"/>
+
+    <text x="0" y="262" text-anchor="middle" class="label" font-size="26" fill="#d6552b">9 bar</text>
+    <text x="0" y="288" text-anchor="middle" class="body" font-size="15">force, 25–30 sec</text>
+    <text x="0" y="330" text-anchor="middle" class="body" font-size="16" font-weight="700">the handshake</text>
+  </g>
+
+  <!-- ===== RIGHT: V60 pour-over ===== -->
+  <g transform="translate(605,0)">
+    <!-- V60 cone dripper -->
+    <g transform="translate(0,90)">
+      <path d="M -60 0 L 60 0 L 10 90 L -10 90 Z" class="raised" stroke="#1f1b16" stroke-width="4"/>
+      <!-- ribs -->
+      <line x1="-40" y1="10" x2="-8" y2="86" stroke="#e3dccf" stroke-width="3"/>
+      <line x1="40" y1="10" x2="8" y2="86" stroke="#e3dccf" stroke-width="3"/>
+      <!-- rim -->
+      <ellipse cx="0" cy="0" rx="60" ry="9" class="ink"/>
+      <!-- single hole -->
+      <circle cx="0" cy="90" r="5" fill="#1f1b16"/>
+    </g>
+
+    <!-- slow gentle single drip -->
+    <g stroke="#8a5a2e" stroke-width="4" stroke-linecap="round" opacity="0.7">
+      <line x1="0" y1="182" x2="0" y2="200"/>
+    </g>
+    <circle cx="0" cy="210" r="4" fill="#8a5a2e" opacity="0.7"/>
+
+    <!-- wide pour-over cup -->
+    <path d="M -65 216 L 65 216 L 50 258 L -50 258 Z" class="raised" stroke="#1f1b16" stroke-width="4"/>
+    <rect x="-65" y="209" width="130" height="10" rx="4" class="ink"/>
+    <path d="M 50 222 Q 78 228 74 246 Q 71 260 50 254" fill="none" stroke="#1f1b16" stroke-width="4"/>
+
+    <text x="0" y="292" text-anchor="middle" class="label" font-size="26" fill="#d6552b">0 bar</text>
+    <text x="0" y="318" text-anchor="middle" class="body" font-size="15">gravity, 2–4 min</text>
+    <text x="0" y="348" text-anchor="middle" class="body" font-size="16" font-weight="700" transform="translate(0,-18)">the hug</text>
+  </g>
+
+  <text x="400" y="384" text-anchor="middle" class="body" font-size="16">Different physics, same ~20% extraction.</text>
+</svg>

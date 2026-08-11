@@ -1,0 +1,51 @@
+<svg viewBox="0 0 800 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="diag-title diag-desc">
+  <title id="diag-title">Two bars, espresso at 9 bar and 30 seconds and pour-over at 0 bar and 4 minutes, both arrows converging on one label reading approximately 20 percent extracted</title>
+  <desc id="diag-desc">A diagram showing two very different brewing paths converging on the same result. The left bar, labeled espresso: 9 bar pressure, 30 seconds, is tall and narrow. The right bar, labeled pour-over: 0 bar, 4 minutes, is short and wide. Arrows from both bars point down to a single shared label: approximately 20 percent extracted, illustrating that pressure and time are interchangeable routes to the same extraction yield.</desc>
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .ink { fill: #1f1b16; }
+      .ink-soft { fill: #4a423a; }
+      .accent { fill: #d6552b; }
+      .accent-soft { fill: #f4d9cb; }
+      .good { fill: #2f7d53; }
+      .line { stroke: #e3dccf; stroke-width: 2; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-weight: 900; fill: #1f1b16; }
+      .body { font-family: 'Atkinson Hyperlegible', sans-serif; fill: #4a423a; }
+    </style>
+  </defs>
+
+  <rect width="800" height="440" class="paper"/>
+
+  <!-- baseline -->
+  <line x1="90" y1="300" x2="710" y2="300" class="line"/>
+
+  <!-- espresso bar: tall, narrow, dark, force -->
+  <g>
+    <rect x="150" y="70" width="120" height="230" class="ink" opacity="0.85"/>
+    <text x="210" y="52" text-anchor="middle" class="label" font-size="26">9 bar</text>
+    <text x="210" y="328" text-anchor="middle" class="body" font-size="16" font-weight="700">Espresso</text>
+    <text x="210" y="350" text-anchor="middle" class="body" font-size="14">force, 30 sec</text>
+  </g>
+
+  <!-- pour-over bar: short, wide, accent, time -->
+  <g>
+    <rect x="430" y="220" width="220" height="80" class="accent" opacity="0.75"/>
+    <text x="540" y="204" text-anchor="middle" class="label" font-size="26" fill="#d6552b">0 bar</text>
+    <text x="540" y="328" text-anchor="middle" class="body" font-size="16" font-weight="700">Pour-over</text>
+    <text x="540" y="350" text-anchor="middle" class="body" font-size="14">gravity, 4 min</text>
+  </g>
+
+  <!-- converging arrows -->
+  <path d="M 210 300 Q 250 360 375 388" fill="none" stroke="#1f1b16" stroke-width="3" stroke-dasharray="6 8" opacity="0.5"/>
+  <path d="M 540 300 Q 500 360 375 388" fill="none" stroke="#1f1b16" stroke-width="3" stroke-dasharray="6 8" opacity="0.5"/>
+  <polygon points="375,388 386,378 386,398" fill="#1f1b16" opacity="0.5"/>
+
+  <!-- shared result badge -->
+  <g transform="translate(375,388)">
+    <rect x="-140" y="-2" width="280" height="66" rx="16" class="good" opacity="0.15"/>
+    <rect x="-140" y="-2" width="280" height="66" rx="16" fill="none" stroke="#2f7d53" stroke-width="2"/>
+    <text x="0" y="30" text-anchor="middle" class="label" font-size="26" fill="#2f7d53">~20% extracted</text>
+    <text x="0" y="54" text-anchor="middle" class="body" font-size="13" fill="#2f7d53">same finish line, either way</text>
+  </g>
+</svg>
