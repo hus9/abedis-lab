@@ -1,0 +1,86 @@
+<svg viewBox="0 0 800 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="hero-title hero-desc">
+  <title id="hero-title">A triangle diagram with Aperture, Shutter Speed, and ISO at each corner, connected by tug-of-war arrows pulling against each other</title>
+  <desc id="hero-desc">Three corners of a triangle labeled Aperture, Shutter Speed, and ISO, each with a small icon: an iris for aperture, a stopwatch for shutter speed, a volume dial for ISO. Each edge of the triangle carries a pair of opposing arrows, showing the three settings pulling against one another rather than cooperating.</desc>
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .raised { fill: #fffdf8; }
+      .ink { fill: #1f1b16; }
+      .ink-soft { fill: #4a423a; }
+      .accent { fill: #d6552b; }
+      .accent-stroke { stroke: #d6552b; }
+      .line { stroke: #e3dccf; stroke-width: 2; fill: none; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-weight: 900; fill: #1f1b16; }
+      .body { font-family: 'Atkinson Hyperlegible', sans-serif; fill: #4a423a; }
+    </style>
+  </defs>
+
+  <rect width="800" height="440" class="paper"/>
+
+  <!-- triangle edges -->
+  <line x1="400" y1="110" x2="180" y2="320" stroke="#e3dccf" stroke-width="3" stroke-dasharray="1 0"/>
+  <line x1="400" y1="110" x2="620" y2="320" stroke="#e3dccf" stroke-width="3" stroke-dasharray="1 0"/>
+  <line x1="180" y1="320" x2="620" y2="320" stroke="#e3dccf" stroke-width="3" stroke-dasharray="1 0"/>
+
+  <!-- tug-of-war arrows: aperture <-> shutter speed (left edge) -->
+  <g stroke="#d6552b" stroke-width="4" stroke-linecap="round" opacity="0.85">
+    <line x1="330" y1="178" x2="300" y2="210"/>
+    <polygon points="300,210 313,207 305,196" fill="#d6552b"/>
+    <line x1="255" y1="255" x2="285" y2="223"/>
+    <polygon points="285,223 272,225 279,237" fill="#d6552b"/>
+  </g>
+
+  <!-- tug-of-war arrows: aperture <-> ISO (right edge) -->
+  <g stroke="#d6552b" stroke-width="4" stroke-linecap="round" opacity="0.85">
+    <line x1="470" y1="178" x2="500" y2="210"/>
+    <polygon points="500,210 487,207 495,196" fill="#d6552b"/>
+    <line x1="545" y1="255" x2="515" y2="223"/>
+    <polygon points="515,223 528,225 521,237" fill="#d6552b"/>
+  </g>
+
+  <!-- tug-of-war arrows: shutter speed <-> ISO (bottom edge) -->
+  <g stroke="#d6552b" stroke-width="4" stroke-linecap="round" opacity="0.85">
+    <line x1="345" y1="320" x2="390" y2="320"/>
+    <polygon points="390,320 378,314 378,326" fill="#d6552b"/>
+    <line x1="455" y1="320" x2="410" y2="320"/>
+    <polygon points="410,320 422,314 422,326" fill="#d6552b"/>
+  </g>
+
+  <!-- ===== TOP: Aperture — iris icon ===== -->
+  <g transform="translate(400,110)">
+    <circle r="56" class="raised" stroke="#1f1b16" stroke-width="4"/>
+    <!-- iris blades -->
+    <g fill="#1f1b16" opacity="0.9">
+      <path d="M 0,-30 L 12,-8 L -12,-8 Z"/>
+      <path d="M 26,15 L 3,10 L 14,-9 Z"/>
+      <path d="M -26,15 L -14,-9 L -3,10 Z"/>
+      <path d="M 0,-30 L 0,-30 Z"/>
+    </g>
+    <circle r="9" class="accent"/>
+    <text x="0" y="90" text-anchor="middle" class="label" font-size="26">Aperture</text>
+    <text x="0" y="115" text-anchor="middle" class="body" font-size="15">how wide the faucet opens</text>
+  </g>
+
+  <!-- ===== BOTTOM LEFT: Shutter Speed — stopwatch icon ===== -->
+  <g transform="translate(180,320)">
+    <circle r="56" class="raised" stroke="#1f1b16" stroke-width="4"/>
+    <circle r="30" fill="none" stroke="#1f1b16" stroke-width="4"/>
+    <rect x="-6" y="-46" width="12" height="12" rx="3" class="ink"/>
+    <line x1="0" y1="0" x2="0" y2="-20" stroke="#1f1b16" stroke-width="4" stroke-linecap="round"/>
+    <line x1="0" y1="0" x2="14" y2="8" stroke="#d6552b" stroke-width="4" stroke-linecap="round"/>
+    <text x="0" y="90" text-anchor="middle" class="label" font-size="24">Shutter Speed</text>
+    <text x="0" y="115" text-anchor="middle" class="body" font-size="15">how long it runs</text>
+  </g>
+
+  <!-- ===== BOTTOM RIGHT: ISO — volume dial icon ===== -->
+  <g transform="translate(620,320)">
+    <circle r="56" class="raised" stroke="#1f1b16" stroke-width="4"/>
+    <path d="M -18,10 L -18,-10 L -4,-10 L 12,-24 L 12,44 L -4,10 Z" class="ink"/>
+    <path d="M 22,-14 Q 34,0 22,20" fill="none" stroke="#d6552b" stroke-width="4" stroke-linecap="round"/>
+    <path d="M 32,-24 Q 50,0 32,30" fill="none" stroke="#d6552b" stroke-width="4" stroke-linecap="round" opacity="0.55"/>
+    <text x="0" y="90" text-anchor="middle" class="label" font-size="30">ISO</text>
+    <text x="0" y="115" text-anchor="middle" class="body" font-size="15">how thirsty you claim to be</text>
+  </g>
+
+  <text x="400" y="415" text-anchor="middle" class="body" font-size="16">Move one, and the other two absorb it.</text>
+</svg>

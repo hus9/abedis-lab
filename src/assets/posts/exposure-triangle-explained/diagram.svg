@@ -1,0 +1,58 @@
+<svg viewBox="0 0 800 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="diag-title diag-desc">
+  <title id="diag-title">A sharpness curve that rises as aperture narrows from f/1.4 toward f/11–f/16, peaks there, then drops back down past f/22 and f/32</title>
+  <desc id="diag-desc">A line chart with aperture value on the horizontal axis, from f/1.4 on the left to f/32 on the right, and sharpness on the vertical axis. The curve climbs steadily from f/1.4, peaks in a shaded sweet-spot zone between f/11 and f/16, then falls sharply past f/22 and f/32, in a region labeled diffraction dropoff.</desc>
+  <defs>
+    <style>
+      .paper { fill: #f7f3ec; }
+      .ink { fill: #1f1b16; }
+      .ink-soft { fill: #4a423a; }
+      .accent { fill: #d6552b; }
+      .accent-stroke { stroke: #d6552b; }
+      .good { fill: #2f7d53; }
+      .line { stroke: #e3dccf; stroke-width: 2; }
+      .label { font-family: 'Fraunces', Georgia, serif; font-weight: 900; fill: #1f1b16; }
+      .body { font-family: 'Atkinson Hyperlegible', sans-serif; fill: #4a423a; }
+    </style>
+  </defs>
+
+  <rect width="800" height="440" class="paper"/>
+
+  <!-- axes -->
+  <line x1="90" y1="60" x2="90" y2="340" class="line"/>
+  <line x1="90" y1="340" x2="720" y2="340" class="line"/>
+
+  <!-- sweet-spot shaded zone: f/11 to f/16 -->
+  <rect x="430" y="60" width="110" height="280" class="good" opacity="0.12"/>
+  <line x1="430" y1="60" x2="430" y2="340" stroke="#2f7d53" stroke-width="2" stroke-dasharray="5 6" opacity="0.6"/>
+  <line x1="540" y1="60" x2="540" y2="340" stroke="#2f7d53" stroke-width="2" stroke-dasharray="5 6" opacity="0.6"/>
+
+  <!-- diffraction dropoff zone: past f/22 -->
+  <rect x="610" y="60" width="110" height="280" class="accent" opacity="0.08"/>
+
+  <!-- sharpness curve -->
+  <path d="M 120,300 C 220,190 330,110 430,90 C 470,82 500,82 540,95 C 590,112 650,175 720,270"
+        fill="none" stroke="#1f1b16" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- peak marker -->
+  <circle cx="485" cy="84" r="7" class="good"/>
+
+  <!-- diffraction annotation -->
+  <path d="M 630,260 Q 660,220 690,180" fill="none" stroke="#d6552b" stroke-width="2" stroke-dasharray="4 6" opacity="0.7"/>
+  <text x="665" y="165" text-anchor="middle" class="body" font-size="14" fill="#d6552b" font-weight="700">diffraction</text>
+  <text x="665" y="183" text-anchor="middle" class="body" font-size="14" fill="#d6552b" font-weight="700">dropoff</text>
+
+  <!-- x-axis labels -->
+  <text x="120" y="365" text-anchor="middle" class="body" font-size="15">f/1.4</text>
+  <text x="270" y="365" text-anchor="middle" class="body" font-size="15">f/4</text>
+  <text x="430" y="365" text-anchor="middle" class="body" font-size="15">f/11</text>
+  <text x="540" y="365" text-anchor="middle" class="body" font-size="15">f/16</text>
+  <text x="630" y="365" text-anchor="middle" class="body" font-size="15">f/22</text>
+  <text x="720" y="365" text-anchor="middle" class="body" font-size="15">f/32</text>
+
+  <!-- axis titles -->
+  <text x="405" y="405" text-anchor="middle" class="body" font-size="15" font-weight="700">Aperture (wide → narrow)</text>
+  <text x="40" y="200" text-anchor="middle" class="body" font-size="15" font-weight="700" transform="rotate(-90 40 200)">Sharpness</text>
+
+  <!-- sweet spot label -->
+  <text x="485" y="55" text-anchor="middle" class="label" font-size="20" fill="#2f7d53">sweet spot</text>
+</svg>
